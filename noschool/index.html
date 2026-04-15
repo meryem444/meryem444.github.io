@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NO SCHOOL — Curriculum System</title>
+<style>
+:root{--bg:#FAF8F3;--surface:#fff;--primary:#1B2A4A;--text:#2C3E50;--muted:#7F8C8D;--border:#E5E1D8;--radius:10px;--shadow:0 2px 8px rgba(0,0,0,.07);
+--creative:#9B59B6;--creativeBg:#EDE0F5;--language:#2980B9;--languageBg:#D0E8F8;--discovery:#27AE60;--discoveryBg:#C8EDD8;--domestic:#C8960C;--domesticBg:#F5E8C8;--nurturing:#1ABC9C;--nurturingBg:#C8EDE8;--social:#E74C3C;--socialBg:#F8D8D8;
+--mon:#5b21b6;--monBg:#ceb6fe;--tue:#7c2d12;--tueBg:#f8ae9d;--wed:#713f12;--wedBg:#f8e58c;--thu:#7c3a00;--thuBg:#fcc493;--fri:#14532d;--friBg:#94c8ab;--sat:#1e3a5f;--satBg:#94b3dc;--sun:#4b5563;--sunBg:#ffffff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+header{background:var(--primary);color:#fff;padding:0 20px;display:flex;align-items:center;gap:10px;height:56px;position:sticky;top:0;z-index:100}
+header h1{font-family:Georgia,serif;font-size:18px;font-weight:400;white-space:nowrap;margin-right:auto}
+header h1 em{font-style:normal;opacity:.6;font-size:14px}
+nav{display:flex;gap:2px}
+nav button{background:none;border:none;color:rgba(255,255,255,.65);font-size:13px;padding:8px 14px;cursor:pointer;border-radius:6px 6px 0 0;transition:.2s}
+nav button:hover{color:#fff;background:rgba(255,255,255,.1)}
+nav button.active{color:#fff;background:rgba(255,255,255,.15);font-weight:600}
+main{max-width:1400px;margin:0 auto;padding:20px}
+.view{display:none}.view.active{display:block}
+.cards{display:grid;gap:16px}
+.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.cards-3{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--surface);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h3{font-size:15px;margin-bottom:6px}
+.card p{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:12px;font-weight:600;margin:2px}
+.badge-creative{background:var(--creativeBg);color:var(--creative)}
+.badge-language{background:var(--languageBg);color:var(--language)}
+.badge-discovery{background:var(--discoveryBg);color:var(--discovery)}
+.badge-domestic{background:var(--domesticBg);color:var(--domestic)}
+.badge-nurturing{background:var(--nurturingBg);color:var(--nurturing)}
+.badge-social{background:var(--socialBg);color:var(--social)}
+.badge-season{background:#F0F0F0;color:#555}
+.badge-lang{background:#E8F5E9;color:#2E7D32}
+.badge-festival{background:#FFF3E0;color:#E65100}
+.section-title{font-family:Georgia,serif;font-size:22px;color:var(--primary);margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+.section-title:first-child{margin-top:0}
+.virtue-banner{padding:12px 18px;border-radius:var(--radius);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.virtue-banner .emoji{font-size:28px}
+.virtue-banner .info h2{font-size:18px;margin:0}.virtue-banner .info p{font-size:13px;opacity:.8;margin:0}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+.dash-card{padding:20px;border-radius:var(--radius);text-align:center}
+.dash-card .big{font-size:32px;font-weight:700;margin-bottom:4px}
+.dash-card .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;opacity:.7}
+.dash-card .sub{font-size:14px;margin-top:6px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;align-items:center}
+.filters input[type=text]{padding:8px 14px;border:1px solid var(--border);border-radius:20px;font-size:13px;width:220px;background:var(--surface)}
+.filter-btn{padding:5px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);font-size:12px;cursor:pointer;transition:.2s}
+.filter-btn:hover{border-color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.act-card{cursor:pointer;transition:.2s;position:relative}
+.act-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.act-card .name{font-weight:600;font-size:14px;margin-bottom:6px}
+.act-card .meta{font-size:12px;color:var(--muted);margin-top:8px}
+.act-card .desc{font-size:12px;color:var(--text);margin-top:6px;line-height:1.4}
+.planner-grid{display:grid;grid-template-columns:90px 160px repeat(7,1fr);gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;font-size:12px}
+.planner-grid>div{background:var(--surface);padding:6px 8px;min-height:42px;display:flex;align-items:flex-start}
+.planner-hdr{background:var(--primary)!important;color:inherit;font-weight:600;justify-content:center;text-align:center;flex-direction:column;padding:8px 4px!important;min-height:52px!important}
+.planner-time{background:#EDF2F7!important;font-weight:600;color:var(--primary);font-size:11px;justify-content:center}
+.planner-label{background:#EDF2F7!important;font-size:11px;color:#555;flex-direction:column}
+.planner-cell{cursor:pointer;font-size:11px;transition:.15s;position:relative}
+.planner-cell:hover{filter:brightness(.95)}
+.planner-cell.has-activity{font-weight:500}
+.week-nav{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.week-nav button{padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-size:13px}
+.week-nav button:hover{background:var(--primary);color:#fff}
+.week-nav .week-label{font-family:Georgia,serif;font-size:18px;color:var(--primary)}
+.festival-card{border-left:4px solid}
+.festival-card .fest-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.festival-card .fest-theme{font-size:13px;font-style:italic;color:var(--muted);margin-bottom:8px}
+.festival-card .fest-acts{font-size:12px;line-height:1.6}
+.season-section{margin-bottom:28px}
+.season-hdr{font-family:Georgia,serif;font-size:18px;padding:8px 16px;border-radius:var(--radius);margin-bottom:12px;font-weight:600}
+.log-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;padding:16px;background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px}
+.log-form label{font-size:12px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.log-form input,.log-form select{padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px}
+.log-form button{grid-column:1/-1;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:6px;font-size:14px;cursor:pointer}
+.log-form button:hover{opacity:.9}
+.log-table{width:100%;border-collapse:collapse;font-size:12px;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.log-table th{background:var(--primary);color:#fff;padding:10px 8px;text-align:left;font-weight:600}
+.log-table td{padding:8px;border-bottom:1px solid var(--border)}
+.log-table tr:nth-child(even){background:#FAFAFA}
+.tx-summary{margin-top:24px}
+.tx-row{display:grid;grid-template-columns:240px 180px 1fr;gap:8px;padding:8px 12px;border-radius:6px;margin-bottom:4px;font-size:13px;align-items:center}
+.tx-row.hdr{background:var(--primary);color:#fff;font-weight:600}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border-radius:var(--radius);max-width:600px;width:100%;max-height:80vh;overflow-y:auto;padding:24px;position:relative}
+.modal .close{position:absolute;top:12px;right:16px;font-size:20px;cursor:pointer;color:var(--muted);background:none;border:none}
+.modal h2{font-family:Georgia,serif;font-size:20px;margin-bottom:4px}
+.modal .modal-badges{margin:8px 0 12px}
+.modal .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.modal .detail-item{font-size:13px}.modal .detail-item strong{display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+.modal .materials{background:#F9F9F5;padding:12px;border-radius:8px;margin:12px 0;font-size:13px}
+.modal .materials h4{font-size:12px;color:var(--muted);margin-bottom:4px}
+.modal .log-btn{display:inline-block;padding:8px 20px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:12px;font-size:13px}
+.pick-overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:60px 20px}
+.pick-overlay.open{display:flex}
+.pick-modal{background:var(--surface);border-radius:var(--radius);max-width:500px;width:100%;max-height:70vh;overflow-y:auto;padding:20px}
+.pick-modal input{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;margin-bottom:12px}
+.pick-item{padding:8px 12px;cursor:pointer;border-radius:6px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.pick-item:hover{background:var(--bg)}
+.pick-item .pick-art{font-size:11px;opacity:.7}
+.empty-state{text-align:center;padding:40px;color:var(--muted);font-size:14px}
+@media(max-width:768px){.dash-grid{grid-template-columns:1fr}.planner-grid{font-size:10px}nav button{font-size:11px;padding:6px 8px}.cards-3{grid-template-columns:1fr}}
+/* Art tabs */
+.cat-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);overflow-x:auto;margin-bottom:0;scrollbar-width:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{padding:9px 16px;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;background:none;font-size:13px;cursor:pointer;color:var(--muted);white-space:nowrap;transition:.2s;font-family:inherit}
+.cat-tab:hover{color:var(--primary);background:rgba(0,0,0,.03)}
+.cat-tab.active{color:var(--primary);font-weight:600;border-bottom-color:var(--primary)}
+/* Catalog table */
+.cat-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.cat-table th{background:var(--primary);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:12px;white-space:nowrap;cursor:pointer;user-select:none}
+.cat-table th:hover{background:#253d6e}
+.cat-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+.cat-table tr:nth-child(even) td{background:#FAFAF8}
+.cat-table tr:hover td{background:#F0F0EB}
+.act-name-link{font-weight:600;cursor:pointer;color:var(--primary);text-decoration:none}
+.act-name-link:hover{text-decoration:underline}
+/* View toggle */
+.view-toggle{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.view-toggle button{padding:6px 14px;border:none;background:var(--surface);font-size:13px;cursor:pointer;transition:.15s;font-family:inherit}
+.view-toggle button.active{background:var(--primary);color:#fff}
+/* Add/Edit activity form */
+.act-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.act-form label{font-size:12px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.act-form input,.act-form select,.act-form textarea{padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;background:var(--surface)}
+.act-form textarea{resize:vertical;min-height:64px}
+.act-form .full{grid-column:1/-1}
+.act-form .form-btns{grid-column:1/-1;display:flex;gap:8px;justify-content:flex-end;margin-top:4px;padding-top:12px;border-top:1px solid var(--border)}
+/* Custom badge + row action buttons */
+.badge-custom{background:#EDE9FF;color:#5B21B6}
+.act-edit-btn{padding:4px 9px;border:1px solid var(--border);border-radius:4px;background:var(--surface);font-size:11px;cursor:pointer;transition:.15s}
+.act-edit-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.act-del-btn{padding:4px 9px;border:1px solid #FCA5A5;border-radius:4px;background:#FEF2F2;color:#DC2626;font-size:11px;cursor:pointer;transition:.15s}
+.act-del-btn:hover{background:#DC2626;color:#fff}
+</style>
+</head>
+<body>
+<header>
+<h1>🌿 NO SCHOOL <em>Curriculum System</em></h1>
+<nav>
+<button class="active" onclick="switchView('dashboard')">🏠 Dashboard</button>
+<button onclick="switchView('planner')">🗓️ Planner</button>
+<button onclick="switchView('catalog')">📚 Catalog</button>
+<button onclick="switchView('festivals')">🎉 Celebrations</button>
+<button onclick="switchView('log')">📊 Log</button>
+<button onclick="switchView('guide')">📖 Guide</button>
+</nav>
+</header>
+<main>
+<section id="view-dashboard" class="view active"></section>
+<section id="view-planner" class="view"></section>
+<section id="view-catalog" class="view"></section>
+<section id="view-festivals" class="view"></section>
+<section id="view-log" class="view"></section>
+</main>
+<section id="view-guide" class="view"></section>
+<div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal-content"></div></div>
+<div id="pick-overlay" class="pick-overlay" onclick="if(event.target===this)closePick()"><div class="pick-modal" id="pick-content"></div></div>
+ 
+<script>
+const ARTS={
+"Creative Arts":{emoji:"🎨",color:"#9B59B6",bg:"#EDE0F5",fg:"#5A0070",cls:"creative"},
+"Language Arts":{emoji:"📖",color:"#2980B9",bg:"#D0E8F8",fg:"#0A4A8A",cls:"language"},
+"Discovery Arts":{emoji:"🔬",color:"#27AE60",bg:"#C8EDD8",fg:"#0A5A25",cls:"discovery"},
+"Domestic Arts":{emoji:"🏡",color:"#C8960C",bg:"#F5E8C8",fg:"#7A5000",cls:"domestic"},
+"Nurturing Arts":{emoji:"🌿",color:"#1ABC9C",bg:"#C8EDE8",fg:"#005A50",cls:"nurturing"},
+"Social Arts":{emoji:"🤝",color:"#E74C3C",bg:"#F8D8D8",fg:"#8A1A1A",cls:"social"}
+};
+const VIRTUES=[
+{day:"Monday",god:"Luna",emoji:"🌙",virtue:"NURTURE",spirit:"Tenderness, care, feeling at home",color:"#5b21b6",bg:"#ceb6fe",subs:"Care & Nurture · Emotional Awareness · Home & Belonging",waldorf:"Water, inner life, lullabies, soft colours, moon rhythms",priArt:"Nurturing Arts",secArt:"Domestic Arts"},
+{day:"Tuesday",god:"Mars",emoji:"⚔️",virtue:"VIGOR",spirit:"Strength, courage, trying hard things",color:"#7c2d12",bg:"#f8ae9d",subs:"Strength & Movement · Courage & Will · Agency & Action",waldorf:"Fire, will forces, drumbeat, red and orange, bodily challenge",priArt:"Nurturing Arts",secArt:"Social Arts"},
+{day:"Wednesday",god:"Mercury",emoji:"🪶",virtue:"EXPRESSION",spirit:"Language as play, curiosity as gift",color:"#713f12",bg:"#f8e58c",subs:"Language & Expression · Patterns & Thinking · Curiosity & Exchange",waldorf:"Air, quicksilver movement, bilingual songs, mark-making, oral stories",priArt:"Language Arts",secArt:"Discovery Arts"},
+{day:"Thursday",god:"Jupiter",emoji:"⚡",virtue:"WISDOM",spirit:"Discovery, awe, asking why",color:"#7c3a00",bg:"#fcc493",subs:"Exploration & Growth · Wisdom & Story · Generosity & Trust",waldorf:"Earth and sky, nature study, observation, virtue fables, counting stones",priArt:"Discovery Arts",secArt:"Language Arts"},
+{day:"Friday",god:"Venus",emoji:"🌹",virtue:"BEAUTY",spirit:"Creativity, sensory joy, love",color:"#14532d",bg:"#94c8ab",subs:"Beauty & Artistry · Relationship & Harmony · Joy & Sensory Pleasure",waldorf:"Form and colour, wet-on-wet painting, beeswax, music, love for the world",priArt:"Creative Arts",secArt:"Social Arts"},
+{day:"Saturday",god:"Saturn",emoji:"🌾",virtue:"MASTERY",spirit:"Making things well, completing",color:"#1e3a5f",bg:"#94b3dc",subs:"Responsibility & Stewardship · Making & Mastery · Order & Completion",waldorf:"Earth, root vegetables, grain, practical tasks, seasonal rhythm",priArt:"Domestic Arts",secArt:"Creative Arts"},
+{day:"Sunday",god:"Sol",emoji:"☀️",virtue:"WHOLENESS",spirit:"Rest, family, gratitude",color:"#4b5563",bg:"#ffffff",subs:"Vitality & Wholeness · Identity & Meaning · Integration & Presence",waldorf:"Warmth, gold and light, the full exhale, celebration, rest",priArt:"Nurturing Arts",secArt:"Social Arts"}
+];
+const DEFAULT_TIME_BLOCKS=[
+["7:00–7:30","🌅 Morning Waking","IN — gentle"],
+["7:30–8:15","🥣 Breakfast & Care","IN — nourish"],
+["8:15–8:45","⭕ Morning Circle","OUT — open"],
+["8:45–10:00","🌿 Morning Outdoor","OUT — expand"],
+["10:00–10:30","🍎 Snack & Rest","IN — restore"],
+["10:30–11:15","✨ Main Activity","IN — focus"],
+["11:15–12:00","🏠 Practical Life","IN — real work"],
+["12:00–12:45","🍽️ Lunch","IN — nourish"],
+["12:45–14:30","😴 Nap / Rest","✦ DEEP REST"],
+["14:30–15:00","📖 Story Time","IN — imagine"],
+["15:00–16:00","🌤️ Afternoon Outdoor","OUT — expand"],
+["16:00–16:30","🎯 Creative / Sensory","IN — explore"],
+["16:30–17:00","🗣️ Language & Reading","IN — express"],
+["17:00–17:30","🍳 Evening Practical","IN — real work"],
+["17:30–18:30","🍽️ Dinner","IN — nourish"],
+["18:30–19:00","🛁 Bath & Care","IN — cleanse"],
+["19:00–19:30","🌙 Bedtime Story","IN — sleep"]
+];
+let FESTIVALS=[
+{name:"New Year's",emoji:"🎆",season:"Winter",window:"Dec 29 – Jan 5",month:1,day:1,virtue:"WHOLENESS",arts:"Creative · Social · Nurturing",theme:"Reflection, renewal, threshold, light in darkness",note:"Candles, star charts, resetting the nature table. A Waldorf 'journey of the soul' story.",acts:"Candle & star ceremony · Year-in-review collage · New Year songs (3 languages) · Intention drawing"},
+{name:"Valentine's Day",emoji:"💝",season:"Winter",window:"Feb 10–14",month:2,day:14,virtue:"BEAUTY",arts:"Creative · Social",theme:"Love for family, handmade gifts, gratitude for loved ones",note:"Not commercial — focused on giving love through making. Cards by hand, flowers picked, food prepared as love.",acts:"Handmade cards for family · Heart beeswax cookies · Rose petal sensory play · Love songs (EN/TR/IT)"},
+{name:"St. Patrick's Day",emoji:"🍀",season:"Winter",window:"Mar 14–17",month:3,day:17,virtue:"VIGOR",arts:"Discovery · Creative",theme:"Celtic spring beginning, green nature, the land waking up",note:"Celtic origin: early spring and the greening of the earth. Shamrocks, rainbows as light phenomena.",acts:"Rainbow colour mixing · Shamrock nature crown · Green sensory bin · Celtic folk songs"},
+{name:"Pi Day",emoji:"🔵",season:"Winter",window:"Mar 14",month:3,day:14,virtue:"WISDOM",arts:"Discovery · Domestic",theme:"Circles everywhere — mathematics as wonder, pie!",note:"Rolling wheels, round faces, coins, oranges. Celebrate with pie!",acts:"Circle tracing & rolling · Pie baking together · Sphere & wheel play · Count circles in the home"},
+{name:"Spring Equinox",emoji:"⚖️",season:"Spring",window:"Mar 18–24",month:3,day:20,virtue:"WISDOM",arts:"Discovery · Creative",theme:"Balance of day and night, the world waking up",note:"Waldorf spring festival. Nature table renewed: green cloth, seeds, blossoms, beeswax eggs.",acts:"Balance scales · Spring nature table renewal · Day/night experiment · First barefoot walk · Plant first seeds"},
+{name:"Easter",emoji:"🥚",season:"Spring",window:"Apr 5, 2026",month:4,day:5,virtue:"BEAUTY",arts:"Creative · Domestic · Discovery",theme:"New life, emergence, spring symbols, transformation",note:"Caterpillar to butterfly, seed to sprout, egg to chick. Natural dyeing, beeswax egg making.",acts:"Natural egg dyeing · Beeswax egg making · Garden egg hunt · Spring nest weaving · Easter bread"},
+{name:"Earth Day",emoji:"🌍",season:"Spring",window:"Apr 20–26",month:4,day:22,virtue:"MASTERY",arts:"Discovery · Domestic · Social",theme:"Stewardship of the living earth, environmental love",note:"Planting trees, studying soil, cleaning a local space, learning 5 new plants.",acts:"Tree/seed planting · Nature clean-up walk · Worm & soil study · Compost making"},
+{name:"Mother's Day",emoji:"💐",season:"Spring",window:"2nd Sunday May",month:5,day:10,virtue:"NURTURE",arts:"Creative · Social · Domestic",theme:"Gratitude for those who nurture us, celebrating care",note:"Gift-making from the heart. Handprint gifts, flower garlands, breakfast prepared.",acts:"Handprint gift for Mama · Cards in 3 languages · Flower arrangement · Breakfast preparation"},
+{name:"Father's Day",emoji:"⛳",season:"Spring",window:"3rd Sunday June",month:6,day:21,virtue:"VIGOR",arts:"Nurturing · Social · Creative",theme:"Strength, adventure, father-child bond",note:"Mars/vigor energy. Outdoor adventure, building together, physical play.",acts:"Outdoor adventure with Papa · Father's Day card · Building project · Sports & movement"},
+{name:"Summer Solstice",emoji:"🌞",season:"Summer",window:"Jun 17–21",month:6,day:20,virtue:"WHOLENESS",arts:"Creative · Nurturing · Discovery",theme:"Longest day, sun at peak, abundance and celebration",note:"Waldorf midsummer: flower crowns, sun observing, outdoor feasting.",acts:"Shadow & sun tracking · Flower crown making · Solstice sun painting · Sunset celebration"},
+{name:"4th of July",emoji:"🇺🇸",season:"Summer",window:"Jul 1–6",month:7,day:4,virtue:"VIGOR",arts:"Creative · Social · Discovery",theme:"Community, celebration, freedom, fireworks as stars",note:"Light, community, gratitude for the land. Stargazing as natural fireworks.",acts:"Red-white-blue colour mixing · Stargazing · Homemade parade instruments · Patriotic songs"},
+{name:"Camping & Stargazing",emoji:"🏕️",season:"Summer",window:"August (1 week)",month:8,day:15,virtue:"WISDOM",arts:"Discovery · Nurturing · Domestic",theme:"Wild nature, night sky, fire, wilderness, outdoor living",note:"Night sky study, campfire cooking, nature journaling, sleeping outside.",acts:"Constellation stories · Campfire cooking · Nature journal by firelight · Night sounds listening"},
+{name:"Fall Equinox",emoji:"🍁",season:"Autumn",window:"Sep 19–25",month:9,day:22,virtue:"WISDOM",arts:"Discovery · Creative · Domestic",theme:"Harvest begins, balance returns, leaves turning",note:"Waldorf Michaelmas nearby. Courage of harvest, entering the dark half of the year.",acts:"Leaf collection & pressing · Harvest balance scales · Autumn nature table · First soup of season"},
+{name:"Halloween / Samhain",emoji:"🎃",season:"Autumn",window:"Oct 27 – Nov 2",month:10,day:31,virtue:"WHOLENESS",arts:"Creative · Language · Social",theme:"Celtic ancestral tradition, nature's beautiful darkness",note:"Samhain — Celtic new year. Ancestors, lantern-making, storytelling. No commercial horror.",acts:"Ancestor story night · Celtic dusk walk · Lantern making · Autumn sensory bin"},
+{name:"Thanksgiving",emoji:"🦃",season:"Autumn",window:"4th Thursday Nov",month:11,day:26,virtue:"WHOLENESS",arts:"Social · Domestic · Creative",theme:"Gratitude, harvest abundance, family, giving back",note:"Full week of noticing what we have. Community giving, food preparation, gratitude tree.",acts:"Gratitude tree craft · Feast preparation · Gratitude journal · Community giving"},
+{name:"Christmas",emoji:"🎄",season:"Winter",window:"Dec 15–25",month:12,day:25,virtue:"BEAUTY",arts:"Creative · Domestic · Social",theme:"Light in darkness, making and gifting, warmth and wonder",note:"Waldorf Advent: four candles, spiral walk, handmade gifts. Salt dough ornaments begin Dec 1.",acts:"Salt dough ornaments (start Dec 1) · Natural gift wrapping · Solstice candle ceremony · Holiday baking · Handmade cards"}
+];
+const SEASONS=[
+{name:"Spring",emoji:"🌱",months:[3,4,5],bg:"#C8EDD8",fg:"#0A5A25",theme:"Awakening · Growth · Light returning"},
+{name:"Summer",emoji:"☀️",months:[6,7,8],bg:"#FFF5C0",fg:"#7A5000",theme:"Abundance · Outdoor freedom · Long light"},
+{name:"Autumn",emoji:"🍂",months:[9,10,11],bg:"#FDEBD0",fg:"#7A3000",theme:"Gathering in · Warmth · Storytelling"},
+{name:"Winter",emoji:"❄️",months:[12,1,2],bg:"#D6E4F0",fg:"#0A4A8A",theme:"Stillness · Inner world · Candles · Rest"}
+];
+ 
+const A=[
+// [name, art, arts2, virtue, disc, age, seasons, festival, lang, setup,min,max,cleanup, matMin, matOpt, desc, target]
+["Body Scan Meditation","Nurturing Arts","Social Arts","NURTURE","Health Ed · SEL","18m+","All","","EN",2,5,10,0,"Calm room · parent voice","Soft music · yoga mat","Guided body awareness building emotional regulation",1],
+["Body Scan Meditation (TR)","Nurturing Arts","Social Arts","NURTURE","Health Ed · Turkish LA","18m+","All","","TR",2,5,10,0,"Calm room · parent voice in TR","Soft music","Same body scan delivered in Turkish",1],
+["Home Connection Ritual","Nurturing Arts","Social Arts","NURTURE","SEL · Family Studies","18m+","All","","EN",10,15,25,5,"Beverage each · outdoor access","Small blanket · nature basket","Slow relational ritual: sit outdoors, observe nature, talk",1],
+["Art Time","Creative Arts","Social Arts","BEAUTY","Visual Arts · Creativity","18m+","All","","EN",5,20,45,10,"Paper · 1-3 art tools","Table cover · smock · varied media","Open-ended creative session. Child chooses medium. Process over product.",2],
+["Art Time – Gift Making","Creative Arts","Social Arts","BEAUTY","Visual Arts · Life Skills","18m+","All","","EN",5,15,30,5,"Paper · art tools","Stickers · envelope","Create art intending to give it. Generosity through making.",1],
+["Clean Room","Domestic Arts","Nurturing Arts","MASTERY","Life Skills · Family Studies","18m+","All","","EN",2,15,30,0,"Child-sized tools · bins","Music for motivation","Child tidies their room. Teaches ownership, sequencing, satisfaction of order.",2],
+["Climbing Wall","Nurturing Arts","Social Arts","VIGOR","Motor Dev · PE","2y+","All","","EN",10,30,60,5,"Climbing wall · crash pads","Chalk (5y+) · timer","Vertical climbing: grip strength, core stability, courageous problem-solving",2],
+["Dance Class (Home)","Creative Arts","Nurturing Arts","BEAUTY","Dance · Motor Dev","18m+","All","","EN",5,20,45,0,"Open floor · music","Scarves · ribbons","Parent-led dance at home. Folk dances, free movement, rhythm exploration.",2],
+["Dance Class (Studio)","Creative Arts","Nurturing Arts","BEAUTY","Dance · Motor Dev","2y+","All","","EN",15,30,60,10,"Studio enrollment","Dance shoes","Structured dance class. Social learning, physical discipline.",1],
+["Sensory Bin Exploration","Discovery Arts","Nurturing Arts","WISDOM","Life Sciences · Scientific Inquiry","18m+","All","","EN",10,20,40,10,"Large bin · seasonal filler","Water mat · smock","Open seasonal sensory bin exploration. Tactile, focus, scientific curiosity.",3],
+["Color & Melting Ice Lab","Discovery Arts","Creative Arts","WISDOM","Physical Science · Inquiry","18m+","All","","EN",15,20,40,10,"Ice · liquid watercolours · tray","Salt · droppers","Freeze coloured water, explore melting. Colour mixing + science.",1],
+["Creating & Melting Ice","Discovery Arts","","WISDOM","Physical Science","18m+","Winter","","EN",10,15,30,5,"Water · freezer · tray","Food colouring · moulds","States of matter through ice making, observation, and melting.",1],
+["Prepare Simple Meal","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Math","18m+","All","","EN",10,20,40,10,"Ingredients · child tools","Recipe card · apron","Child prepares a simple meal with guidance. Real family contribution.",2],
+["Baking (From Scratch)","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Physical Science · Math","2y+","All","","EN",15,45,75,15,"Flour · eggs · basics · bowl","Stand mixer · loaf tin","Full baking session. Math through measuring, science through heat.",1],
+["Nature Walk","Discovery Arts","Nurturing Arts","WISDOM","Life Sciences · Earth Science","18m+","All","","EN",10,30,60,5,"Outdoor access · nature journal","Magnifying glass · collection bag","Intentional walk observing seasonal changes. World as classroom.",3],
+["Stuffed Animal Care Clinic","Social Arts","Nurturing Arts","NURTURE","SEL · Health Ed","18m+","All","","EN",5,20,35,5,"Stuffed animals · toy doctor kit","Bandages","Caring for stuffed animals — practising empathy and nurturing.",3],
+["Care for Indoor Plants","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Life Skills","18m+","All","","EN",5,10,20,5,"Watering can · plants","Misting spray · trowel","Weekly plant care routine. Builds responsibility.",3],
+["Play-Dough","Discovery Arts","Creative Arts","BEAUTY","Physical Science · Visual Arts","18m+","All","","EN",5,20,45,10,"Play-dough · mat","Cutters · rollers","Open-ended play-dough. Fine motor, sensory, creative, scientific.",3],
+["Yoga & Mindful Movement","Nurturing Arts","Creative Arts","NURTURE","Personal Wellness · Motor Dev","18m+","All","","EN",5,15,30,0,"Yoga mat or rug","Blocks · music","Toddler yoga with animal poses named in a story.",2],
+["Walk to Local Cafe","Nurturing Arts","Social Arts","NURTURE","Family Studies · Geography","18m+","All","","EN",10,30,60,5,"Outdoor access","Stroller · nature bag","Community outing building routine, place attachment, social observation.",2],
+["Self-Care & Grooming","Nurturing Arts","","NURTURE","Personal Wellness · Life Skills","18m+","All","","EN",5,15,25,0,"Wash basin · toothbrush · comb","Mirror · natural soap","Self-care routine: tooth brushing, face washing, hair, dressing.",2],
+["Community Service","Social Arts","Domestic Arts","WHOLENESS","Civics · SEL","2y+","All","","EN",15,30,60,10,"Depends on activity","Donation bag · gloves","Age-appropriate community contribution: donating, cleaning, baking for others.",1],
+["New Place Discovery","Discovery Arts","Nurturing Arts","WISDOM","Geography · Earth Science","18m+","All","","EN",15,45,90,10,"Outdoor access · water","Camera · nature journal","Explore a new outdoor location each time. Novel environments accelerate learning.",1],
+["Opposites Exploration","Language Arts","Discovery Arts","EXPRESSION","Literacy EN · Inquiry","18m+","All","","EN",5,15,30,5,"Objects showing opposites","Picture cards","Explore opposite concepts through real objects. Language + logic.",2],
+["Opposites Exploration (TR)","Language Arts","Discovery Arts","EXPRESSION","Literacy TR · Inquiry","18m+","All","","TR",5,15,30,5,"Same objects","TR picture cards","Same opposites exploration in Turkish.",2],
+["Music Lesson","Creative Arts","Language Arts","BEAUTY","Music · Motor Dev","2y+","All","","EN",10,30,45,5,"Instrument · teacher","Sheet music","Structured music lesson: Suzuki, Orff or similar.",1],
+["Music Jam Session","Creative Arts","Social Arts","BEAUTY","Music · Collaboration","18m+","All","","EN",5,20,45,5,"Any instruments","Drums · shakers · xylophone","Free improvised music making. Joy, rhythm, creative expression.",2],
+["Park – Free Play & Climbing","Nurturing Arts","Social Arts","VIGOR","Motor Dev · PE · SEL","18m+","All","","EN",10,45,90,5,"Park access","Snack · water · ball","Unstructured outdoor playground play. Social, gross motor, freedom.",3],
+["Bubble Play","Discovery Arts","Nurturing Arts","WISDOM","Physical Science · Motor Dev","18m+","All","","EN",5,15,30,5,"Bubble solution · wands","Giant wand","Surface tension, spheres, light refraction, and pure joy.",2],
+["Turkish Podcast","Language Arts","Nurturing Arts","EXPRESSION","Turkish LA · Listening","18m+","All","","TR",2,10,25,0,"Turkish audio content","Headphones · cosy space","Passive Turkish exposure through age-appropriate audio.",2],
+["Golf – Course","Nurturing Arts","Social Arts","VIGOR","PE · Spatial Reasoning","2y+","All","","EN",20,60,120,10,"Course access · child clubs","Sun protection","On-course golf. Spatial reasoning, patience, focus.",1],
+["Golf – Driving Range","Nurturing Arts","","VIGOR","PE · Hand-Eye Coordination","2y+","All","","EN",10,30,60,5,"Range access · child clubs","Tees","Driving range practice. Repetitive movement, force control, focus.",1],
+["Science Book (EN)","Language Arts","Discovery Arts","WISDOM","Life Sciences · Reading EN","18m+","All","","EN",3,15,25,0,"Science picture book","Magnifying glass","Read a science book together, pause to observe real examples.",2],
+["History Book (TR)","Language Arts","Social Arts","WISDOM","History · Reading TR","2y+","All","","TR",3,15,25,0,"Turkish history picture book","Globe or map","Shared reading of history/cultural picture book in Turkish.",1],
+["History Book (EN)","Language Arts","Social Arts","WISDOM","History · Reading EN","2y+","All","","EN",3,15,25,0,"History picture book","Globe or map","Shared reading of history/cultural picture book in English.",1],
+["Turkish Storytime + Chalk","Language Arts","Creative Arts","EXPRESSION","Turkish LA · Visual Arts","18m+","All","","TR",5,20,35,5,"Turkish storybook · chalk","Chalk pastels","Turkish story while child draws chalk illustrations simultaneously.",2],
+["Unpack Groceries","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Math","18m+","All","","EN",5,15,30,0,"Grocery bags · kitchen","Sorting bins","Unpack, categorise, store groceries. Classification and practical maths.",1],
+["Redecorate Room","Creative Arts","Domestic Arts","BEAUTY","Visual Arts · Spatial Reasoning","2y+","All","","EN",15,30,60,10,"Room items · art materials","Seasonal cloth","Child-led room redecoration with seasonal touches.",1],
+["Target & Skill Play","Discovery Arts","Social Arts","WISDOM","Data Analysis · Motor Dev","2y+","All","","EN",5,15,45,5,"Soft balls · tape targets","Laundry basket · score tracker","Throwing, rolling, aiming. Spatial reasoning and turn-taking.",2],
+["Meal with Friends","Social Arts","Nurturing Arts","WHOLENESS","Family Studies · SEL","18m+","All","","EN",20,60,120,15,"Meal · welcoming space","Games","Shared meal/playdate. Social negotiation, community bonds.",1],
+["Family Conversation","Social Arts","Language Arts","WHOLENESS","Family Studies · Speaking","18m+","All","","EN",5,15,30,0,"Phone/video or in-person","Photo album","Intentional conversation with extended family.",2],
+["Dr. Appointment","Nurturing Arts","Social Arts","WHOLENESS","Health Ed · Life Skills","18m+","All","","EN",30,30,60,0,"Appointment · transport","Comfort toy · snack","Medical appointments. Body care vocabulary and self-advocacy.",1],
+["Wet-on-Wet Watercolour","Creative Arts","Nurturing Arts","BEAUTY","Visual Arts · Creativity","18m+","All","","EN",10,20,40,10,"Watercolour paper · Stockmar paints","Natural brush · palette","Waldorf signature art: paint on pre-wetted paper. Pure colour exploration.",2],
+["Beeswax Modelling","Creative Arts","Nurturing Arts","BEAUTY","Visual Arts · Motor Dev","18m+","All","","EN",5,15,35,5,"Beeswax blocks (Stockmar)","Seasonal moulds","Warm beeswax, model simple forms. Tactile, warming, fine motor.",2],
+["Seasonal Nature Craft","Creative Arts","Domestic Arts","BEAUTY","Visual Arts · Life Sciences","18m+","All","","EN",10,25,50,10,"Seasonal natural materials · glue","String · natural dye","Season-specific craft with found materials. Crown, sun print, leaf mosaic.",2],
+["Puppet Making & Play","Creative Arts","Language Arts","BEAUTY","Theatre · Speaking","2y+","All","","EN",15,30,60,10,"Wool · fabric · pegs or socks","Puppet theatre (box)","Make a puppet, then perform a story. Art + language + imagination.",1],
+["Drawing with Beeswax Crayons","Creative Arts","Language Arts","BEAUTY","Visual Arts · Fine Motor","18m+","All","","EN",3,15,30,5,"Beeswax block crayons · paper","White candle for resist","Drawing with chunky beeswax crayons. Rich colour, creative expression.",3],
+["Collage Making","Creative Arts","Discovery Arts","BEAUTY","Visual Arts · Creativity","18m+","All","","EN",10,20,40,10,"Nature finds · glue stick · card","Magazine cuts · tissue paper","Tear, arrange, glue. Composition, texture, fine motor.",2],
+["Natural Dyeing","Creative Arts","Discovery Arts","BEAUTY","Visual Arts · Physical Science","2y+","Spring,Summer,Autumn","","EN",20,30,60,15,"Plants (onion/beet/turmeric) · fabric · pot","Gloves · mordant","Extract colour from plants to dye fabric. Art + chemistry + nature.",1],
+["Chalk Outdoor Drawing","Creative Arts","Language Arts","BEAUTY","Visual Arts · Motor Dev","18m+","Spring,Summer,Autumn","","EN",2,20,45,5,"Chunky chalk · outdoor surface","Water · stencils","Large-scale free drawing outside. Big arm movements, easy cleanup.",3],
+["Nature Table Renewal","Creative Arts","Discovery Arts","WHOLENESS","Visual Arts · Life Sciences","18m+","All","","EN",10,15,30,0,"Seasonal cloth · natural objects · candle","Small figures","Update the Waldorf nature table for the current season.",1],
+["Italian Storytime","Language Arts","Creative Arts","EXPRESSION","Italian LA · Reading IT","18m+","All","","IT",3,15,25,0,"Italian picture book","Puppets","Shared reading in Italian. Slow, expressive, with pointing and repetition.",2],
+["Italian Songs & Rhymes","Language Arts","Creative Arts","EXPRESSION","Italian LA · Music","18m+","All","","IT",2,10,20,0,"Italian songs playlist","Instrument","Sing Italian songs and rhymes daily. Melody is the fastest path to language.",3],
+["Daily Reading Circle","Language Arts","Social Arts","EXPRESSION","Literacy EN · Reading","18m+","All","","EN",3,15,25,0,"2-3 picture books","Cosy reading corner","Consistent daily reading. Same books repeated. Foundational literacy.",3],
+["Letter Shapes in Sand","Language Arts","Discovery Arts","EXPRESSION","Literacy · Pre-Writing","2y+","All","","EN",5,15,25,5,"Sand tray or play-dough","Wooden letter cards","Trace letter shapes in sand or dough. Full-body letter learning.",2],
+["Rhymes & Poetry (EN)","Language Arts","Creative Arts","EXPRESSION","Literacy EN · Music","18m+","All","","EN",2,10,20,0,"Poem cards or memory","Action movements","Seasonal poems and finger rhymes. Phonological awareness and rhythm.",3],
+["Rhymes & Poetry (TR)","Language Arts","Creative Arts","EXPRESSION","Literacy TR · Music","18m+","All","","TR",2,10,20,0,"Turkish poem cards","Action movements","Turkish rhymes and finger plays. Build Turkish phonology.",3],
+["Bilingual Naming Walk","Language Arts","Discovery Arts","EXPRESSION","Literacy EN · TR · IT","18m+","All","","Multilingual",5,20,40,0,"Outdoor space","Notebook · language cards","Walk naming everything in 2-3 languages. Vocabulary in context.",2],
+["Story Stones Play","Language Arts","Creative Arts","EXPRESSION","Theatre · Literacy · Creativity","18m+","All","","EN",20,20,40,5,"Smooth stones · paint","Story prompt cards","Paint images on stones, use to invent stories. Narrative + art.",1],
+["Seed Germination Science","Discovery Arts","Domestic Arts","WISDOM","Life Sciences · Math","18m+","Spring,Summer","","EN",10,15,20,5,"Bean · cotton · glass jar","Magnifying glass · journal","Seed in jar by window. Watch daily root and shoot growth.",2],
+["Counting & Patterns","Discovery Arts","Creative Arts","WISDOM","Foundational Math · Algebraic Thinking","18m+","All","","EN",5,15,30,5,"Stones · leaves · sticks","Sorting mat · number cards","Count, sort, pattern with natural objects. Maths as nature.",3],
+["Weighing & Measuring","Discovery Arts","Domestic Arts","WISDOM","Measurement · Math","2y+","All","","EN",5,15,30,5,"Balance scale · objects","Ruler · measuring cups","Explore weight and size with balance scales and household items.",2],
+["Colour Mixing Experiment","Discovery Arts","Creative Arts","WISDOM","Physical Science · Visual Arts","18m+","All","","EN",5,15,30,10,"Liquid watercolours · tray · dropper","White card","Mix primary colours to discover secondary colours. Science + wonder.",2],
+["Magnet Exploration","Discovery Arts","","WISDOM","Physical Science · Inquiry","2y+","All","","EN",5,15,30,5,"Magnet · varied objects","Sorting mat","Test what sticks to magnets. Scientific classification begins here.",1],
+["Nature Journaling","Discovery Arts","Language Arts","WISDOM","Life Sciences · Literacy","2y+","All","","EN",5,15,30,0,"Blank journal · pencils","Magnifying glass · coloured pencils","Weekly observation drawing, dated. Parent writes child's words.",2],
+["Cloud & Sky Observation","Discovery Arts","Language Arts","WISDOM","Earth & Space · Inquiry","18m+","All","","EN",2,10,20,0,"Open sky","Blanket · cloud chart","Lie on backs and observe clouds. Name types, invent stories, track weather.",2],
+["Shadow & Sun Tracking","Discovery Arts","Creative Arts","WISDOM","Earth & Space · Physical Science","18m+","Spring,Summer,Autumn","Summer Solstice",5,15,30,5,"Sunny day · chalk · outdoors","Gnomon stick","Trace shadows at different times. Earth, sun, and time made visible.",1],
+["Garden Planting & Care","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Life Skills","18m+","Spring,Summer,Autumn","Earth Day",10,20,45,10,"Seeds · soil · watering can","Trowel · garden journal","Plant, water, weed, observe. The most elemental domestic art.",3],
+["Bread Baking","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Physical Science · Math","2y+","All","","EN",15,60,90,15,"Flour · water · yeast · salt","Stand mixer · loaf tin","Full bread-making. Math, science, patience, and nourishment.",1],
+["Composting & Soil","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Earth Science","18m+","Spring,Summer,Autumn","Earth Day",5,15,25,5,"Compost bin · trowel","Magnifying glass · worm guide","Turn compost, observe worms, learn what decomposes. Ecology.",1],
+["Simple Sewing","Domestic Arts","Creative Arts","MASTERY","Tools & Crafts · Motor Dev","3y+","All","","EN",5,20,40,5,"Large needle · thick yarn · burlap","Embroidery hoop","Age-graduated handwork. Weaving, then running stitch. Focus + making.",1],
+["Flower Arrangement","Domestic Arts","Creative Arts","BEAUTY","Visual Arts · Life Sciences","18m+","Spring,Summer,Autumn","Mother's Day",5,15,25,5,"Fresh flowers · vase","Ribbons · seasonal greenery","Cut and arrange flowers for the table. Aesthetic education.",2],
+["Morning Circle & Verse","Nurturing Arts","Language Arts","NURTURE","Personal Wellness · Language","18m+","All","","Multilingual",3,10,20,0,"Seasonal verse · circle space","Candle · seasonal object","Daily circle: verse, song, movement, seasonal greeting. Waldorf anchor.",7],
+["Barefoot Nature Walk","Nurturing Arts","Discovery Arts","NURTURE","Personal Wellness · Earth Sci","18m+","Spring,Summer,Autumn","",5,20,40,0,"Safe outdoor space","Nature bag · journal","Walk barefoot on grass, soil, sand. Sensory grounding, earth connection.",2],
+["Breathwork for Kids","Nurturing Arts","Social Arts","NURTURE","Personal Wellness · SEL","18m+","All","","EN",2,5,15,0,"Quiet space","Pinwheel · feather · bubble wand","Simple breathing: belly breathing, bee breath, candle breath.",2],
+["Water Sensory Play","Nurturing Arts","Discovery Arts","NURTURE","Physical Science · Motor Dev","18m+","All","","EN",5,20,40,10,"Water basin · containers","Food colouring · funnels","Pouring, filling, splashing. Tactile, calming, scientific.",3],
+["Virtue Fable & Discussion","Social Arts","Language Arts","WISDOM","SEL · Ethical Reasoning","2y+","All","","EN",3,15,25,0,"Aesop or Roman fable book","Puppet to act it out","Read a virtue fable, discuss the moral. Moral imagination from year one.",2],
+["Kindness Practice","Social Arts","","NURTURE","SEL · Ethics","18m+","All","","EN",2,10,20,0,"Kindness idea list","Card materials","Choose one act of kindness today. Name it, plan it, do it, reflect.",2],
+["Gratitude Circle","Social Arts","Language Arts","WHOLENESS","SEL · Family Studies","18m+","All","","Multilingual",3,10,20,0,"Paper · crayons","Gratitude jar · candle","Name 3 things we are grateful for. Draw one. Build the gratitude habit.",3],
+["Conflict Resolution Play","Social Arts","Creative Arts","NURTURE","SEL · Collaboration","18m+","All","","EN",5,15,25,0,"Puppets or dolls","Feelings cards","Puppets act out a conflict, find a solution. Vocabulary for disagreement.",1],
+["Community Helper Role Play","Social Arts","Language Arts","WHOLENESS","SEL · Civics","18m+","All","","EN",5,20,35,10,"Costume props","Scenario cards","Role play: doctor, chef, builder, farmer. Empathy and community roles.",2],
+["New Year Candle Ceremony","Creative Arts","Social Arts","WHOLENESS","Visual Arts · SEL","18m+","Winter","New Year's","Multilingual",10,20,35,5,"Candles · star stickers · paper","Gold/silver watercolour","Light candles at the year's turn. Draw stars for hopes. Sing in 3 languages.",1],
+["Valentine's Family Cards","Creative Arts","Social Arts","BEAUTY","Visual Arts · Writing","18m+","Winter","Valentine's Day","EN",10,25,45,5,"Card stock · crayons · glue","Stickers · pressed flowers","Handmade cards for every family member. Generosity through making.",1],
+["Valentine's Heart Cookies","Domestic Arts","Social Arts","BEAUTY","Life Skills · Physical Science","2y+","Winter","Valentine's Day","EN",15,45,75,15,"Butter · sugar · flour · heart cutters","Pink icing","Heart-shaped cookies baked and given to loved ones.",1],
+["St. Patrick's Rainbow Experiment","Discovery Arts","Creative Arts","VIGOR","Physical Science · Visual Arts","18m+","Winter","St. Patrick's Day","EN",5,15,30,10,"Liquid watercolours · tray","Brushes · white card","Mix colours to create a full rainbow. Celtic green as starting point.",1],
+["Pi Day Circles & Pie","Discovery Arts","Domestic Arts","WISDOM","Math · Life Skills","2y+","Winter","Pi Day","EN",15,60,90,15,"Pie ingredients · circular objects","Compass · measuring tape","Trace circles everywhere, roll dough, bake pie. Pi as wonder.",1],
+["Spring Equinox Balance Scales","Discovery Arts","Creative Arts","WISDOM","Physical Science · Math","18m+","Spring","Spring Equinox","EN",5,15,30,5,"Balance scale · natural objects","Candle · nature cloth","Balance equal amounts. Mirrors the equinox. Introduction to equilibrium.",1],
+["Natural Egg Dyeing","Creative Arts","Discovery Arts","BEAUTY","Visual Arts · Physical Science","18m+","Spring","Easter","EN",20,40,60,15,"Eggs · onion skins · beet · turmeric","Rubber bands · leaves","Dye eggs with kitchen ingredients. Science of plant pigment + beauty.",1],
+["Beeswax Easter Eggs","Creative Arts","","BEAUTY","Visual Arts · Motor Dev","2y+","Spring","Easter","EN",10,20,40,10,"Coloured beeswax sheets","Warm bowl","Form coloured beeswax into egg shapes. Waldorf Easter signature.",1],
+["Easter Garden Egg Hunt","Discovery Arts","Social Arts","BEAUTY","Earth Science · SEL","18m+","Spring","Easter","EN",15,20,40,5,"Dyed eggs · garden","Basket · clues","Find naturally dyed eggs hidden in the garden.",1],
+["Earth Day Planting","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Life Skills","18m+","Spring","Earth Day","EN",15,30,50,10,"Seeds or sapling · soil · shovel","Compost · plant marker","Plant a tree or seeds. Dig, place, cover, water. Environmental stewardship.",1],
+["Earth Day Clean-Up Walk","Social Arts","Domestic Arts","MASTERY","Civics · Life Skills","18m+","Spring","Earth Day","EN",5,30,60,5,"Gloves · bag · outdoors","Litter picker · sorting mat","Walk a local path and collect litter. Simple environmental civic action.",1],
+["Mother's Day Handprint Gift","Creative Arts","Social Arts","NURTURE","Visual Arts · Family Studies","18m+","Spring","Mother's Day","EN",10,20,35,10,"Paint · card stock · frame","Pressed flowers · poem","Press painted handprint onto card. Record of this hand at this age.",1],
+["Father's Day Adventure","Nurturing Arts","Social Arts","VIGOR","PE · Family Studies","18m+","Spring,Summer","Father's Day","EN",15,60,180,10,"Outdoor destination · snacks","Binoculars · nature bag","Outdoor day chosen by Papa and child together.",1],
+["Solstice Flower Crown","Creative Arts","Nurturing Arts","WHOLENESS","Visual Arts · Life Sciences","18m+","Summer","Summer Solstice","EN",10,20,35,5,"Fresh flowers · wire","Ribbon · scissors","Weave a flower crown from summer blooms. Waldorf midsummer tradition.",1],
+["Solstice Sun Painting","Creative Arts","Discovery Arts","WHOLENESS","Visual Arts · Earth Science","18m+","Summer","Summer Solstice","EN",5,20,35,10,"Paper · yellow/gold/orange paints","Sun-print paper","Paint the sun on the longest day. Explore warm colours.",1],
+["4th July Colour Play","Creative Arts","Discovery Arts","VIGOR","Visual Arts · Physical Science","18m+","Summer","4th of July","EN",5,20,35,10,"Red/white/blue paint · paper","Spray bottles · ice cubes","Patriotic palette. Firework art: drop, tilt, watch colours explode.",1],
+["Constellation Stories","Discovery Arts","Language Arts","WISDOM","Earth & Space · Cultural Studies","2y+","Summer","Camping & Stargazing","EN",10,30,60,0,"Dark sky · constellation guide","Blanket · red torch","Find constellations, tell their mythology. Stars as story.",1],
+["Campfire Cooking","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Physical Science","2y+","Summer","Camping & Stargazing","EN",20,45,90,15,"Fire (supervised) · simple food","Long sticks · foil","Cook over a campfire. Fire science + outdoor skill.",1],
+["Leaf Collection & Pressing","Discovery Arts","Creative Arts","WISDOM","Life Sciences · Visual Arts","18m+","Autumn","Fall Equinox","EN",10,20,40,5,"Collection bag · books · blotting paper","ID guide · journal","Collect and press autumn leaves. Observe colour change and variety.",1],
+["Harvest Soup Together","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Math","18m+","Autumn","Fall Equinox","EN",15,45,75,15,"Seasonal vegetables · broth · pot","Peeler · cutting board","Make the first autumn soup. Child washes, peels, stirs.",1],
+["Samhain Ancestor Story Night","Language Arts","Social Arts","WHOLENESS","Cultural Studies · Family","2y+","Autumn","Halloween / Samhain","EN",10,20,40,0,"Family photos · candle","Blanket · seasonal snacks","Look at ancestor photos, tell stories. Celtic tradition of remembering.",1],
+["Samhain Lantern Making","Creative Arts","Discovery Arts","WHOLENESS","Visual Arts · Physical Science","18m+","Autumn","Halloween / Samhain","EN",15,30,50,10,"Glass jar · tissue paper · glue · tea light","Wire handle · leaves","Make a lantern from jar and tissue paper. Light as warmth and beauty.",1],
+["Thanksgiving Gratitude Tree","Creative Arts","Social Arts","WHOLENESS","Visual Arts · SEL","18m+","Autumn","Thanksgiving","EN",10,25,40,5,"Bare branch · coloured paper · string","Leaf-shaped cards · crayons","Add a paper leaf each day naming gratitude. Full tree by Thanksgiving.",1],
+["Thanksgiving Feast Prep","Domestic Arts","Social Arts","WHOLENESS","Life Skills · Math · Family","2y+","Autumn","Thanksgiving","EN",20,60,120,20,"Seasonal ingredients · recipes","Apron · child tools","Participate in preparing the feast. Contribution and belonging.",1],
+["Christmas Salt Dough Ornaments","Creative Arts","Domestic Arts","BEAUTY","Visual Arts · Physical Science","18m+","Winter","Christmas","EN",15,45,75,15,"Salt · flour · water · cutters · twine","Rolling pin · paint · sealer","Mix, roll, cut, dry, paint, hang. Begin early December. Waldorf tradition.",1],
+["Christmas Natural Gift Wrap","Creative Arts","Domestic Arts","BEAUTY","Visual Arts · Life Skills","18m+","Winter","Christmas","EN",10,20,40,5,"Brown paper · twine · greenery","Stamps · dried orange · cinnamon","Wrap gifts with natural materials. Gifting as art.",1],
+["Winter Solstice Candles","Nurturing Arts","Social Arts","WHOLENESS","Cultural Studies · SEL","18m+","Winter","Christmas","Multilingual",10,20,35,0,"Candles · darkened room · song","Advent wreath · verse","On the darkest day, light candles and sing. Turning toward light.",1]
+];
+let ACTIVITIES=A.map((r,i)=>({id:i+1,name:r[0],art:r[1],arts2:r[2],virtue:r[3],disc:r[4],age:r[5],seasons:r[6],festival:r[7],lang:r[8],setup:r[9],min:r[10],max:r[11],cleanup:r[12],matMin:r[13],matOpt:r[14],desc:r[15],target:r[16]}));
+const TX_DISCIPLINES=[
+["English Language Arts","Language Arts","ELA activities logged"],
+["Turkish Language Arts","Language Arts","Turkish-tagged activities"],
+["Italian Language Arts","Language Arts","Italian-tagged activities"],
+["Mathematics","Discovery Arts","Math activities (counting, measuring, patterns)"],
+["Science","Discovery Arts","Science experiments, nature observation"],
+["Social Studies","Social Arts","History, geography, civics, cultural studies"],
+["Fine Arts","Creative Arts","Visual art, music, theatre, dance"],
+["Physical Education","Nurturing Arts","Motor development, PE, movement, yoga"],
+["Technology & Engineering","Discovery Arts","Building, tinkering, simple machines"],
+["Practical Life & Career","Domestic Arts","Cooking, cleaning, gardening, handwork"],
+["Cross-Disciplinary / 21st Century","Social Arts","SEL, critical thinking, collaboration, ethics"],
+["Early Childhood Development","All Arts","Human development, family & community"]
+];
+ 
+/* === STATE === */
+let currentView='dashboard', plannerWeekStart=getMonday(new Date()), plannerData=load('planner',{}), logEntries=load('log',[]), pickTarget=null;
+let catalogView='table', catalogSort={col:'name',asc:true};
+let catalogFilters={search:'',art:'',virtue:'',season:'',lang:'',festival:''};
+/* Load custom activities and merge into ACTIVITIES (overrides built-ins with same id) */
+let customActivities=load('customActs',[]);
+let nextCustomId=10000;
+customActivities.forEach(a=>{const idx=ACTIVITIES.findIndex(x=>x.id===a.id);if(idx!==-1)ACTIVITIES[idx]=a;else ACTIVITIES.push(a);if(a.id>=nextCustomId)nextCustomId=a.id+1});
+ 
+/* Custom celebrations (birthdays, anniversaries, etc) — merge into FESTIVALS */
+let customCelebrations=load('customCeleb',[]);
+customCelebrations.forEach(c=>{if(!FESTIVALS.find(f=>f.name===c.name&&f.month===c.month))FESTIVALS.push(c)});
+/* Track deleted built-in celebrations */
+let deletedFests=load('deletedFests',[]);
+deletedFests.forEach(name=>{const i=FESTIVALS.findIndex(f=>f.name===name&&!f.custom);if(i!==-1)FESTIVALS.splice(i,1)});
+ 
+/* Editable time blocks — persisted override of defaults */
+let timeBlocks=load('timeBlocks',null)||DEFAULT_TIME_BLOCKS.map(tb=>[...tb]);
+ 
+/* === HELPERS === */
+function save(k,v){try{localStorage.setItem('ns_'+k,JSON.stringify(v))}catch(e){}}
+function load(k,d){try{const v=localStorage.getItem('ns_'+k);return v?JSON.parse(v):d}catch(e){return d}}
+function $(id){return document.getElementById(id)}
+function qs(sel,el){return (el||document).querySelector(sel)}
+function qsa(sel,el){return (el||document).querySelectorAll(sel)}
+function h(tag,cls,html){return `<${tag} class="${cls||''}">${html||''}</${tag}>`}
+ 
+function getCurrentSeason(){const m=new Date().getMonth()+1;return SEASONS.find(s=>s.months.includes(m))}
+function getNextCelebration(){const now=new Date(),y=now.getFullYear();
+  const all=FESTIVALS.map(f=>{const day=f.day||15;let d=new Date(y,f.month-1,day);if(d<now)d=new Date(y+1,f.month-1,day);return{...f,date:d}});
+  all.sort((a,b)=>a.date-b.date);return all[0]||{name:'—',emoji:'📅',date:new Date(),season:'Spring'}}
+function getMonday(d){d=new Date(d);const day=d.getDay(),diff=d.getDate()-day+(day===0?-6:1);d.setDate(diff);d.setHours(0,0,0,0);return d}
+function addDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r}
+function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+function fmtDateFull(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
+function weekKey(d){return d.toISOString().slice(0,10)}
+ 
+function artBadge(art){if(!art)return'';const a=ARTS[art];return a?`<span class="badge badge-${a.cls}">${a.emoji} ${art}</span>`:art.split('·').map(x=>x.trim()).filter(Boolean).map(x=>{const a2=ARTS[x];return a2?`<span class="badge badge-${a2.cls}">${a2.emoji} ${x}</span>`:`<span class="badge">${x}</span>`}).join('')}
+function langBadge(l){if(!l)return'';return `<span class="badge badge-lang">${l==='EN'?'🇺🇸':l==='TR'?'🇹🇷':l==='IT'?'🇮🇹':'🌐'} ${l}</span>`}
+function seasonBadge(s){return s?`<span class="badge badge-season">${s}</span>`:''}
+function festBadge(f){return f?`<span class="badge badge-festival">🎪 ${f}</span>`:''}
+ 
+/* === TAB SWITCHING === */
+function switchView(view){
+  currentView=view;
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  $('view-'+view).classList.add('active');
+  const viewMatch=view==='festivals'?'celebrat':view==='log'?'log':view;
+  document.querySelectorAll('nav button').forEach(b=>{if(b.textContent.toLowerCase().includes(viewMatch))b.classList.add('active')});
+  const renderers={dashboard:renderDashboard,planner:renderPlanner,catalog:renderCatalog,festivals:renderFestivals,log:renderLog,guide:renderGuide};
+  if(renderers[view])renderers[view]();
+}
+ 
+/* === DASHBOARD === */
+function renderDashboard(){
+  const now=new Date(), dayIdx=now.getDay()===0?6:now.getDay()-1, virtue=VIRTUES[dayIdx], season=getCurrentSeason(), nextFest=getNextCelebration();
+  const daysUntil=Math.ceil((nextFest.date-now)/(1000*60*60*24));
+  const todayLogs=logEntries.filter(e=>e.date===now.toISOString().slice(0,10));
+  const totalLogged=todayLogs.reduce((s,e)=>s+(e.duration||0),0);
+ 
+  let html=`<div class="virtue-banner" style="background:${virtue.bg};color:${virtue.color}">
+    <div class="emoji">${virtue.emoji}</div>
+    <div class="info"><h2>${virtue.day} — ${virtue.virtue}</h2><p>${virtue.god}'s day · ${virtue.spirit}</p></div>
+  </div>`;
+ 
+  html+=`<div class="dash-grid">
+    <div class="dash-card" style="background:${season.bg};color:${season.fg}"><div class="big">${season.emoji}</div><div class="label">Current Season</div><div class="sub">${season.name} — ${season.theme}</div></div>
+    <div class="dash-card" style="background:${nextFest.season==='Spring'?'#C8EDD8':nextFest.season==='Summer'?'#FFF5C0':nextFest.season==='Autumn'?'#FDEBD0':'#D6E4F0'}"><div class="big">${nextFest.emoji}</div><div class="label">Next Celebration</div><div class="sub">${nextFest.name} — ${daysUntil} days</div></div>
+    <div class="dash-card" style="background:#F0F4FF"><div class="big">${todayLogs.length}</div><div class="label">Logged Today</div><div class="sub">${totalLogged} min</div></div>
+  </div>`;
+ 
+  html+=h('h3','section-title','Today\'s Suggested Activities');
+  const suggested=ACTIVITIES.filter(a=>{
+    const matchVirtue=a.virtue===virtue.virtue;
+    const matchArt=a.art===virtue.priArt||a.art===virtue.secArt||a.arts2===virtue.priArt||a.arts2===virtue.secArt;
+    return matchVirtue||matchArt;
+  }).slice(0,8);
+  html+=`<div class="cards cards-3">${suggested.map(a=>`<div class="card act-card" onclick="openModal(${a.id})">
+    <div class="name">${a.name}</div>
+    <div>${artBadge(a.art)}${a.arts2?artBadge(a.arts2):''}${langBadge(a.lang)}</div>
+    <div class="desc">${a.desc}</div>
+    <div class="meta">${a.min}–${a.max} min · ${a.age}</div>
+  </div>`).join('')}</div>`;
+ 
+  html+=h('h3','section-title','Weekly Arts Balance');
+  const wk=weekKey(plannerWeekStart);
+  const weekLogs=logEntries.filter(e=>{const d=new Date(e.date);return d>=plannerWeekStart&&d<addDays(plannerWeekStart,7)});
+  const artCounts={};Object.keys(ARTS).forEach(a=>artCounts[a]=0);
+  weekLogs.forEach(e=>{const act=ACTIVITIES.find(a=>a.id===e.activityId);if(act){artCounts[act.art]=(artCounts[act.art]||0)+1;if(act.arts2)artCounts[act.arts2]=(artCounts[act.arts2]||0)+1}});
+  html+=`<div style="display:flex;gap:12px;flex-wrap:wrap">${Object.entries(ARTS).map(([name,a])=>`<div style="background:${a.bg};color:${a.fg};padding:12px 16px;border-radius:8px;text-align:center;min-width:120px">
+    <div style="font-size:24px">${a.emoji}</div><div style="font-size:12px;font-weight:600">${name}</div><div style="font-size:20px;font-weight:700">${artCounts[name]||0}</div>
+  </div>`).join('')}</div>`;
+ 
+  $('view-dashboard').innerHTML=html;
+}
+ 
+/* === CATALOG === */
+function renderCatalog(){
+  const customCount=ACTIVITIES.filter(a=>a.custom).length;
+  let html=`<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+    <div>
+      <h2 style="font-family:Georgia,serif;font-size:22px;color:var(--primary);margin:0">${ACTIVITIES.length} Activities</h2>
+      ${customCount?`<span style="font-size:13px;color:#5B21B6">${customCount} custom activity${customCount>1?'s':''}</span>`:''}
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="view-toggle">
+        <button class="${catalogView==='table'?'active':''}" onclick="catalogView='table';renderCatalogBody()" title="Table view">☰ Table</button>
+        <button class="${catalogView==='grid'?'active':''}" onclick="catalogView='grid';renderCatalogBody()" title="Grid view">⊞ Grid</button>
+      </div>
+      <button onclick="openActivityForm(null)" style="padding:8px 16px;background:#5B21B6;color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px">➕ Add Activity</button>
+    </div>
+  </div>`;
+ 
+  /* Art tabs */
+  html+=`<div class="cat-tabs">
+    <button class="cat-tab${!catalogFilters.art?' active':''}" onclick="setCatTab('')">All <small>(${ACTIVITIES.length})</small></button>`;
+  Object.entries(ARTS).forEach(([name,a])=>{
+    const cnt=ACTIVITIES.filter(x=>x.art===name||x.arts2===name).length;
+    html+=`<button class="cat-tab${catalogFilters.art===name?' active':''}" onclick="setCatTab('${name}')">${a.emoji} ${name.replace(' Arts','')} <small>(${cnt})</small></button>`;
+  });
+  if(customCount) html+=`<button class="cat-tab${catalogFilters.art==='__custom__'?' active':''}" onclick="setCatTab('__custom__')">⭐ My Activities <small>(${customCount})</small></button>`;
+  html+=`</div>`;
+ 
+  /* Filter row */
+  html+=`<div class="filters" style="margin-top:10px;padding-top:10px">
+    <input type="text" placeholder="🔍 Search…" id="cat-search" value="${catalogFilters.search}" oninput="catalogFilters.search=this.value.toLowerCase();renderCatalogBody()" style="width:220px">
+    <select onchange="catalogFilters.virtue=this.value;renderCatalogBody()" style="padding:6px 10px;border:1px solid var(--border);border-radius:16px;font-size:12px;background:var(--surface)">
+      <option value="">All Virtues</option>${VIRTUES.map(v=>`<option value="${v.virtue}"${catalogFilters.virtue===v.virtue?' selected':''}>${v.emoji} ${v.virtue}</option>`).join('')}
+    </select>
+    <select onchange="catalogFilters.lang=this.value;renderCatalogBody()" style="padding:6px 10px;border:1px solid var(--border);border-radius:16px;font-size:12px;background:var(--surface)">
+      <option value="">All Languages</option>
+      <option value="EN"${catalogFilters.lang==='EN'?' selected':''}>🇺🇸 EN</option>
+      <option value="TR"${catalogFilters.lang==='TR'?' selected':''}>🇹🇷 TR</option>
+      <option value="IT"${catalogFilters.lang==='IT'?' selected':''}>🇮🇹 IT</option>
+      <option value="Multilingual"${catalogFilters.lang==='Multilingual'?' selected':''}>🌐 Multi</option>
+    </select>
+    <select onchange="catalogFilters.season=this.value;renderCatalogBody()" style="padding:6px 10px;border:1px solid var(--border);border-radius:16px;font-size:12px;background:var(--surface)">
+      <option value="">All Seasons</option>${SEASONS.map(s=>`<option value="${s.name}"${catalogFilters.season===s.name?' selected':''}>${s.emoji} ${s.name}</option>`).join('')}
+    </select>
+    <button onclick="clearCatFilters()" style="padding:5px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);font-size:12px;cursor:pointer;color:var(--muted);font-family:inherit">✕ Clear</button>
+  </div>`;
+ 
+  html+=`<div id="catalog-output" style="margin-top:14px"></div>`;
+  $('view-catalog').innerHTML=html;
+  renderCatalogBody();
+}
+ 
+function setCatTab(art){catalogFilters.art=art;renderCatalog()}
+function clearCatFilters(){catalogFilters={search:'',art:'',virtue:'',season:'',lang:'',festival:''};renderCatalog()}
+function toggleCatSort(col){if(catalogSort.col===col)catalogSort.asc=!catalogSort.asc;else{catalogSort.col=col;catalogSort.asc=true}renderCatalogBody()}
+ 
+function renderCatalogBody(){
+  let filtered=ACTIVITIES.filter(a=>{
+    if(catalogFilters.art==='__custom__') return a.custom;
+    if(catalogFilters.search&&!a.name.toLowerCase().includes(catalogFilters.search)&&!(a.desc||'').toLowerCase().includes(catalogFilters.search))return false;
+    if(catalogFilters.art&&a.art!==catalogFilters.art&&a.arts2!==catalogFilters.art)return false;
+    if(catalogFilters.virtue&&a.virtue!==catalogFilters.virtue)return false;
+    if(catalogFilters.lang&&a.lang!==catalogFilters.lang)return false;
+    if(catalogFilters.season){const s=a.seasons;if(s&&s!=='All'&&!s.includes(catalogFilters.season))return false}
+    return true;
+  });
+ 
+  /* Sort for table */
+  if(catalogView==='table'){
+    const col=catalogSort.col,asc=catalogSort.asc;
+    filtered.sort((a,b)=>{let av=a[col]||'',bv=b[col]||'';
+      return typeof av==='number'?(asc?av-bv:bv-av):(asc?String(av).localeCompare(String(bv)):String(bv).localeCompare(String(av)));
+    });
+  }
+ 
+  const container=$('catalog-output');
+  if(!filtered.length){container.innerHTML=`<div class="empty-state">No activities match — try clearing filters</div>`;return}
+ 
+  const countLine=`<div style="font-size:13px;color:var(--muted);margin-bottom:10px">${filtered.length} of ${ACTIVITIES.length} activities</div>`;
+ 
+  if(catalogView==='grid'){
+    container.innerHTML=countLine+`<div class="cards cards-3">${filtered.map(a=>`
+      <div class="card act-card" style="position:relative">
+        <div class="name" onclick="openModal(${a.id})" style="cursor:pointer">${a.name}${a.custom?'<span class="badge badge-custom" style="margin-left:6px">custom</span>':''}</div>
+        <div style="margin:6px 0">${artBadge(a.art)}${a.arts2?artBadge(a.arts2):''}${langBadge(a.lang)}${a.festival?festBadge(a.festival):''}</div>
+        <div class="desc">${a.desc||''}</div>
+        <div class="meta" style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+          <span>${a.min}–${a.max} min · ${a.age||''}</span>
+          <span style="display:flex;gap:4px">
+            <button class="act-edit-btn" onclick="event.stopPropagation();openActivityForm(${a.id})">✏️ Edit</button>
+            ${a.custom?`<button class="act-del-btn" onclick="event.stopPropagation();deleteCustomActivity(${a.id})">🗑</button>`:''}
+          </span>
+        </div>
+      </div>`).join('')}</div>`;
+  } else {
+    /* Table view */
+    const th=(col,label,w)=>`<th onclick="toggleCatSort('${col}')" style="${w?'width:'+w:''}">${label}${catalogSort.col===col?(catalogSort.asc?' ↑':' ↓'):'<span style="opacity:.3"> ↕</span>'}</th>`;
+    container.innerHTML=countLine+`<div style="overflow-x:auto"><table class="cat-table">
+      <thead><tr>
+        ${th('name','Activity Name')}
+        ${th('art','Art','150px')}
+        ${th('virtue','Virtue','110px')}
+        ${th('lang','Lang','70px')}
+        ${th('min','Min','55px')}
+        ${th('max','Max','55px')}
+        ${th('seasons','Season','90px')}
+        ${th('disc','TX Disciplines')}
+        <th style="width:80px">Actions</th>
+      </tr></thead>
+      <tbody>${filtered.map(a=>{
+        const v=VIRTUES.find(x=>x.virtue===a.virtue);
+        return `<tr>
+          <td><span class="act-name-link" onclick="openModal(${a.id})">${a.name}</span>${a.custom?'<span class="badge badge-custom" style="margin-left:6px">custom</span>':''}</td>
+          <td>${artBadge(a.art)}${a.arts2?'<br>'+artBadge(a.arts2):''}</td>
+          <td style="font-size:12px;white-space:nowrap">${v?v.emoji+' ':''}<span style="color:${v?v.color:'inherit'}">${a.virtue||''}</span></td>
+          <td>${langBadge(a.lang)}</td>
+          <td style="text-align:center;color:var(--muted)">${a.min}</td>
+          <td style="text-align:center;color:var(--muted)">${a.max}</td>
+          <td style="font-size:12px">${a.seasons&&a.seasons!=='All'?a.seasons:'<span style="color:var(--muted)">All</span>'}</td>
+          <td style="font-size:11px;color:var(--muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.disc||''}">${a.disc||'—'}</td>
+          <td style="white-space:nowrap">
+            <button class="act-edit-btn" onclick="openActivityForm(${a.id})" title="Edit">✏️</button>
+            ${a.custom?`<button class="act-del-btn" onclick="deleteCustomActivity(${a.id})" title="Delete">🗑</button>`:''}
+          </td>
+        </tr>`;
+      }).join('')}</tbody>
+    </table></div>`;
+  }
+}
+ 
+/* === MODAL (Activity Detail) === */
+function openModal(id){
+  const a=ACTIVITIES.find(x=>x.id===id);if(!a)return;
+  const m=$('modal-content');
+  m.innerHTML=`<button class="close" onclick="closeModal()">&times;</button>
+    <h2>${a.name}</h2>
+    <div class="modal-badges">${artBadge(a.art)}${a.arts2?artBadge(a.arts2):''}${langBadge(a.lang)}${a.festival?festBadge(a.festival):''}</div>
+    <p style="font-size:14px;line-height:1.6;margin-bottom:12px">${a.desc}</p>
+    <div class="detail-grid">
+      <div class="detail-item"><strong>Day Virtue</strong>${a.virtue}</div>
+      <div class="detail-item"><strong>Age Range</strong>${a.age}</div>
+      <div class="detail-item"><strong>Duration</strong>${a.min}–${a.max} min</div>
+      <div class="detail-item"><strong>Setup / Cleanup</strong>${a.setup} / ${a.cleanup} min</div>
+      <div class="detail-item"><strong>Seasons</strong>${a.seasons||'All'}</div>
+      <div class="detail-item"><strong>TX Disciplines</strong>${a.disc}</div>
+      <div class="detail-item"><strong>Weekly Target</strong>${a.target}×</div>
+      <div class="detail-item"><strong>Language</strong>${a.lang}</div>
+    </div>
+    <div class="materials"><h4>Required Materials</h4>${a.matMin}</div>
+    ${a.matOpt?`<div class="materials"><h4>Optional Materials</h4>${a.matOpt}</div>`:''}
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button class="log-btn" onclick="closeModal();quickLog(${a.id})">📝 Log This Activity</button>
+      <button class="log-btn" style="background:#5B21B6" onclick="closeModal();openActivityForm(${a.id})">✏️ Edit Activity</button>
+      ${a.custom?`<button class="log-btn" style="background:#DC2626" onclick="closeModal();deleteCustomActivity(${a.id})">🗑 Delete</button>`:''}
+    </div>`;
+  $('modal-overlay').classList.add('open');
+}
+function closeModal(){$('modal-overlay').classList.remove('open')}
+ 
+/* === PLANNER === */
+function renderPlanner(){
+  const wkStart=plannerWeekStart;
+  let html=`<div class="week-nav">
+    <button onclick="plannerWeekStart=addDays(plannerWeekStart,-7);renderPlanner()">◀ Prev</button>
+    <span class="week-label">${fmtDate(wkStart)} – ${fmtDate(addDays(wkStart,6))}</span>
+    <button onclick="plannerWeekStart=addDays(plannerWeekStart,7);renderPlanner()">Next ▶</button>
+    <button onclick="plannerWeekStart=getMonday(new Date());renderPlanner()">Today</button>
+    <button onclick="openBlockEditor()" style="font-size:12px;margin-left:auto">✏️ Edit Schedule</button>
+  </div>`;
+ 
+  html+=`<div class="planner-grid">`;
+  html+=`<div class="planner-hdr">Time</div><div class="planner-hdr">Block</div>`;
+  for(let d=0;d<7;d++){
+    const date=addDays(wkStart,d);
+    const v=VIRTUES[d];
+    const hdrTextColor=v.bg==='#ffffff'?'#374151':v.color;
+    html+=`<div class="planner-hdr" style="background:${v.bg}!important;color:${hdrTextColor}!important"><div>${v.emoji} ${v.day.slice(0,3)}</div><div style="font-size:10px;opacity:.85">${fmtDate(date)}</div><div style="font-size:9px;font-weight:700;letter-spacing:.4px">${v.virtue}</div></div>`;
+  }
+ 
+  timeBlocks.forEach((tb,bi)=>{
+    html+=`<div class="planner-time">${tb[0]}</div>`;
+    html+=`<div class="planner-label"><div style="font-weight:600">${tb[1]}</div><div style="font-size:10px;opacity:.6">${tb[2]}</div></div>`;
+    for(let d=0;d<7;d++){
+      const key=`${weekKey(wkStart)}_${d}_${bi}`;
+      const actId=plannerData[key];
+      const act=actId?ACTIVITIES.find(a=>a.id===actId):null;
+      const bg=act?ARTS[act.art]?.bg||'#f5f5f5':'';
+      html+=`<div class="planner-cell${act?' has-activity':''}" style="background:${bg||''}" onclick="openPick(${d},${bi})" title="${act?act.name:'Click to assign'}">
+        ${act?`<span>${act.name}</span>`:''}
+      </div>`;
+    }
+  });
+  html+=`</div>`;
+  $('view-planner').innerHTML=html;
+}
+ 
+/* === TIME BLOCK EDITOR === */
+function openBlockEditor(){
+  const m=$('modal-content');
+  let rows=timeBlocks.map((tb,i)=>`<tr>
+    <td><input value="${tb[0]}" id="tbe-t-${i}" style="width:100px;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px"></td>
+    <td><input value="${tb[1]}" id="tbe-n-${i}" style="width:100%;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px"></td>
+    <td><input value="${tb[2]}" id="tbe-r-${i}" style="width:100%;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px"></td>
+    <td><button onclick="removeBlockRow(${i})" style="border:none;background:none;color:#DC2626;cursor:pointer;font-size:14px">✕</button></td>
+  </tr>`).join('');
+  m.innerHTML=`<button class="close" onclick="closeModal()">&times;</button>
+    <h2 style="font-family:Georgia,serif;font-size:20px;margin-bottom:4px">Edit Daily Schedule</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Changes carry forward to all future weeks until you reset.</p>
+    <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px" id="tbe-table">
+      <thead><tr style="background:var(--primary);color:#fff"><th style="padding:8px">Time</th><th style="padding:8px">Block Name</th><th style="padding:8px">Rhythm</th><th style="padding:8px;width:30px"></th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>
+    <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;flex-wrap:wrap">
+      <button onclick="addBlockRow()" style="padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-size:12px;font-family:inherit">➕ Add Block</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button onclick="resetTimeBlocks()" style="padding:8px 16px;border:1px solid #FCA5A5;border-radius:6px;background:#FEF2F2;color:#DC2626;cursor:pointer;font-family:inherit;font-size:13px">↺ Reset to Default</button>
+        <button onclick="closeModal()" style="padding:8px 20px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-family:inherit">Cancel</button>
+        <button onclick="saveBlockEditor()" style="padding:8px 24px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit">Save Schedule</button>
+      </div>
+    </div>`;
+  $('modal-overlay').classList.add('open');
+  $('modal-overlay').style.alignItems='flex-start';$('modal-overlay').style.paddingTop='24px';
+}
+ 
+function addBlockRow(){
+  const tbody=$('tbe-table').querySelector('tbody');
+  const n=tbody.children.length;
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><input value="" id="tbe-t-${n}" style="width:100px;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px" placeholder="16:00–16:30"></td>
+    <td><input value="" id="tbe-n-${n}" style="width:100%;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px" placeholder="Block name"></td>
+    <td><input value="" id="tbe-r-${n}" style="width:100%;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:12px" placeholder="IN — focus"></td>
+    <td><button onclick="this.closest('tr').remove()" style="border:none;background:none;color:#DC2626;cursor:pointer;font-size:14px">✕</button></td>`;
+  tbody.appendChild(tr);
+}
+ 
+function removeBlockRow(i){
+  const tbody=$('tbe-table').querySelector('tbody');
+  if(tbody.children.length<=1){alert('Need at least one time block.');return}
+  tbody.children[i].remove();
+}
+ 
+function saveBlockEditor(){
+  const tbody=$('tbe-table').querySelector('tbody');
+  const newBlocks=[];
+  for(let i=0;i<tbody.children.length;i++){
+    const inputs=tbody.children[i].querySelectorAll('input');
+    const t=inputs[0].value.trim(),n=inputs[1].value.trim(),r=inputs[2].value.trim();
+    if(t||n)newBlocks.push([t,n,r]);
+  }
+  if(!newBlocks.length){alert('Need at least one time block.');return}
+  timeBlocks=newBlocks;
+  save('timeBlocks',timeBlocks);
+  closeModal();renderPlanner();
+}
+ 
+function resetTimeBlocks(){
+  if(!confirm('Reset to the original default schedule?\n\nAll 17 Waldorf time blocks will be restored and your customisations will be removed.'))return;
+  timeBlocks=DEFAULT_TIME_BLOCKS.map(tb=>[tb[0],tb[1],tb[2]]);
+  try{localStorage.removeItem('ns_timeBlocks')}catch(e){}
+  closeModal();
+  renderPlanner();
+}
+ 
+/* === PICK OVERLAY (for planner) === */
+function openPick(day,block){
+  pickTarget={day,block};
+  const key=`${weekKey(plannerWeekStart)}_${day}_${block}`;
+  const v=VIRTUES[day];
+  let items=ACTIVITIES.slice().sort((a,b)=>{
+    const aMatch=(a.art===v.priArt||a.art===v.secArt)?1:0;
+    const bMatch=(b.art===v.priArt||b.art===v.secArt)?1:0;
+    return bMatch-aMatch;
+  });
+  const pm=$('pick-content');
+  pm.innerHTML=`<input type="text" placeholder="Search activities..." id="pick-search" oninput="filterPick()">
+    <div id="pick-list">${renderPickList(items)}</div>
+    <div style="padding:8px;text-align:center"><button onclick="clearPick()" style="padding:6px 16px;border:1px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-size:12px">Clear slot</button></div>`;
+  $('pick-overlay').classList.add('open');
+  $('pick-search').focus();
+}
+function renderPickList(items){
+  return items.map(a=>`<div class="pick-item" onclick="assignPick(${a.id})">
+    <span>${a.name}</span><span class="pick-art">${ARTS[a.art]?.emoji||''} ${a.art}</span>
+  </div>`).join('');
+}
+function filterPick(){
+  const q=$('pick-search').value.toLowerCase();
+  const items=ACTIVITIES.filter(a=>a.name.toLowerCase().includes(q)||a.desc.toLowerCase().includes(q));
+  $('pick-list').innerHTML=renderPickList(items);
+}
+function assignPick(actId){
+  if(!pickTarget)return;
+  const key=`${weekKey(plannerWeekStart)}_${pickTarget.day}_${pickTarget.block}`;
+  plannerData[key]=actId;
+  save('planner',plannerData);
+  closePick();renderPlanner();
+}
+function clearPick(){
+  if(!pickTarget)return;
+  const key=`${weekKey(plannerWeekStart)}_${pickTarget.day}_${pickTarget.block}`;
+  delete plannerData[key];
+  save('planner',plannerData);
+  closePick();renderPlanner();
+}
+function closePick(){$('pick-overlay').classList.remove('open');pickTarget=null}
+ 
+/* === CELEBRATIONS (Festivals + Birthdays + Custom) === */
+function renderFestivals(){
+  const customCount=FESTIVALS.filter(f=>f.custom).length;
+  let html=`<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+    <h2 style="font-family:Georgia,serif;font-size:22px;color:var(--primary);margin:0">Celebrations Calendar</h2>
+    <div style="display:flex;gap:8px;align-items:center">
+      ${deletedFests.length?`<button onclick="restoreBuiltInCelebrations()" style="padding:7px 14px;border:1px solid #94c8ab;border-radius:8px;background:#f0fdf4;color:#14532d;font-size:12px;cursor:pointer;font-family:inherit">↺ Restore (${deletedFests.length})</button>`:``}
+      <button onclick="openCelebrationForm(null)" style="padding:8px 16px;background:#5B21B6;color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit">➕ Add Celebration</button>
+    </div>
+  </div>`;
+  const nextC=getNextCelebration();
+  const daysUntil=Math.ceil((nextC.date-new Date())/(1000*60*60*24));
+  html+=`<div class="card" style="margin-bottom:20px;border-left:4px solid #5B21B6;padding:16px 20px;display:flex;align-items:center;gap:16px">
+    <span style="font-size:36px">${nextC.emoji}</span>
+    <div><strong style="font-size:16px">${nextC.name}</strong><div style="font-size:13px;color:var(--muted)">Coming up in <strong style="color:#5B21B6">${daysUntil} days</strong> · ${nextC.window||''}</div></div>
+  </div>`;
+ 
+  const seasonOrder=['Spring','Summer','Autumn','Winter'];
+  seasonOrder.forEach(sName=>{
+    const s=SEASONS.find(x=>x.name===sName);
+    const fests=FESTIVALS.filter(f=>f.season===sName);
+    if(!fests.length)return;
+    html+=`<div class="season-section">
+      <div class="season-hdr" style="background:${s.bg};color:${s.fg}">${s.emoji} ${s.name} — ${s.theme}</div>
+      <div class="cards cards-2">${fests.map(f=>`<div class="card festival-card" style="border-color:${s.fg};position:relative">
+        <div class="fest-name">${f.emoji} ${f.name}${f.custom?'<span class="badge badge-custom" style="margin-left:6px">custom</span>':''}</div>
+        <div style="font-size:12px;margin-bottom:4px"><strong>${f.window||monthDayStr(f.month,f.day)}</strong>${f.virtue?' · '+f.virtue:''}${f.arts?' · '+f.arts:''}</div>
+        ${f.theme?`<div class="fest-theme">${f.theme}</div>`:''}
+        ${f.note?`<p style="font-size:12px;margin:8px 0">${f.note}</p>`:''}
+        ${f.acts?`<div class="fest-acts"><strong>Activities:</strong> ${f.acts}</div>`:''}
+        <div style="margin-top:10px;display:flex;gap:6px">
+          <button class="act-edit-btn" onclick="openCelebrationForm('${f.name.replace(/'/g,"\\'")}')">✏️ Edit</button>
+          <button class="act-del-btn" onclick="deleteCelebration('${f.name.replace(/'/g,"\\'")}',${f.custom?'true':'false'})">🗑 Delete</button>
+        </div>
+      </div>`).join('')}</div>
+    </div>`;
+  });
+  /* Unseasoned / custom celebrations without season */
+  const unseasoned=FESTIVALS.filter(f=>!['Spring','Summer','Autumn','Winter'].includes(f.season));
+  if(unseasoned.length){
+    html+=`<div class="season-section"><div class="season-hdr" style="background:#F5F0FF;color:#5B21B6">⭐ Personal Celebrations</div>
+      <div class="cards cards-2">${unseasoned.map(f=>`<div class="card festival-card" style="border-color:#5B21B6;position:relative">
+        <div class="fest-name">${f.emoji} ${f.name}<span class="badge badge-custom" style="margin-left:6px">custom</span></div>
+        <div style="font-size:12px;margin-bottom:4px"><strong>${f.window||monthDayStr(f.month,f.day)}</strong>${f.theme?' — '+f.theme:''}</div>
+        ${f.note?`<p style="font-size:12px;margin:6px 0">${f.note}</p>`:''}
+        <div style="margin-top:8px;display:flex;gap:6px">
+          <button class="act-edit-btn" onclick="openCelebrationForm('${f.name.replace(/'/g,"\\'")}')">✏️ Edit</button>
+          <button class="act-del-btn" onclick="deleteCelebration('${f.name.replace(/'/g,"\\'")}',true)">🗑 Delete</button>
+        </div>
+      </div>`).join('')}</div>
+    </div>`;
+  }
+  $('view-festivals').innerHTML=html;
+}
+ 
+function monthDayStr(m,d){const names=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return names[m]+' '+d}
+ 
+function openCelebrationForm(editName){
+  const existing=editName?FESTIVALS.find(f=>f.name===editName):null;
+  const e=existing||{};const isEdit=!!existing;
+  const seasonOpts=`<option value="Spring"${e.season==='Spring'?' selected':''}>🌱 Spring</option><option value="Summer"${e.season==='Summer'?' selected':''}>☀️ Summer</option><option value="Autumn"${e.season==='Autumn'?' selected':''}>🍂 Autumn</option><option value="Winter"${e.season==='Winter'?' selected':''}>❄️ Winter</option><option value=""${!e.season||e.season===''?' selected':''}>— Personal —</option>`;
+  const m=$('modal-content');
+  m.innerHTML=`<button class="close" onclick="closeModal()">&times;</button>
+    <h2 style="font-family:Georgia,serif;font-size:20px;margin-bottom:14px">${isEdit?'Edit':'Add'} Celebration</h2>
+    <div class="act-form">
+      <label class="full">Name *<input id="cf-name" value="${(e.name||'').replace(/"/g,'&quot;')}" placeholder="e.g. Grandma's Birthday"></label>
+      <label>Emoji<input id="cf-emoji" value="${e.emoji||'🎂'}" style="width:60px"></label>
+      <label>Month * (1-12)<input type="number" id="cf-month" value="${e.month||1}" min="1" max="12"></label>
+      <label>Day *<input type="number" id="cf-day" value="${e.day||1}" min="1" max="31"></label>
+      <label>Season<select id="cf-season">${seasonOpts}</select></label>
+      <label class="full">Date Window / Label<input id="cf-window" value="${e.window||''}" placeholder="e.g. May 15 or Dec 20-25"></label>
+      <label class="full">Theme<input id="cf-theme" value="${(e.theme||'').replace(/"/g,'&quot;')}" placeholder="What is this celebration about?"></label>
+      <label>Virtue<select id="cf-virtue"><option value="">—</option>${VIRTUES.map(v=>`<option value="${v.virtue}"${e.virtue===v.virtue?' selected':''}>${v.emoji} ${v.virtue}</option>`).join('')}</select></label>
+      <label>Arts<input id="cf-arts" value="${e.arts||''}" placeholder="Creative · Social"></label>
+      <label class="full">Notes<textarea id="cf-note" placeholder="Waldorf notes, traditions, how to celebrate...">${e.note||''}</textarea></label>
+      <label class="full">Suggested Activities<input id="cf-acts" value="${e.acts||''}" placeholder="Activity 1 · Activity 2 · Activity 3"></label>
+      <div class="form-btns">
+        <button onclick="closeModal()" style="padding:8px 20px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-family:inherit">Cancel</button>
+        <button onclick="saveCelebration(${isEdit?"'"+editName.replace(/'/g,"\\'")+"'":'null'})" style="padding:8px 24px;background:#5B21B6;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit">${isEdit?'Save Changes':'Add Celebration'}</button>
+      </div>
+    </div>`;
+  $('modal-overlay').classList.add('open');
+  $('modal-overlay').style.alignItems='flex-start';$('modal-overlay').style.paddingTop='24px';
+}
+ 
+function saveCelebration(editName){
+  const name=$('cf-name').value.trim();
+  if(!name){alert('Please enter a name.');return}
+  const c={
+    name,emoji:$('cf-emoji').value||'🎂',
+    month:parseInt($('cf-month').value)||1,day:parseInt($('cf-day').value)||1,
+    season:$('cf-season').value,window:$('cf-window').value.trim(),
+    theme:$('cf-theme').value.trim(),virtue:$('cf-virtue').value,
+    arts:$('cf-arts').value.trim(),note:$('cf-note').value.trim(),
+    acts:$('cf-acts').value.trim(),custom:true
+  };
+  if(editName){
+    const idx=FESTIVALS.findIndex(f=>f.name===editName);
+    if(idx!==-1)FESTIVALS[idx]=c;
+    const cidx=customCelebrations.findIndex(f=>f.name===editName);
+    if(cidx!==-1)customCelebrations[cidx]=c;else customCelebrations.push(c);
+  } else {
+    FESTIVALS.push(c);customCelebrations.push(c);
+  }
+  save('customCeleb',customCelebrations);
+  closeModal();renderFestivals();
+}
+ 
+function deleteCelebration(name,isCustom){
+  if(!confirm('Remove "'+name+'" from your calendar?'))return;
+  const idx=FESTIVALS.findIndex(f=>f.name===name);if(idx!==-1)FESTIVALS.splice(idx,1);
+  if(isCustom){
+    const cidx=customCelebrations.findIndex(f=>f.name===name);if(cidx!==-1)customCelebrations.splice(cidx,1);
+    save('customCeleb',customCelebrations);
+  } else {
+    if(!deletedFests.includes(name))deletedFests.push(name);
+    save('deletedFests',deletedFests);
+  }
+  renderFestivals();
+}
+function restoreBuiltInCelebrations(){
+  if(!confirm('Restore all deleted built-in celebrations?'))return;
+  deletedFests=[];
+  try{localStorage.removeItem('ns_deletedFests')}catch(e){}
+  // Re-add built-ins that were deleted
+  const allBuiltIn=[{name:"New Year's",emoji:"🎆",season:"Winter",window:"Dec 29 – Jan 5",month:1,day:1,virtue:"WHOLENESS",arts:"Creative · Social · Nurturing",theme:"Reflection, renewal, threshold, light in darkness",note:"Candles, star charts, resetting the nature table.",acts:"Candle & star ceremony · Year-in-review collage · New Year songs (3 languages)"},{name:"Valentine's Day",emoji:"💝",season:"Winter",window:"Feb 10–14",month:2,day:14,virtue:"BEAUTY",arts:"Creative · Social",theme:"Love for family, handmade gifts",note:"Focused on giving love through making.",acts:"Handmade cards · Heart beeswax cookies · Love songs"},{name:"Easter",emoji:"🥚",season:"Spring",window:"Apr 5, 2026",month:4,day:5,virtue:"BEAUTY",arts:"Creative · Domestic · Discovery",theme:"New life, emergence, spring symbols",note:"Natural dyeing, beeswax egg making.",acts:"Natural egg dyeing · Beeswax eggs · Garden egg hunt"},{name:"Christmas",emoji:"🎄",season:"Winter",window:"Dec 15–25",month:12,day:25,virtue:"BEAUTY",arts:"Creative · Domestic · Social",theme:"Light in darkness, making and gifting",note:"Waldorf Advent: four candles, handmade gifts.",acts:"Salt dough ornaments · Natural gift wrapping · Candle ceremony"}];
+  allBuiltIn.forEach(f=>{if(!FESTIVALS.find(x=>x.name===f.name))FESTIVALS.push(f)});
+  renderFestivals();
+}
+ 
+/* === LOG === */
+function renderLog(){
+  let html=`<h2 class="section-title">Activity Log</h2>`;
+  html+=`<div class="log-form">
+    <label>Date<input type="date" id="log-date" value="${new Date().toISOString().slice(0,10)}"></label>
+    <label>Activity<select id="log-activity">${ACTIVITIES.map(a=>`<option value="${a.id}">${a.name}</option>`).join('')}</select></label>
+    <label>Duration (min)<input type="number" id="log-duration" value="20" min="1"></label>
+    <label>Notes<input type="text" id="log-notes" placeholder="Optional notes..."></label>
+    <button onclick="submitLog()">📝 Log Activity</button>
+  </div>`;
+ 
+  // Recent entries
+  const recent=logEntries.slice(-30).reverse();
+  if(recent.length){
+    html+=`<table class="log-table"><thead><tr><th>Date</th><th>Activity</th><th>Art</th><th>Duration</th><th>Notes</th><th></th></tr></thead><tbody>`;
+    recent.forEach((e,i)=>{
+      const act=ACTIVITIES.find(a=>a.id===e.activityId);
+      html+=`<tr><td>${e.date}</td><td>${act?act.name:'?'}</td><td>${act?artBadge(act.art):''}</td><td>${e.duration} min</td><td>${e.notes||''}</td><td><button onclick="deleteLog(${logEntries.length-1-i})" style="border:none;background:none;cursor:pointer;color:var(--muted)">✕</button></td></tr>`;
+    });
+    html+=`</tbody></table>`;
+  }
+ 
+  // Texas discipline summary
+  html+=`<div class="tx-summary"><h3 class="section-title">Texas Homeschool Summary</h3>`;
+  html+=`<div class="tx-row hdr"><div>Discipline</div><div>Primary Art</div><div>Sessions Logged</div></div>`;
+  TX_DISCIPLINES.forEach(([disc,art,note])=>{
+    let count=0;
+    if(disc==='Turkish Language Arts'){count=logEntries.filter(e=>{const a=ACTIVITIES.find(x=>x.id===e.activityId);return a&&a.lang==='TR'}).length}
+    else if(disc==='Italian Language Arts'){count=logEntries.filter(e=>{const a=ACTIVITIES.find(x=>x.id===e.activityId);return a&&a.lang==='IT'}).length}
+    else if(disc==='Early Childhood Development'){count=logEntries.length}
+    else{count=logEntries.filter(e=>{const a=ACTIVITIES.find(x=>x.id===e.activityId);return a&&(a.disc||'').toLowerCase().includes(disc.toLowerCase().split(' ')[0])}).length}
+    html+=`<div class="tx-row" style="background:${count>0?'#F0FFF0':'#FFF5F5'}"><div>${disc}</div><div>${art}</div><div>${count}</div></div>`;
+  });
+  html+=`</div>`;
+  $('view-log').innerHTML=html;
+}
+ 
+function submitLog(){
+  const entry={
+    date:$('log-date').value,
+    activityId:parseInt($('log-activity').value),
+    duration:parseInt($('log-duration').value),
+    notes:$('log-notes').value,
+    timestamp:Date.now()
+  };
+  logEntries.push(entry);
+  save('log',logEntries);
+  renderLog();
+}
+function quickLog(actId){
+  switchView('log');
+  setTimeout(()=>{$('log-activity').value=actId},100);
+}
+function deleteLog(idx){
+  if(idx>=0&&idx<logEntries.length){logEntries.splice(idx,1);save('log',logEntries);renderLog()}
+}
+ 
+/* === ADD / EDIT ACTIVITY FORM === */
+function openActivityForm(id){
+  const existing=id!=null?ACTIVITIES.find(a=>a.id===id):null;
+  const isEdit=!!existing;const e=existing||{};
+  const artOpts=Object.keys(ARTS).map(a=>`<option value="${a}"${e.art===a?' selected':''}>${ARTS[a].emoji} ${a}</option>`).join('');
+  const arts2Opts=`<option value="">None</option>`+Object.keys(ARTS).map(a=>`<option value="${a}"${e.arts2===a?' selected':''}>${ARTS[a].emoji} ${a}</option>`).join('');
+  const virtueOpts=VIRTUES.map(v=>`<option value="${v.virtue}"${e.virtue===v.virtue?' selected':''}>${v.emoji} ${v.virtue}</option>`).join('');
+  const seasonOpts=`<option value="All"${(e.seasons||'All')==='All'?' selected':''}>All Seasons</option>`+SEASONS.map(s=>`<option value="${s.name}"${e.seasons===s.name?' selected':''}>${s.emoji} ${s.name}</option>`).join('');
+  const festOpts=`<option value="">No Festival</option>`+FESTIVALS.map(f=>`<option value="${f.name}"${e.festival===f.name?' selected':''}>${f.emoji} ${f.name}</option>`).join('');
+  const langOpts=[['EN','🇺🇸 English'],['TR','🇹🇷 Turkish'],['IT','🇮🇹 Italian'],['Multilingual','🌐 Multilingual']].map(([v,l])=>`<option value="${v}"${(e.lang||'EN')===v?' selected':''}>${l}</option>`).join('');
+  const m=$('modal-content');
+  m.innerHTML=`<button class="close" onclick="closeModal()">&times;</button>
+    <h2 style="font-family:Georgia,serif;font-size:20px;margin-bottom:4px">${isEdit?'Edit Activity':'Add New Activity'}</h2>
+    ${isEdit&&!e.custom?'<p style="font-size:12px;color:#5B21B6;margin-bottom:8px">Editing a built-in activity — your changes will be saved and persist across sessions.</p>':''}
+    <div class="act-form">
+      <label class="full">Activity Name *<input id="af-name" value="${(e.name||'').replace(/"/g,'&quot;')}" placeholder="e.g. Morning Sensory Walk"></label>
+      <label>Primary Art *<select id="af-art">${artOpts}</select></label>
+      <label>Secondary Art<select id="af-arts2">${arts2Opts}</select></label>
+      <label>Day Virtue *<select id="af-virtue">${virtueOpts}</select></label>
+      <label>Language<select id="af-lang">${langOpts}</select></label>
+      <label>Min Duration (min)<input type="number" id="af-min" value="${e.min||15}" min="1"></label>
+      <label>Max Duration (min)<input type="number" id="af-max" value="${e.max||45}" min="1"></label>
+      <label>Setup (min)<input type="number" id="af-setup" value="${e.setup||5}" min="0"></label>
+      <label>Cleanup (min)<input type="number" id="af-cleanup" value="${e.cleanup||0}" min="0"></label>
+      <label>Age Range<input id="af-age" value="${e.age||'18m+'}" placeholder="18m+"></label>
+      <label>Weekly Target<input type="number" id="af-target" value="${e.target||1}" min="1"></label>
+      <label>Seasons<select id="af-seasons">${seasonOpts}</select></label>
+      <label>Festival<select id="af-festival">${festOpts}</select></label>
+      <label class="full">Description *<textarea id="af-desc" placeholder="What is this activity? What does the child experience?">${e.desc||''}</textarea></label>
+      <label class="full">TX Disciplines<input id="af-disc" value="${e.disc||''}" placeholder="e.g. Visual Arts · Motor Dev · SEL"></label>
+      <label class="full">Required Materials<input id="af-matmin" value="${(e.matMin||'').replace(/"/g,'&quot;')}" placeholder="e.g. Paper · watercolour paints · brush"></label>
+      <label class="full">Optional Materials<input id="af-matopt" value="${(e.matOpt||'').replace(/"/g,'&quot;')}" placeholder="e.g. Apron · table cover"></label>
+      <div class="form-btns">
+        <button onclick="closeModal()" style="padding:8px 20px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer;font-family:inherit">Cancel</button>
+        <button onclick="saveActivityForm(${isEdit?id:'null'})" style="padding:8px 24px;background:#5B21B6;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit">${isEdit?'Save Changes':'Add to Catalog'}</button>
+      </div>
+    </div>`;
+  $('modal-overlay').classList.add('open');
+  $('modal-overlay').style.alignItems='flex-start';
+  $('modal-overlay').style.paddingTop='24px';
+}
+ 
+function saveActivityForm(id){
+  const name=$('af-name').value.trim();
+  if(!name){alert('Please enter an activity name.');return}
+  const act={
+    id:id!=null?id:nextCustomId++,
+    name,
+    art:$('af-art').value,
+    arts2:$('af-arts2').value,
+    virtue:$('af-virtue').value,
+    lang:$('af-lang').value,
+    min:parseInt($('af-min').value)||15,
+    max:parseInt($('af-max').value)||45,
+    setup:parseInt($('af-setup').value)||5,
+    cleanup:parseInt($('af-cleanup').value)||0,
+    age:$('af-age').value||'18m+',
+    seasons:$('af-seasons').value||'All',
+    festival:$('af-festival').value||'',
+    target:parseInt($('af-target').value)||1,
+    desc:$('af-desc').value.trim(),
+    disc:$('af-disc').value.trim(),
+    matMin:$('af-matmin').value.trim(),
+    matOpt:$('af-matopt').value.trim(),
+    custom:true
+  };
+  /* Update ACTIVITIES array */
+  const idx=ACTIVITIES.findIndex(a=>a.id===act.id);
+  if(idx!==-1)ACTIVITIES[idx]=act;else ACTIVITIES.push(act);
+  /* Update customActivities (persisted) */
+  const cidx=customActivities.findIndex(a=>a.id===act.id);
+  if(cidx!==-1)customActivities[cidx]=act;else customActivities.push(act);
+  save('customActs',customActivities);
+  closeModal();
+  renderCatalog();
+}
+ 
+function deleteCustomActivity(id){
+  if(!confirm('Delete this activity from the catalog?'))return;
+  const idx=ACTIVITIES.findIndex(a=>a.id===id);if(idx!==-1)ACTIVITIES.splice(idx,1);
+  const cidx=customActivities.findIndex(a=>a.id===id);if(cidx!==-1)customActivities.splice(cidx,1);
+  save('customActs',customActivities);
+  if(currentView==='catalog')renderCatalog();
+}
+ 
+/* === GUIDE / REFERENCE TABS === */
+function renderGuide(){
+  let html=`<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px" id="guide-tabs">
+    <button class="cat-tab active" id="gtab-virtues" onclick="showGuideTab('virtues')">🌙 Days & Virtues</button>
+    <button class="cat-tab" id="gtab-pillars" onclick="showGuideTab('pillars')">🏛️ Pillars Guide</button>
+  </div>
+  <div id="guide-content"></div>`;
+  $('view-guide').innerHTML=html;
+  showGuideTab('virtues');
+}
+ 
+function showGuideTab(tab){
+  document.querySelectorAll('#guide-tabs .cat-tab').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('gtab-'+tab);if(btn)btn.classList.add('active');
+  const c=$('guide-content');
+  if(tab==='virtues') c.innerHTML=renderVirtuesGuide();
+  else c.innerHTML=renderPillarsGuide();
+}
+ 
+function renderVirtuesGuide(){
+  let html=`<p style="font-size:14px;color:var(--muted);margin-bottom:20px;max-width:700px">Each day of the week is shaped by a Roman god and a one-word virtue. This is not just a name — it changes how activities are offered, what spirit the day carries, and what the child practises most.</p>`;
+  html+=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px">`;
+  VIRTUES.forEach(v=>{
+    const actCount=ACTIVITIES.filter(a=>a.virtue===v.virtue).length;
+    html+=`<div class="card" style="border-left:5px solid ${v.color};background:${v.bg}20">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <span style="font-size:32px">${v.emoji}</span>
+        <div>
+          <div style="font-size:18px;font-weight:700;color:${v.color}">${v.day}</div>
+          <div style="font-size:12px;color:var(--muted)">${v.god} · ${v.virtue}</div>
+        </div>
+        <div style="margin-left:auto;width:32px;height:32px;border-radius:50%;background:${v.bg};border:2px solid ${v.color}"></div>
+      </div>
+      <div style="font-size:13px;font-style:italic;color:var(--text);margin-bottom:8px">"${v.spirit}"</div>
+      <div style="font-size:12px;margin-bottom:6px"><strong>Sub-values:</strong> <span style="color:var(--muted)">${v.subs}</span></div>
+      <div style="font-size:12px;margin-bottom:6px"><strong>Primary Art:</strong> ${artBadge(v.priArt)} <strong style="margin-left:6px">Secondary:</strong> ${artBadge(v.secArt)}</div>
+      <div style="font-size:12px;margin-bottom:6px"><strong>Waldorf element:</strong> <span style="color:var(--muted)">${v.waldorf}</span></div>
+      <div style="font-size:11px;color:#5B21B6;margin-top:8px">${actCount} activities in catalog</div>
+    </div>`;
+  });
+  html+=`</div>`;
+ 
+  html+=`<h3 class="section-title" style="margin-top:32px">At a Glance — Full Week</h3>`;
+  html+=`<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)">
+    <thead><tr>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px;text-align:left">Day</th>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px">God</th>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px">Virtue</th>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px">Spirit</th>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px">Primary Art</th>
+      <th style="background:var(--primary);color:#fff;padding:10px 12px">Sub-values</th>
+    </tr></thead>
+    <tbody>${VIRTUES.map(v=>`<tr style="background:${v.bg}40">
+      <td style="padding:10px 12px;font-weight:700;border-bottom:1px solid var(--border)"><span style="color:${v.color}">${v.emoji} ${v.day}</span></td>
+      <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:center">${v.god}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-weight:600;color:${v.color}">${v.virtue}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-style:italic;color:var(--muted);font-size:12px">${v.spirit}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid var(--border)">${artBadge(v.priArt)}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:11px;color:var(--muted)">${v.subs}</td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+  return html;
+}
+ 
+function renderPillarsGuide(){
+  const pillars=[
+    {day:"Monday",virtue:"NURTURE",color:"#5b21b6",bg:"#ceb6fe",items:[
+      {name:"Care & Nurture",desc:"Tending to physical and emotional needs. Daily rituals of feeding, rest, bathing, and gentle touch.",art:"Nurturing Arts",why:"Nurturing Arts is the curriculum domain for all self-care and body rhythm activities."},
+      {name:"Emotional Awareness",desc:"Naming feelings, body-scan practice, emotional vocabulary, stories that model empathy.",art:"Social Arts",why:"Social Arts carries empathy, emotional literacy, and relational skills."},
+      {name:"Home & Belonging",desc:"Rituals that make the child feel anchored: morning hello, threshold songs, place in the home.",art:"Domestic Arts",why:"Domestic Arts is the art of home — the skills and beauty of family life."}
+    ]},
+    {day:"Tuesday",virtue:"VIGOR",color:"#7c2d12",bg:"#f8ae9d",items:[
+      {name:"Strength & Movement",desc:"Gross motor play, climbing, jumping, carrying, outdoor physical challenge.",art:"Nurturing Arts",why:"Nurturing Arts includes physical health, motor development, and embodied learning."},
+      {name:"Courage & Will",desc:"Trying hard things, persisting, bravery stories, first attempts at new skills.",art:"Social Arts",why:"Social Arts develops character virtues through community, story, and challenge."},
+      {name:"Agency & Action",desc:"Child-led doing, real tools, purposeful tasks with visible results.",art:"Domestic Arts",why:"Domestic Arts teaches that the child's hands can produce real, useful results."}
+    ]},
+    {day:"Wednesday",virtue:"EXPRESSION",color:"#713f12",bg:"#f8e58c",items:[
+      {name:"Language & Expression",desc:"Reading, storytelling, speaking, singing, trilingual vocabulary building.",art:"Language Arts",why:"Language Arts is the dedicated trilingual domain (EN/TR/IT)."},
+      {name:"Patterns & Thinking",desc:"Sequences, sorting, early logic, noticing rhythm and structure in the world.",art:"Discovery Arts",why:"Discovery Arts holds mathematical and scientific thinking — patterns are its foundation."},
+      {name:"Curiosity & Exchange",desc:"Questions, conversations, sharing ideas, exploring and telling what you noticed.",art:"Language Arts",why:"Language as communication and inquiry sits in Language Arts; Discovery Arts holds the 'why'."}
+    ]},
+    {day:"Thursday",virtue:"WISDOM",color:"#7c3a00",bg:"#fcc493",items:[
+      {name:"Exploration & Growth",desc:"Science experiments, nature observation, discovery walks, cause-and-effect play.",art:"Discovery Arts",why:"Discovery Arts is the home of scientific inquiry, experimentation, and nature study."},
+      {name:"Wisdom & Story",desc:"Virtue fables, oral tradition, cultural stories, learning from the past.",art:"Language Arts",why:"Language Arts carries storytelling; stories are how wisdom travels through time."},
+      {name:"Generosity & Trust",desc:"Sharing discoveries, trusting others, community science, learning together.",art:"Social Arts",why:"Social Arts teaches that knowledge and gifts are best when shared."}
+    ]},
+    {day:"Friday",virtue:"BEAUTY",color:"#14532d",bg:"#94c8ab",items:[
+      {name:"Beauty & Artistry",desc:"Deep art sessions: painting, modelling, drawing, craft, music, singing.",art:"Creative Arts",why:"Creative Arts is the dedicated art-making domain — the heart of beauty."},
+      {name:"Relationship & Harmony",desc:"Gift-making, gratitude practices, acts of love, family celebration.",art:"Social Arts",why:"Social Arts carries the relational and connective dimension of life."},
+      {name:"Joy & Sensory Pleasure",desc:"Sensory play, taste, smell, texture, aesthetic appreciation, delight.",art:"Nurturing Arts",why:"Nurturing Arts holds sensory experience, wellbeing, and being alive in the body."}
+    ]},
+    {day:"Saturday",virtue:"MASTERY",color:"#1e3a5f",bg:"#94b3dc",items:[
+      {name:"Responsibility & Stewardship",desc:"Caring for the garden, cleaning, composting, tending to animals or plants.",art:"Domestic Arts",why:"Domestic Arts holds stewardship of home and earth as a primary virtue."},
+      {name:"Making & Mastery",desc:"Baking from scratch, sewing, building, finishing what is started.",art:"Domestic Arts",why:"Saturn's energy is the slow, skilled completion of real work — Domestic Arts embodies this."},
+      {name:"Order & Completion",desc:"Tidying, sequencing tasks, the satisfaction of a job well done.",art:"Creative Arts",why:"Creative Arts (crafts) teaches that making something beautiful requires discipline and completion."}
+    ]},
+    {day:"Sunday",virtue:"WHOLENESS",color:"#4b5563",bg:"#ffffff",items:[
+      {name:"Vitality & Wholeness",desc:"Rest, family time, outdoor freedom, being fully present and alive.",art:"Nurturing Arts",why:"Nurturing Arts holds the rhythms of rest and vitality that make deep learning possible."},
+      {name:"Identity & Meaning",desc:"Family story, gratitude, celebrating the week, knowing who you are.",art:"Social Arts",why:"Social Arts carries identity, community, and the meaning we make together."},
+      {name:"Integration & Presence",desc:"Free art, free play, the child choosing their own activity — consolidating the week.",art:"All Arts",why:"Sunday is the breath-out of the week. All arts are welcome; the child leads."}
+    ]}
+  ];
+ 
+  let html=`<p style="font-size:14px;color:var(--muted);margin-bottom:20px;max-width:700px">The original 21 pillars (3 per day) were restructured into 6 Arts domains and 7 Day Virtues. Nothing was lost — each pillar now lives as a sub-value of its day's virtue, and maps clearly to an Art. This table shows exactly how they connect.</p>`;
+ 
+  pillars.forEach(p=>{
+    html+=`<div style="margin-bottom:24px">
+      <div style="background:${p.bg};color:${p.color};padding:10px 16px;border-radius:var(--radius);font-weight:700;font-size:16px;margin-bottom:10px;border-left:4px solid ${p.color}">
+        ${VIRTUES.find(v=>v.virtue===p.virtue)?.emoji||''} ${p.day} — ${p.virtue}
+      </div>
+      <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)">
+        <thead><tr>
+          <th style="background:${p.color};color:#fff;padding:8px 12px;text-align:left;width:180px">Pillar (Sub-value)</th>
+          <th style="background:${p.color};color:#fff;padding:8px 12px;text-align:left">What it covers</th>
+          <th style="background:${p.color};color:#fff;padding:8px 12px;text-align:left;width:140px">Art Domain</th>
+          <th style="background:${p.color};color:#fff;padding:8px 12px;text-align:left">Why this Art</th>
+        </tr></thead>
+        <tbody>${p.items.map((item,i)=>`<tr style="background:${i%2===0?'#fff':p.bg+'30'}">
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-weight:600">${item.name}</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted)">${item.desc}</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border)">${item.art==='All Arts'?'<span style="font-size:11px;color:var(--muted)">All Arts</span>':artBadge(item.art)}</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted);font-style:italic">${item.why}</td>
+        </tr>`).join('')}</tbody>
+      </table></div>
+    </div>`;
+  });
+ 
+  html+=`<div class="card" style="margin-top:8px;background:#F9F7FF;border-left:4px solid #5B21B6;padding:16px 20px">
+    <strong style="color:#5B21B6">Summary:</strong> <span style="font-size:13px">21 pillars → 6 Arts × 7 Virtues. Every original pillar is preserved as a sub-value under its day. The Arts tell you <em>what</em> domain to develop; the Virtues tell you <em>how and why</em> to offer it that day.</span>
+  </div>`;
+  return html;
+}
+ 
+/* === INIT === */
+renderDashboard();
+ 
+</script></body></html>
