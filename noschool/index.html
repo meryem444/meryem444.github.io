@@ -161,7 +161,7 @@ main{max-width:1400px;margin:0 auto;padding:20px}
 <section id="view-guide" class="view"></section>
 <div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal-content"></div></div>
 <div id="pick-overlay" class="pick-overlay" onclick="if(event.target===this)closePick()"><div class="pick-modal" id="pick-content"></div></div>
- 
+
 <script>
 const ARTS={
 "Creative Arts":{emoji:"🎨",color:"#9B59B6",bg:"#EDE0F5",fg:"#5A0070",cls:"creative"},
@@ -223,7 +223,7 @@ const SEASONS=[
 {name:"Autumn",emoji:"🍂",months:[9,10,11],bg:"#FDEBD0",fg:"#7A3000",theme:"Gathering in · Warmth · Storytelling"},
 {name:"Winter",emoji:"❄️",months:[12,1,2],bg:"#D6E4F0",fg:"#0A4A8A",theme:"Stillness · Inner world · Candles · Rest"}
 ];
- 
+
 const A=[
 // [name, art, arts2, virtue, disc, age, seasons, festival, lang, setup,min,max,cleanup, matMin, matOpt, desc, target]
 ["Body Scan Meditation","Nurturing Arts","Social Arts","NURTURE","Health Ed · SEL","18m+","All","","EN",2,5,10,0,"Calm room · parent voice","Soft music · yoga mat","Guided body awareness building emotional regulation",1],
@@ -292,14 +292,14 @@ const A=[
 ["Magnet Exploration","Discovery Arts","","WISDOM","Physical Science · Inquiry","2y+","All","","EN",5,15,30,5,"Magnet · varied objects","Sorting mat","Test what sticks to magnets. Scientific classification begins here.",1],
 ["Nature Journaling","Discovery Arts","Language Arts","WISDOM","Life Sciences · Literacy","2y+","All","","EN",5,15,30,0,"Blank journal · pencils","Magnifying glass · coloured pencils","Weekly observation drawing, dated. Parent writes child's words.",2],
 ["Cloud & Sky Observation","Discovery Arts","Language Arts","WISDOM","Earth & Space · Inquiry","18m+","All","","EN",2,10,20,0,"Open sky","Blanket · cloud chart","Lie on backs and observe clouds. Name types, invent stories, track weather.",2],
-["Shadow & Sun Tracking","Discovery Arts","Creative Arts","WISDOM","Earth & Space · Physical Science","18m+","Spring,Summer,Autumn","Summer Solstice",5,15,30,5,"Sunny day · chalk · outdoors","Gnomon stick","Trace shadows at different times. Earth, sun, and time made visible.",1],
-["Garden Planting & Care","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Life Skills","18m+","Spring,Summer,Autumn","Earth Day",10,20,45,10,"Seeds · soil · watering can","Trowel · garden journal","Plant, water, weed, observe. The most elemental domestic art.",3],
+["Shadow & Sun Tracking","Discovery Arts","Creative Arts","WISDOM","Earth & Space · Physical Science","18m+","Spring,Summer,Autumn","Summer Solstice","EN",5,15,30,5,"Sunny day · chalk · outdoors","Gnomon stick","Trace shadows at different times. Earth, sun, and time made visible.",1],
+["Garden Planting & Care","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Life Skills","18m+","Spring,Summer,Autumn","Earth Day","EN",10,20,45,10,"Seeds · soil · watering can","Trowel · garden journal","Plant, water, weed, observe. The most elemental domestic art.",3],
 ["Bread Baking","Domestic Arts","Discovery Arts","MASTERY","Life Skills · Physical Science · Math","2y+","All","","EN",15,60,90,15,"Flour · water · yeast · salt","Stand mixer · loaf tin","Full bread-making. Math, science, patience, and nourishment.",1],
-["Composting & Soil","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Earth Science","18m+","Spring,Summer,Autumn","Earth Day",5,15,25,5,"Compost bin · trowel","Magnifying glass · worm guide","Turn compost, observe worms, learn what decomposes. Ecology.",1],
+["Composting & Soil","Domestic Arts","Discovery Arts","MASTERY","Life Sciences · Earth Science","18m+","Spring,Summer,Autumn","Earth Day","EN",5,15,25,5,"Compost bin · trowel","Magnifying glass · worm guide","Turn compost, observe worms, learn what decomposes. Ecology.",1],
 ["Simple Sewing","Domestic Arts","Creative Arts","MASTERY","Tools & Crafts · Motor Dev","3y+","All","","EN",5,20,40,5,"Large needle · thick yarn · burlap","Embroidery hoop","Age-graduated handwork. Weaving, then running stitch. Focus + making.",1],
-["Flower Arrangement","Domestic Arts","Creative Arts","BEAUTY","Visual Arts · Life Sciences","18m+","Spring,Summer,Autumn","Mother's Day",5,15,25,5,"Fresh flowers · vase","Ribbons · seasonal greenery","Cut and arrange flowers for the table. Aesthetic education.",2],
+["Flower Arrangement","Domestic Arts","Creative Arts","BEAUTY","Visual Arts · Life Sciences","18m+","Spring,Summer,Autumn","Mother's Day","EN",5,15,25,5,"Fresh flowers · vase","Ribbons · seasonal greenery","Cut and arrange flowers for the table. Aesthetic education.",2],
 ["Morning Circle & Verse","Nurturing Arts","Language Arts","NURTURE","Personal Wellness · Language","18m+","All","","Multilingual",3,10,20,0,"Seasonal verse · circle space","Candle · seasonal object","Daily circle: verse, song, movement, seasonal greeting. Waldorf anchor.",7],
-["Barefoot Nature Walk","Nurturing Arts","Discovery Arts","NURTURE","Personal Wellness · Earth Sci","18m+","Spring,Summer,Autumn","",5,20,40,0,"Safe outdoor space","Nature bag · journal","Walk barefoot on grass, soil, sand. Sensory grounding, earth connection.",2],
+["Barefoot Nature Walk","Nurturing Arts","Discovery Arts","NURTURE","Personal Wellness · Earth Sci","18m+","Spring,Summer,Autumn","","EN",5,20,40,0,"Safe outdoor space","Nature bag · journal","Walk barefoot on grass, soil, sand. Sensory grounding, earth connection.",2],
 ["Breathwork for Kids","Nurturing Arts","Social Arts","NURTURE","Personal Wellness · SEL","18m+","All","","EN",2,5,15,0,"Quiet space","Pinwheel · feather · bubble wand","Simple breathing: belly breathing, bee breath, candle breath.",2],
 ["Water Sensory Play","Nurturing Arts","Discovery Arts","NURTURE","Physical Science · Motor Dev","18m+","All","","EN",5,20,40,10,"Water basin · containers","Food colouring · funnels","Pouring, filling, splashing. Tactile, calming, scientific.",3],
 ["Virtue Fable & Discussion","Social Arts","Language Arts","WISDOM","SEL · Ethical Reasoning","2y+","All","","EN",3,15,25,0,"Aesop or Roman fable book","Puppet to act it out","Read a virtue fable, discuss the moral. Moral imagination from year one.",2],
@@ -350,7 +350,7 @@ const TX_DISCIPLINES=[
 ["Cross-Disciplinary / 21st Century","Social Arts","SEL, critical thinking, collaboration, ethics"],
 ["Early Childhood Development","All Arts","Human development, family & community"]
 ];
- 
+
 /* === STATE === */
 let currentView='dashboard', plannerWeekStart=getMonday(new Date()), plannerData=load('planner',{}), logEntries=load('log',[]), pickTarget=null;
 let catalogView='table', catalogSort={col:'name',asc:true};
@@ -359,17 +359,17 @@ let catalogFilters={search:'',art:'',virtue:'',season:'',lang:'',festival:''};
 let customActivities=load('customActs',[]);
 let nextCustomId=10000;
 customActivities.forEach(a=>{const idx=ACTIVITIES.findIndex(x=>x.id===a.id);if(idx!==-1)ACTIVITIES[idx]=a;else ACTIVITIES.push(a);if(a.id>=nextCustomId)nextCustomId=a.id+1});
- 
+
 /* Custom celebrations (birthdays, anniversaries, etc) — merge into FESTIVALS */
 let customCelebrations=load('customCeleb',[]);
 customCelebrations.forEach(c=>{if(!FESTIVALS.find(f=>f.name===c.name&&f.month===c.month))FESTIVALS.push(c)});
 /* Track deleted built-in celebrations */
 let deletedFests=load('deletedFests',[]);
 deletedFests.forEach(name=>{const i=FESTIVALS.findIndex(f=>f.name===name&&!f.custom);if(i!==-1)FESTIVALS.splice(i,1)});
- 
+
 /* Editable time blocks — persisted override of defaults */
 let timeBlocks=load('timeBlocks',null)||DEFAULT_TIME_BLOCKS.map(tb=>[...tb]);
- 
+
 /* === HELPERS === */
 function save(k,v){try{localStorage.setItem('ns_'+k,JSON.stringify(v))}catch(e){}}
 function load(k,d){try{const v=localStorage.getItem('ns_'+k);return v?JSON.parse(v):d}catch(e){return d}}
@@ -377,7 +377,7 @@ function $(id){return document.getElementById(id)}
 function qs(sel,el){return (el||document).querySelector(sel)}
 function qsa(sel,el){return (el||document).querySelectorAll(sel)}
 function h(tag,cls,html){return `<${tag} class="${cls||''}">${html||''}</${tag}>`}
- 
+
 function getCurrentSeason(){const m=new Date().getMonth()+1;return SEASONS.find(s=>s.months.includes(m))}
 function getNextCelebration(){const now=new Date(),y=now.getFullYear();
   const all=FESTIVALS.map(f=>{const day=f.day||15;let d=new Date(y,f.month-1,day);if(d<now)d=new Date(y+1,f.month-1,day);return{...f,date:d}});
@@ -387,12 +387,12 @@ function addDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r}
 function fmtDate(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
 function fmtDateFull(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
 function weekKey(d){return d.toISOString().slice(0,10)}
- 
+
 function artBadge(art){if(!art)return'';const a=ARTS[art];return a?`<span class="badge badge-${a.cls}">${a.emoji} ${art}</span>`:art.split('·').map(x=>x.trim()).filter(Boolean).map(x=>{const a2=ARTS[x];return a2?`<span class="badge badge-${a2.cls}">${a2.emoji} ${x}</span>`:`<span class="badge">${x}</span>`}).join('')}
 function langBadge(l){if(!l)return'';return `<span class="badge badge-lang">${l==='EN'?'🇺🇸':l==='TR'?'🇹🇷':l==='IT'?'🇮🇹':'🌐'} ${l}</span>`}
 function seasonBadge(s){return s?`<span class="badge badge-season">${s}</span>`:''}
 function festBadge(f){return f?`<span class="badge badge-festival">🎪 ${f}</span>`:''}
- 
+
 /* === TAB SWITCHING === */
 function switchView(view){
   currentView=view;
@@ -404,25 +404,25 @@ function switchView(view){
   const renderers={dashboard:renderDashboard,planner:renderPlanner,catalog:renderCatalog,festivals:renderFestivals,log:renderLog,guide:renderGuide};
   if(renderers[view])renderers[view]();
 }
- 
+
 /* === DASHBOARD === */
 function renderDashboard(){
   const now=new Date(), dayIdx=now.getDay()===0?6:now.getDay()-1, virtue=VIRTUES[dayIdx], season=getCurrentSeason(), nextFest=getNextCelebration();
   const daysUntil=Math.ceil((nextFest.date-now)/(1000*60*60*24));
   const todayLogs=logEntries.filter(e=>e.date===now.toISOString().slice(0,10));
   const totalLogged=todayLogs.reduce((s,e)=>s+(e.duration||0),0);
- 
+
   let html=`<div class="virtue-banner" style="background:${virtue.bg};color:${virtue.color}">
     <div class="emoji">${virtue.emoji}</div>
     <div class="info"><h2>${virtue.day} — ${virtue.virtue}</h2><p>${virtue.god}'s day · ${virtue.spirit}</p></div>
   </div>`;
- 
+
   html+=`<div class="dash-grid">
     <div class="dash-card" style="background:${season.bg};color:${season.fg}"><div class="big">${season.emoji}</div><div class="label">Current Season</div><div class="sub">${season.name} — ${season.theme}</div></div>
     <div class="dash-card" style="background:${nextFest.season==='Spring'?'#C8EDD8':nextFest.season==='Summer'?'#FFF5C0':nextFest.season==='Autumn'?'#FDEBD0':'#D6E4F0'}"><div class="big">${nextFest.emoji}</div><div class="label">Next Celebration</div><div class="sub">${nextFest.name} — ${daysUntil} days</div></div>
     <div class="dash-card" style="background:#F0F4FF"><div class="big">${todayLogs.length}</div><div class="label">Logged Today</div><div class="sub">${totalLogged} min</div></div>
   </div>`;
- 
+
   html+=h('h3','section-title','Today\'s Suggested Activities');
   const suggested=ACTIVITIES.filter(a=>{
     const matchVirtue=a.virtue===virtue.virtue;
@@ -435,7 +435,7 @@ function renderDashboard(){
     <div class="desc">${a.desc}</div>
     <div class="meta">${a.min}–${a.max} min · ${a.age}</div>
   </div>`).join('')}</div>`;
- 
+
   html+=h('h3','section-title','Weekly Arts Balance');
   const wk=weekKey(plannerWeekStart);
   const weekLogs=logEntries.filter(e=>{const d=new Date(e.date);return d>=plannerWeekStart&&d<addDays(plannerWeekStart,7)});
@@ -444,10 +444,10 @@ function renderDashboard(){
   html+=`<div style="display:flex;gap:12px;flex-wrap:wrap">${Object.entries(ARTS).map(([name,a])=>`<div style="background:${a.bg};color:${a.fg};padding:12px 16px;border-radius:8px;text-align:center;min-width:120px">
     <div style="font-size:24px">${a.emoji}</div><div style="font-size:12px;font-weight:600">${name}</div><div style="font-size:20px;font-weight:700">${artCounts[name]||0}</div>
   </div>`).join('')}</div>`;
- 
+
   $('view-dashboard').innerHTML=html;
 }
- 
+
 /* === CATALOG === */
 function renderCatalog(){
   const customCount=ACTIVITIES.filter(a=>a.custom).length;
@@ -464,7 +464,7 @@ function renderCatalog(){
       <button onclick="openActivityForm(null)" style="padding:8px 16px;background:#5B21B6;color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px">➕ Add Activity</button>
     </div>
   </div>`;
- 
+
   /* Art tabs */
   html+=`<div class="cat-tabs">
     <button class="cat-tab${!catalogFilters.art?' active':''}" onclick="setCatTab('')">All <small>(${ACTIVITIES.length})</small></button>`;
@@ -474,7 +474,7 @@ function renderCatalog(){
   });
   if(customCount) html+=`<button class="cat-tab${catalogFilters.art==='__custom__'?' active':''}" onclick="setCatTab('__custom__')">⭐ My Activities <small>(${customCount})</small></button>`;
   html+=`</div>`;
- 
+
   /* Filter row */
   html+=`<div class="filters" style="margin-top:10px;padding-top:10px">
     <input type="text" placeholder="🔍 Search…" id="cat-search" value="${catalogFilters.search}" oninput="catalogFilters.search=this.value.toLowerCase();renderCatalogBody()" style="width:220px">
@@ -493,27 +493,27 @@ function renderCatalog(){
     </select>
     <button onclick="clearCatFilters()" style="padding:5px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);font-size:12px;cursor:pointer;color:var(--muted);font-family:inherit">✕ Clear</button>
   </div>`;
- 
+
   html+=`<div id="catalog-output" style="margin-top:14px"></div>`;
   $('view-catalog').innerHTML=html;
   renderCatalogBody();
 }
- 
+
 function setCatTab(art){catalogFilters.art=art;renderCatalog()}
 function clearCatFilters(){catalogFilters={search:'',art:'',virtue:'',season:'',lang:'',festival:''};renderCatalog()}
 function toggleCatSort(col){if(catalogSort.col===col)catalogSort.asc=!catalogSort.asc;else{catalogSort.col=col;catalogSort.asc=true}renderCatalogBody()}
- 
+
 function renderCatalogBody(){
   let filtered=ACTIVITIES.filter(a=>{
     if(catalogFilters.art==='__custom__') return a.custom;
-    if(catalogFilters.search&&!a.name.toLowerCase().includes(catalogFilters.search)&&!(a.desc||'').toLowerCase().includes(catalogFilters.search))return false;
+    if(catalogFilters.search&&!a.name.toLowerCase().includes(catalogFilters.search)&&!String(a.desc||'').toLowerCase().includes(catalogFilters.search))return false;
     if(catalogFilters.art&&a.art!==catalogFilters.art&&a.arts2!==catalogFilters.art)return false;
     if(catalogFilters.virtue&&a.virtue!==catalogFilters.virtue)return false;
     if(catalogFilters.lang&&a.lang!==catalogFilters.lang)return false;
     if(catalogFilters.season){const s=a.seasons;if(s&&s!=='All'&&!s.includes(catalogFilters.season))return false}
     return true;
   });
- 
+
   /* Sort for table */
   if(catalogView==='table'){
     const col=catalogSort.col,asc=catalogSort.asc;
@@ -521,12 +521,12 @@ function renderCatalogBody(){
       return typeof av==='number'?(asc?av-bv:bv-av):(asc?String(av).localeCompare(String(bv)):String(bv).localeCompare(String(av)));
     });
   }
- 
+
   const container=$('catalog-output');
   if(!filtered.length){container.innerHTML=`<div class="empty-state">No activities match — try clearing filters</div>`;return}
- 
+
   const countLine=`<div style="font-size:13px;color:var(--muted);margin-bottom:10px">${filtered.length} of ${ACTIVITIES.length} activities</div>`;
- 
+
   if(catalogView==='grid'){
     container.innerHTML=countLine+`<div class="cards cards-3">${filtered.map(a=>`
       <div class="card act-card" style="position:relative">
@@ -576,7 +576,7 @@ function renderCatalogBody(){
     </table></div>`;
   }
 }
- 
+
 /* === MODAL (Activity Detail) === */
 function openModal(id){
   const a=ACTIVITIES.find(x=>x.id===id);if(!a)return;
@@ -605,7 +605,7 @@ function openModal(id){
   $('modal-overlay').classList.add('open');
 }
 function closeModal(){$('modal-overlay').classList.remove('open')}
- 
+
 /* === PLANNER === */
 function renderPlanner(){
   const wkStart=plannerWeekStart;
@@ -616,7 +616,7 @@ function renderPlanner(){
     <button onclick="plannerWeekStart=getMonday(new Date());renderPlanner()">Today</button>
     <button onclick="openBlockEditor()" style="font-size:12px;margin-left:auto">✏️ Edit Schedule</button>
   </div>`;
- 
+
   html+=`<div class="planner-grid">`;
   html+=`<div class="planner-hdr">Time</div><div class="planner-hdr">Block</div>`;
   for(let d=0;d<7;d++){
@@ -625,7 +625,7 @@ function renderPlanner(){
     const hdrTextColor=v.bg==='#ffffff'?'#374151':v.color;
     html+=`<div class="planner-hdr" style="background:${v.bg}!important;color:${hdrTextColor}!important"><div>${v.emoji} ${v.day.slice(0,3)}</div><div style="font-size:10px;opacity:.85">${fmtDate(date)}</div><div style="font-size:9px;font-weight:700;letter-spacing:.4px">${v.virtue}</div></div>`;
   }
- 
+
   timeBlocks.forEach((tb,bi)=>{
     html+=`<div class="planner-time">${tb[0]}</div>`;
     html+=`<div class="planner-label"><div style="font-weight:600">${tb[1]}</div><div style="font-size:10px;opacity:.6">${tb[2]}</div></div>`;
@@ -642,7 +642,7 @@ function renderPlanner(){
   html+=`</div>`;
   $('view-planner').innerHTML=html;
 }
- 
+
 /* === TIME BLOCK EDITOR === */
 function openBlockEditor(){
   const m=$('modal-content');
@@ -670,7 +670,7 @@ function openBlockEditor(){
   $('modal-overlay').classList.add('open');
   $('modal-overlay').style.alignItems='flex-start';$('modal-overlay').style.paddingTop='24px';
 }
- 
+
 function addBlockRow(){
   const tbody=$('tbe-table').querySelector('tbody');
   const n=tbody.children.length;
@@ -681,13 +681,13 @@ function addBlockRow(){
     <td><button onclick="this.closest('tr').remove()" style="border:none;background:none;color:#DC2626;cursor:pointer;font-size:14px">✕</button></td>`;
   tbody.appendChild(tr);
 }
- 
+
 function removeBlockRow(i){
   const tbody=$('tbe-table').querySelector('tbody');
   if(tbody.children.length<=1){alert('Need at least one time block.');return}
   tbody.children[i].remove();
 }
- 
+
 function saveBlockEditor(){
   const tbody=$('tbe-table').querySelector('tbody');
   const newBlocks=[];
@@ -701,7 +701,7 @@ function saveBlockEditor(){
   save('timeBlocks',timeBlocks);
   closeModal();renderPlanner();
 }
- 
+
 function resetTimeBlocks(){
   if(!confirm('Reset to the original default schedule?\n\nAll 17 Waldorf time blocks will be restored and your customisations will be removed.'))return;
   timeBlocks=DEFAULT_TIME_BLOCKS.map(tb=>[tb[0],tb[1],tb[2]]);
@@ -709,7 +709,7 @@ function resetTimeBlocks(){
   closeModal();
   renderPlanner();
 }
- 
+
 /* === PICK OVERLAY (for planner) === */
 function openPick(day,block){
   pickTarget={day,block};
@@ -734,7 +734,7 @@ function renderPickList(items){
 }
 function filterPick(){
   const q=$('pick-search').value.toLowerCase();
-  const items=ACTIVITIES.filter(a=>a.name.toLowerCase().includes(q)||a.desc.toLowerCase().includes(q));
+  const items=ACTIVITIES.filter(a=>a.name.toLowerCase().includes(q)||String(a.desc||'').toLowerCase().includes(q));
   $('pick-list').innerHTML=renderPickList(items);
 }
 function assignPick(actId){
@@ -752,7 +752,7 @@ function clearPick(){
   closePick();renderPlanner();
 }
 function closePick(){$('pick-overlay').classList.remove('open');pickTarget=null}
- 
+
 /* === CELEBRATIONS (Festivals + Birthdays + Custom) === */
 function renderFestivals(){
   const customCount=FESTIVALS.filter(f=>f.custom).length;
@@ -769,7 +769,7 @@ function renderFestivals(){
     <span style="font-size:36px">${nextC.emoji}</span>
     <div><strong style="font-size:16px">${nextC.name}</strong><div style="font-size:13px;color:var(--muted)">Coming up in <strong style="color:#5B21B6">${daysUntil} days</strong> · ${nextC.window||''}</div></div>
   </div>`;
- 
+
   const seasonOrder=['Spring','Summer','Autumn','Winter'];
   seasonOrder.forEach(sName=>{
     const s=SEASONS.find(x=>x.name===sName);
@@ -807,9 +807,9 @@ function renderFestivals(){
   }
   $('view-festivals').innerHTML=html;
 }
- 
+
 function monthDayStr(m,d){const names=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return names[m]+' '+d}
- 
+
 function openCelebrationForm(editName){
   const existing=editName?FESTIVALS.find(f=>f.name===editName):null;
   const e=existing||{};const isEdit=!!existing;
@@ -837,7 +837,7 @@ function openCelebrationForm(editName){
   $('modal-overlay').classList.add('open');
   $('modal-overlay').style.alignItems='flex-start';$('modal-overlay').style.paddingTop='24px';
 }
- 
+
 function saveCelebration(editName){
   const name=$('cf-name').value.trim();
   if(!name){alert('Please enter a name.');return}
@@ -860,7 +860,7 @@ function saveCelebration(editName){
   save('customCeleb',customCelebrations);
   closeModal();renderFestivals();
 }
- 
+
 function deleteCelebration(name,isCustom){
   if(!confirm('Remove "'+name+'" from your calendar?'))return;
   const idx=FESTIVALS.findIndex(f=>f.name===name);if(idx!==-1)FESTIVALS.splice(idx,1);
@@ -882,7 +882,7 @@ function restoreBuiltInCelebrations(){
   allBuiltIn.forEach(f=>{if(!FESTIVALS.find(x=>x.name===f.name))FESTIVALS.push(f)});
   renderFestivals();
 }
- 
+
 /* === LOG === */
 function renderLog(){
   let html=`<h2 class="section-title">Activity Log</h2>`;
@@ -893,7 +893,7 @@ function renderLog(){
     <label>Notes<input type="text" id="log-notes" placeholder="Optional notes..."></label>
     <button onclick="submitLog()">📝 Log Activity</button>
   </div>`;
- 
+
   // Recent entries
   const recent=logEntries.slice(-30).reverse();
   if(recent.length){
@@ -904,7 +904,7 @@ function renderLog(){
     });
     html+=`</tbody></table>`;
   }
- 
+
   // Texas discipline summary
   html+=`<div class="tx-summary"><h3 class="section-title">Texas Homeschool Summary</h3>`;
   html+=`<div class="tx-row hdr"><div>Discipline</div><div>Primary Art</div><div>Sessions Logged</div></div>`;
@@ -919,7 +919,7 @@ function renderLog(){
   html+=`</div>`;
   $('view-log').innerHTML=html;
 }
- 
+
 function submitLog(){
   const entry={
     date:$('log-date').value,
@@ -939,7 +939,7 @@ function quickLog(actId){
 function deleteLog(idx){
   if(idx>=0&&idx<logEntries.length){logEntries.splice(idx,1);save('log',logEntries);renderLog()}
 }
- 
+
 /* === ADD / EDIT ACTIVITY FORM === */
 function openActivityForm(id){
   const existing=id!=null?ACTIVITIES.find(a=>a.id===id):null;
@@ -981,7 +981,7 @@ function openActivityForm(id){
   $('modal-overlay').style.alignItems='flex-start';
   $('modal-overlay').style.paddingTop='24px';
 }
- 
+
 function saveActivityForm(id){
   const name=$('af-name').value.trim();
   if(!name){alert('Please enter an activity name.');return}
@@ -1016,7 +1016,7 @@ function saveActivityForm(id){
   closeModal();
   renderCatalog();
 }
- 
+
 function deleteCustomActivity(id){
   if(!confirm('Delete this activity from the catalog?'))return;
   const idx=ACTIVITIES.findIndex(a=>a.id===id);if(idx!==-1)ACTIVITIES.splice(idx,1);
@@ -1024,7 +1024,7 @@ function deleteCustomActivity(id){
   save('customActs',customActivities);
   if(currentView==='catalog')renderCatalog();
 }
- 
+
 /* === GUIDE / REFERENCE TABS === */
 function renderGuide(){
   let html=`<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px" id="guide-tabs">
@@ -1035,7 +1035,7 @@ function renderGuide(){
   $('view-guide').innerHTML=html;
   showGuideTab('virtues');
 }
- 
+
 function showGuideTab(tab){
   document.querySelectorAll('#guide-tabs .cat-tab').forEach(b=>b.classList.remove('active'));
   const btn=document.getElementById('gtab-'+tab);if(btn)btn.classList.add('active');
@@ -1043,7 +1043,7 @@ function showGuideTab(tab){
   if(tab==='virtues') c.innerHTML=renderVirtuesGuide();
   else c.innerHTML=renderPillarsGuide();
 }
- 
+
 function renderVirtuesGuide(){
   let html=`<p style="font-size:14px;color:var(--muted);margin-bottom:20px;max-width:700px">Each day of the week is shaped by a Roman god and a one-word virtue. This is not just a name — it changes how activities are offered, what spirit the day carries, and what the child practises most.</p>`;
   html+=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px">`;
@@ -1066,7 +1066,7 @@ function renderVirtuesGuide(){
     </div>`;
   });
   html+=`</div>`;
- 
+
   html+=`<h3 class="section-title" style="margin-top:32px">At a Glance — Full Week</h3>`;
   html+=`<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)">
     <thead><tr>
@@ -1088,7 +1088,7 @@ function renderVirtuesGuide(){
   </table></div>`;
   return html;
 }
- 
+
 function renderPillarsGuide(){
   const pillars=[
     {day:"Monday",virtue:"NURTURE",color:"#5b21b6",bg:"#ceb6fe",items:[
@@ -1127,9 +1127,9 @@ function renderPillarsGuide(){
       {name:"Integration & Presence",desc:"Free art, free play, the child choosing their own activity — consolidating the week.",art:"All Arts",why:"Sunday is the breath-out of the week. All arts are welcome; the child leads."}
     ]}
   ];
- 
+
   let html=`<p style="font-size:14px;color:var(--muted);margin-bottom:20px;max-width:700px">The original 21 pillars (3 per day) were restructured into 6 Arts domains and 7 Day Virtues. Nothing was lost — each pillar now lives as a sub-value of its day's virtue, and maps clearly to an Art. This table shows exactly how they connect.</p>`;
- 
+
   pillars.forEach(p=>{
     html+=`<div style="margin-bottom:24px">
       <div style="background:${p.bg};color:${p.color};padding:10px 16px;border-radius:var(--radius);font-weight:700;font-size:16px;margin-bottom:10px;border-left:4px solid ${p.color}">
@@ -1151,14 +1151,14 @@ function renderPillarsGuide(){
       </table></div>
     </div>`;
   });
- 
+
   html+=`<div class="card" style="margin-top:8px;background:#F9F7FF;border-left:4px solid #5B21B6;padding:16px 20px">
     <strong style="color:#5B21B6">Summary:</strong> <span style="font-size:13px">21 pillars → 6 Arts × 7 Virtues. Every original pillar is preserved as a sub-value under its day. The Arts tell you <em>what</em> domain to develop; the Virtues tell you <em>how and why</em> to offer it that day.</span>
   </div>`;
   return html;
 }
- 
+
 /* === INIT === */
 renderDashboard();
- 
+
 </script></body></html>
