@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aydinol-French Family — Summer 2026 Concierge Dossier</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --soft-ink: #3a3a3a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --paper: #fdfcf9;
+    --austin: #A8C8E8;
+    --meryem: #D4B5E0;
+    --arya: #FFCDD9;
+    --maestro: #C5DDF5;
+    --yasemin: #A8DDD2;
+    --cairo: #F5E0A8;
+    --cairo-deep: #C9A653;
+    --cairo-text: #5C4012;
+    --istanbul: #BDD9B8;
+    --istanbul-deep: #6B9B66;
+    --istanbul-text: #2F4A2B;
+    --tasucu: #B0DCEC;
+    --tasucu-deep: #5DA5C2;
+    --tasucu-text: #1E4A5E;
+    --gold: #B8915A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", serif;
+    color: var(--ink);
+    background: var(--paper);
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 56px;
+    background: #fff;
+  }
+
+  /* Typography */
+  h1.cover-title {
+    font-family: "Didot", "Bodoni 72", "Playfair Display", "Iowan Old Style", serif;
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+  h2.section {
+    font-family: "Didot", "Bodoni 72", "Playfair Display", serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 36px 0 6px;
+    letter-spacing: -0.3px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--ink);
+  }
+  h3 {
+    font-family: "Didot", "Bodoni 72", serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 22px 0 8px;
+    letter-spacing: 0;
+  }
+  h4 {
+    font-family: "Iowan Old Style", Georgia, serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 14px 0 6px;
+    color: var(--soft-ink);
+  }
+  p { margin: 6px 0 10px; }
+  .lede {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--soft-ink);
+    font-style: italic;
+    margin: 14px 0 18px;
+    max-width: 720px;
+  }
+  .small { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+  .sans { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
+  .mono { font-family: "SF Mono", "Menlo", Consolas, monospace; font-size: 11px; }
+  .rule { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+  .double-rule { border: none; border-top: 3px double var(--ink); margin: 24px 0; }
+
+  /* Cover */
+  .cover {
+    text-align: left;
+    padding: 80px 56px 56px;
+    background: var(--paper);
+    border-bottom: 3px double var(--ink);
+  }
+  .cover .crest {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: -apple-system, sans-serif;
+    margin-bottom: 24px;
+  }
+  .cover .subtitle {
+    font-size: 16px;
+    color: var(--soft-ink);
+    font-style: italic;
+    margin: 8px 0 28px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+    padding: 18px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .cover-meta .item .label {
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+    margin-bottom: 4px;
+  }
+  .cover-meta .item .value {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* Section banner with SVG */
+  .act-banner {
+    position: relative;
+    margin: 48px 0 24px;
+    padding: 28px 32px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .act-banner.cairo { background: var(--cairo); color: var(--cairo-text); }
+  .act-banner.istanbul { background: var(--istanbul); color: var(--istanbul-text); }
+  .act-banner.tasucu { background: var(--tasucu); color: var(--tasucu-text); }
+  .act-banner svg { display: block; width: 100%; height: 110px; }
+  .act-banner .label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: -apple-system, sans-serif;
+  }
+  .act-banner .title {
+    font-family: "Didot", "Bodoni 72", serif;
+    font-size: 36px;
+    line-height: 1.1;
+    margin: 0 0 6px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+  .act-banner .tagline {
+    font-style: italic;
+    font-size: 13.5px;
+    max-width: 580px;
+  }
+
+  /* Two-column */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* Cards */
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    background: #fff;
+  }
+  .card.shaded { background: #faf8f3; }
+  .card .card-h {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-family: -apple-system, sans-serif;
+  }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    font-size: 12px;
+  }
+  th {
+    background: #f5f3ee;
+    font-family: -apple-system, sans-serif;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--soft-ink);
+    font-weight: 700;
+  }
+  table.tight td, table.tight th { padding: 5px 8px; font-size: 11.5px; }
+
+  /* Day blocks */
+  .day {
+    margin: 12px 0;
+    padding: 16px 18px;
+    border-left: 3px solid var(--ink);
+    background: #fff;
+    page-break-inside: avoid;
+  }
+  .day.cairo { border-left-color: var(--cairo-deep); }
+  .day.istanbul { border-left-color: var(--istanbul-deep); }
+  .day.tasucu { border-left-color: var(--tasucu-deep); }
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    border-bottom: 1px dotted var(--line);
+    padding-bottom: 4px;
+  }
+  .day-header .date {
+    font-family: "Didot", serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .day-header .tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+  }
+  .ramp {
+    font-style: italic;
+    color: var(--soft-ink);
+    font-size: 12.5px;
+    margin: 6px 0 10px;
+    padding-left: 14px;
+    border-left: 2px solid var(--gold);
+    background: linear-gradient(to right, #faf6ea 0%, #fff 100%);
+    padding: 8px 12px;
+    border-radius: 2px;
+  }
+  .schedule { font-size: 12px; }
+  .schedule .row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+    padding: 3px 0;
+    border-bottom: 1px dotted #f3f3f3;
+  }
+  .schedule .time {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 1px;
+  }
+  .day-aside {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 11px;
+  }
+  .aside-item .h {
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: -apple-system, sans-serif;
+    margin-bottom: 2px;
+  }
+  .learning {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #fdf6e9;
+    border: 1px dashed var(--cairo-deep);
+    font-size: 11.5px;
+    border-radius: 2px;
+  }
+  .learning .h {
+    font-family: -apple-system, sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cairo-text);
+    margin-bottom: 2px;
+  }
+
+  /* Checklist */
+  ul.checklist { list-style: none; padding-left: 0; margin: 6px 0; }
+  ul.checklist li {
+    padding: 4px 0 4px 24px;
+    position: relative;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  ul.checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  ul.checklist li.done::before { content: "☑"; color: var(--istanbul-deep); }
+
+  /* Pills */
+  .pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 600;
+    font-family: -apple-system, sans-serif;
+    color: #1f2937;
+    margin-right: 4px;
+  }
+  .pill.cairo { background: var(--cairo); }
+  .pill.istanbul { background: var(--istanbul); }
+  .pill.tasucu { background: var(--tasucu); }
+  .pill.austin { background: var(--austin); }
+  .pill.meryem { background: var(--meryem); }
+  .pill.arya { background: var(--arya); }
+  .pill.maestro { background: var(--maestro); }
+  .pill.yasemin { background: var(--yasemin); }
+  .pill.work { background: #1f2937; color: #fff; }
+
+  /* Quote */
+  blockquote.quote {
+    margin: 18px 0;
+    padding: 12px 18px;
+    border-left: 3px solid var(--gold);
+    font-style: italic;
+    color: var(--soft-ink);
+    background: #faf6ea;
+  }
+  blockquote.script {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    background: #f9f9f9;
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    border-radius: 3px;
+  }
+  blockquote.script::before {
+    content: "Suggested script — ";
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 9.5px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 0 20px;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: -apple-system, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @page { size: A4; margin: 14mm; }
+  @media print {
+    body { font-size: 11.5px; }
+    .page { padding: 24px 32px; }
+    .cover { padding: 36px 32px; }
+    h1.cover-title { font-size: 36px; }
+    .act-banner { page-break-before: always; }
+    h2.section { page-break-after: avoid; }
+    .day { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== COVER ====================== -->
+<div class="cover">
+  <div class="crest">★  Private Family Travel Dossier  ★</div>
+  <h1 class="cover-title">A Summer Crossing</h1>
+  <h1 class="cover-title" style="font-style:italic; color: var(--gold);">Dallas · Cairo · Istanbul · Taşucu</h1>
+  <div class="subtitle">Twenty-nine days, three continents, one family. — June 12 to July 10, 2026.</div>
+
+  <div style="display:flex;gap:18px;align-items:center;margin-top:30px;flex-wrap:wrap;">
+    <span class="pill austin">Austin</span>
+    <span class="pill meryem">Meryem</span>
+    <span class="pill arya">Arya</span>
+    <span class="pill maestro">Maestro</span>
+    <span class="pill yasemin">Yasemin</span>
+  </div>
+
+  <div class="cover-meta">
+    <div class="item"><div class="label">Duration</div><div class="value">29 days</div></div>
+    <div class="item"><div class="label">Cities</div><div class="value">4</div></div>
+    <div class="item"><div class="label">Flights</div><div class="value">11 segments</div></div>
+    <div class="item"><div class="label">Hotels</div><div class="value">2 rooms · JW Marriott Cairo</div></div>
+  </div>
+
+  <div style="margin-top:24px;font-size:11px;color:var(--muted);font-family:-apple-system,sans-serif;letter-spacing:1px;">
+    Prepared as a private family dossier · Curated for the discerning traveller · v.1 — Updated May 31, 2026
+  </div>
+</div>
+
+<!-- ====================== EXECUTIVE SUMMARY ====================== -->
+<div class="page">
+
+<h2 class="section">Executive Summary</h2>
+<p class="lede">
+  This is a working family's grand crossing — Austin's eleven-day Cairo engagement framed by a true family chapter in Türkiye. Choreographed in three acts, the journey balances the demands of an infant and a preschooler with the rare opportunity to gather three generations across two countries. The operative principle is simple: minimize transitions, lean into the family hosts in Türkiye, and let the Cairo heat dictate the early week's tempo. The remainder of this dossier exists so that the family does not need to think about logistics — only about the people they have gathered to see.
+</p>
+
+<h3 style="margin-top:24px;">The Three Acts</h3>
+<table class="tight">
+  <thead>
+    <tr><th style="width:8%">Act</th><th style="width:24%">Chapter</th><th style="width:14%">Dates</th><th style="width:12%">Posture</th><th>Driving question</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>I</strong></td>
+      <td><span class="pill cairo">Cairo</span> The Crossing &amp; The Work</td>
+      <td>Jun 12 – 22</td>
+      <td>Acclimate. Preserve. Pace.</td>
+      <td>Can we let Austin work while the family rests and explores in restrained, well-curated doses?</td>
+    </tr>
+    <tr>
+      <td><strong>II</strong></td>
+      <td><span class="pill istanbul">Istanbul</span> Reunion</td>
+      <td>Jun 22 – 29</td>
+      <td>Receive. Connect. Slow.</td>
+      <td>Are we present for the people, not the city?</td>
+    </tr>
+    <tr>
+      <td><strong>III</strong></td>
+      <td><span class="pill tasucu">Taşucu</span> The Restoration</td>
+      <td>Jun 29 – Jul 10</td>
+      <td>Restore. Play. Together.</td>
+      <td>Are the children sun-tired and the parents quietly content by the time we board?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Operating Assumptions</h3>
+<p>The following defaults inform every recommendation below. Correct any that miss the mark and the rest of the plan adjusts cleanly.</p>
+<table class="tight">
+  <tbody>
+    <tr><td style="width:30%"><strong>Arya</strong></td><td>Preschool age (~3–5). Capable of one major outing per day if rested. Naps optional but recommended on travel days.</td></tr>
+    <tr><td><strong>Maestro</strong></td><td>Infant (6–12 months assumed). Lap-infant on all flights. Two feedings + 4–6 diapers per travel day.</td></tr>
+    <tr><td><strong>Yasemin</strong></td><td>Meryem's mother. Joins from Dalaman, hosts the Türkiye chapters, returns home from Istanbul Jun 29.</td></tr>
+    <tr><td><strong>Murat</strong></td><td>Meryem's father. Resides in Dalaman with Yasemin. The Taşucu visit is to his side of the family — his branch hosts in the south.</td></tr>
+    <tr><td><strong>Austin's Cairo work</strong></td><td>Monday–Friday. Working days Jun 15–19, Jun 22–26 (morning of Jun 26 before 15:15 flight). Weekend Jun 20–21 with family. Golf scheduled twice mid-week and once Saturday morning — see Cairo program.</td></tr>
+    <tr><td><strong>Türkiye hosts</strong></td><td>Istanbul: extended family (Yasemin's circle of relatives). Taşucu: Murat's branch — his family home in the south. No lodging cost — gifts and reciprocity, yes.</td></tr>
+    <tr><td><strong>Phone / data</strong></td><td>Pre-arranged — no further action needed.</td></tr>
+  </tbody>
+</table>
+
+<!-- ====================== PRE-TRIP WORKBACK ====================== -->
+<h2 class="section">Pre-Trip Workback</h2>
+<p class="lede">There is comfortable runway here — the schedule below is a relaxed cadence, not a sprint. You will have moments of slowness to enjoy the anticipation. Tick items off when they fit your week; the dates are guidance, not pressure.</p>
+
+<table>
+  <thead><tr><th style="width:11%">When</th><th style="width:18%">Milestone</th><th>Actions</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>T-12 (Jun 1)</strong></td>
+      <td>Documentation lock</td>
+      <td>
+        Verify all five passports are valid through <strong>January 11, 2027</strong> (six months past Jul 10).
+        Apply for <strong>Egypt e-Visa</strong> for Austin, Meryem, Arya, Maestro at <em>visa2egypt.gov.eg</em> — USD 25 each, 5-day processing.
+        Türkiye: no visa for US citizens up to 90 days; <strong>Yasemin's Turkish ID</strong> is sufficient for her own movement.
+        Print three copies of all travel documents — one stays in checked bag, one in carry-on, one with Meryem on person.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-10 (Jun 3)</strong></td>
+      <td>Pharmacy kit</td>
+      <td>
+        Order and assemble the pharmacy kit (see <em>Pharmacy &amp; Wellness</em> below). A quick stop at the pediatrician for a signed travel letter listing names, DOBs, and current medications is a worthwhile twenty-minute errand — useful if any pharmacy abroad asks.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-9 (Jun 4)</strong></td>
+      <td>Supply pre-orders</td>
+      <td>
+        Ship a <strong>diaper &amp; wipes resupply</strong> to JW Marriott Cairo (attention: Aydinol-French, arrival Jun 13). Use <em>Amazon.eg</em> or <em>Carrefour Egypt</em>: Pampers size appropriate to Maestro, sensitive wipes, infant Tylenol, Pedialyte sachets, formula tin (if used).
+        Mirror order to Yasemin's address in Türkiye for the Türkiye leg, or arrange with hosts to have on hand.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-8 (Jun 5)</strong></td>
+      <td>Gifts assembled</td>
+      <td>Procure Türkiye gifts (see <em>Gifts for Türkiye</em>). Wrap in tissue, label by recipient, pack flat in checked bag. Avoid liquids over 100 ml for any gift in carry-on.</td>
+    </tr>
+    <tr>
+      <td><strong>T-7 (Jun 5)</strong></td>
+      <td>Home wind-down</td>
+      <td>
+        Schedule USPS mail hold (Jun 11 → Jul 11).
+        House: programmable lights, thermostat to 78°F, water main off if going overseas standard, alarm armed.
+        Notify a trusted neighbour of dates and emergency contacts.
+        Final golf round confirmations — pre-book Mirage City Golf and Katameya Heights for the Cairo dates listed in Act I.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-5 (Jun 7)</strong></td>
+      <td>Hotel requests</td>
+      <td>Send pre-arrival letter to JW Marriott Cairo (see <em>Hotel Special Requests</em>). Request crib, rollaway, refrigerator stocked with bottled water, hypoallergenic bedding.</td>
+    </tr>
+    <tr>
+      <td><strong>T-3 (Jun 9)</strong></td>
+      <td>Final checks</td>
+      <td>
+        Refill all prescriptions for trip length plus seven-day buffer.
+        Confirm rental car at Sixt Adana (H-9734765699) — request infant car seat + booster for Arya at no charge (often complimentary in Türkiye).
+        Photocopy passports onto one PDF, email to self and Meryem.
+        Set TK app to <strong>check-in opens 24h prior</strong> notifications for all four flights.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-1 (Jun 11)</strong></td>
+      <td>Soft pack &amp; charge</td>
+      <td>
+        All carry-ons packed. All devices to 100%. Battery banks (max 100 Wh) charged.
+        Kitchen: empty fridge of perishables. Take out trash.
+        Cash: ensure ~US$300 in small bills for ground transport, tips, taxi from CAI on landing.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>T-0 (Jun 12)</strong></td>
+      <td>Travel day</td>
+      <td>See <strong>Day 1</strong> below for hour-by-hour execution.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====================== DOCUMENTATION ====================== -->
+<h2 class="section">Documentation &amp; Lead Times</h2>
+<div class="two-col">
+  <div class="card">
+    <div class="card-h">Required for all travellers</div>
+    <ul class="checklist">
+      <li>Passport valid through Jan 11, 2027 (6 months past final flight)</li>
+      <li>Two passport-sized photos per traveller (spare)</li>
+      <li>Printed itinerary + hotel confirmations</li>
+      <li>Credit cards: notify issuer of travel dates (Capital One — no notice needed; verify)</li>
+      <li>Health insurance card + international rider info</li>
+      <li>Capital One Venture X travel benefits summary (auto trip insurance, lost baggage, etc.)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-h">Children-specific</div>
+    <ul class="checklist">
+      <li>Both children: original birth certificates (or notarized copies)</li>
+      <li>If only one parent travels on any segment: notarized consent letter from absent parent — relevant when Austin solo or Meryem with kids on RR5W5Q</li>
+      <li>Pediatrician travel letter (medications, vaccinations, contact)</li>
+      <li>Children's passports + parent passports stapled together by Velcro pouch</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-h">Egypt-specific</div>
+    <ul class="checklist">
+      <li>e-Visa for Austin, Meryem, Arya, Maestro (Yasemin — Turkish passport, eligible for visa-on-arrival)</li>
+      <li>Yellow fever certificate: not required from US/EU</li>
+      <li>No new vaccinations required for this family — existing immunisations sufficient</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-h">Türkiye-specific</div>
+    <ul class="checklist">
+      <li>US passports: 90-day visa-free entry — no e-visa needed for 2026</li>
+      <li>Yasemin: Turkish national ID or passport — domestic IST↔COV requires only ID</li>
+      <li>HES code: no longer required for foreign travellers</li>
+      <li>For Sixt rental: driver's license + international driving permit (Austin) — obtain from AAA before departure (US$20, instant)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====================== PACKING ====================== -->
+<h2 class="section">Packing Strategy</h2>
+<p class="lede">Pack for the warmest climate (Cairo, 95–105°F) and the most refined dinner (Istanbul family welcome). One checked bag per adult, one shared kids' checked bag, plus one carry-on each. The 2×32 kg allowance on TK Business is generous — use it.</p>
+
+<div class="two-col">
+  <div class="card shaded">
+    <h4 style="margin-top:0;">Checked — Meryem (32 kg)</h4>
+    <ul class="checklist">
+      <li>Kids' wardrobe (10 outfits each, half cotton/half linen)</li>
+      <li>Swim: rash guards, hat, sunblock-rated swimsuits</li>
+      <li>Sun gear: wide-brim hats, SPF 50, UV stroller cover</li>
+      <li>Türkiye gifts (flat-packed, tissue-wrapped)</li>
+      <li>Meryem's modest outfits for Cairo (long sleeves, light scarf for mosques)</li>
+      <li>Stroller-bag attachment hooks, packing cubes</li>
+    </ul>
+  </div>
+  <div class="card shaded">
+    <h4 style="margin-top:0;">Checked — Austin (32 kg)</h4>
+    <ul class="checklist">
+      <li>Work attire: 5 button-downs, 2 chinos, 1 jacket, dress shoes</li>
+      <li>Leisure: 5 t-shirts, 2 swim trunks, sandals, sneakers</li>
+      <li>Spillover infant supplies (diapers x60, wipes x6 packs as buffer)</li>
+      <li>Power bank, universal adapter (Type C/F covers EG + TR)</li>
+      <li>Beach gear for Taşucu (snorkel, water shoes)</li>
+    </ul>
+  </div>
+</div>
+
+<h4>Carry-on — Meryem (with infant)</h4>
+<div class="three-col">
+  <div class="card">
+    <div class="card-h">Maestro travel kit (pumping)</div>
+    <ul class="checklist">
+      <li>10 diapers + 1 wipes pack</li>
+      <li>Electric pump (Spectra S1 with battery) + manual Haakaa as backup</li>
+      <li>Pump parts: flanges, duckbills, bottles ×4, lids</li>
+      <li>Milk storage bags (Lansinoh) ×15, marker for dating</li>
+      <li>Insulated cooler bag + 4 ice packs (frozen at hotel)</li>
+      <li>Medela Quick Clean wipes + sterilizer bags</li>
+      <li>Nursing cover (lightweight, breathable)</li>
+      <li>2 onesie changes + 1 muslin blanket</li>
+      <li>Pacifier + spare on clip</li>
+      <li>Infant Tylenol (TSA: 3 oz baby med exempt)</li>
+      <li>Burp cloths, ziplocks for soiled clothes</li>
+      <li class="done"><em>TSA note: breast milk &amp; pump exempt from 3-1-1 rule. Declare at security.</em></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-h">Arya travel kit (analogue)</div>
+    <ul class="checklist">
+      <li>Spare outfit + underwear</li>
+      <li>3–4 new picture books (revealed gradually)</li>
+      <li>Magnetic activity board (Melissa &amp; Doug)</li>
+      <li>Sticker book (Usborne or Klutz) + sticker rolls</li>
+      <li>Washable Crayola crayons + small notebook</li>
+      <li>Water Wow! reusable colouring (no mess)</li>
+      <li>2 small wooden toys / peg dolls / animal figures</li>
+      <li>Travel maze and dot-to-dot book</li>
+      <li>Snacks: <strong>bliss balls &amp; bites</strong> (homemade or RX Kids/Larabar), pouches, rice crackers, raisins, dried mango</li>
+      <li>Refillable water bottle (empty through security)</li>
+      <li>One small wrapped surprise per flight segment (4 total)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-h">Documents pouch</div>
+    <ul class="checklist">
+      <li>All passports + Egypt e-Visas printed</li>
+      <li>Boarding passes</li>
+      <li>Pediatrician letter</li>
+      <li>Birth certificates (sealed pouch)</li>
+      <li>Trip insurance card</li>
+      <li>Cash wallet (USD/EGP/TRY)</li>
+    </ul>
+  </div>
+</div>
+
+<h4>Carry-on — Austin</h4>
+<ul class="checklist">
+  <li>Laptop + charger; noise-cancelling headphones (Maestro will help validate them)</li>
+  <li>Work file folder; presentation materials</li>
+  <li>Change of shirt (in case of incident)</li>
+  <li>Toiletry kit with TSA-approved liquids</li>
+  <li>Eye mask, neck pillow, compression socks</li>
+  <li>One small wrapped gift (back-pocket gesture for unexpected hosts)</li>
+</ul>
+
+<h4>Specialized gear</h4>
+<table class="tight">
+  <thead><tr><th>Item</th><th>Recommendation</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Infant carrier</td><td>Ergobaby Omni or Baby Björn</td><td>Hands-free through CAI/IST airports; gate-check stroller.</td></tr>
+    <tr><td>Stroller</td><td>Lightweight umbrella stroller (UPPAbaby Minu or Babyzen YOYO)</td><td>Gate-check; not the full system. Heat in Cairo will be fatiguing.</td></tr>
+    <tr><td>Car seat — Maestro</td><td>Doona infant seat (doubles as stroller)</td><td>Critical for Sixt rental in Adana. Request also from hotel transfers in Cairo.</td></tr>
+    <tr><td>Car seat — Arya</td><td>Cosco Scenera Next (cheap, light, FAA-approved)</td><td>Sixt will provide on request — verify at booking.</td></tr>
+    <tr><td>Travel crib</td><td>Skip — JW Marriott provides; Türkiye family hosts likely have</td><td>Confirm in hotel script below.</td></tr>
+  </tbody>
+</table>
+
+<!-- ====================== DRESS CODE ====================== -->
+<h2 class="section">Dress Code by Leg</h2>
+<p class="lede">Dressing well abroad signals respect — to the place, to the hosts, and to one's own composure. The codes below balance practicality for the climate with the elegance the family carries naturally.</p>
+
+<h3>Cairo</h3>
+<div class="three-col">
+  <div class="card">
+    <div class="card-h">Austin — work week</div>
+    <p style="font-size:12px;">
+      <strong>Office:</strong> chinos or lightweight wool trousers, button-down (long sleeve, rolled), loafers or driving shoes. A linen blazer for any client dinner or presentation.<br><br>
+      <strong>Evenings at JW:</strong> polo or linen shirt + chinos. Avoid shorts at hotel dinner restaurants — Cairo formality is higher than Texas.<br><br>
+      <strong>Golf:</strong> standard country-club: collared polo, golf trousers or tailored shorts, soft-spike shoes, cap.<br><br>
+      <strong>Always pack:</strong> one navy blazer, one tie (just in case).
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Meryem</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> long flowy linen or cotton — maxi dresses, wide-leg trousers with loose tops. Shoulders covered in public.<br><br>
+      <strong>Mosques / Coptic sites:</strong> light scarf (carry one daily), shoulders and knees covered. Slip-on shoes (you'll remove them often).<br><br>
+      <strong>Pool:</strong> one-piece or modest two-piece, cover-up always when leaving the pool deck.<br><br>
+      <strong>Evening dinner:</strong> elegant casual — silk midi, sandals.<br><br>
+      <strong>Golf lesson:</strong> golf skort or capris + collared shirt; soft-spike shoes (pro shop will rent if needed).
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Arya &amp; Maestro</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> 100% cotton or linen only — heat. Loose dresses for Arya, breathable rompers for Maestro. Wide-brim sun hats <em>always</em> outdoors. Closed sandals for sightseeing (sand and stone).<br><br>
+      <strong>Pool:</strong> long-sleeve rash guards (SPF 50+), swim diapers for Maestro, swim hats.<br><br>
+      <strong>Dinner:</strong> one nicer outfit each for hotel restaurants — a simple linen dress for Arya, a soft cotton onesie set for Maestro.<br><br>
+      <strong>Shoes:</strong> two pairs per child (one wet/sand, one dry/restaurant).
+    </p>
+  </div>
+</div>
+
+<h3>Istanbul</h3>
+<div class="three-col">
+  <div class="card">
+    <div class="card-h">Austin</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> chinos + button-down or polo, loafers or clean white sneakers.<br><br>
+      <strong>Welcome dinner with family:</strong> blazer + chinos + button-down (no tie). Quietly elegant — older relatives notice.<br><br>
+      <strong>Walking days:</strong> sturdy soft-soled shoes — cobblestones are real.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Meryem</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> smart casual — midi dresses, tailored trousers + blouse. Less heat than Cairo, lighter layers can include a light cardigan for evenings.<br><br>
+      <strong>Welcome dinner:</strong> one truly elegant piece — silk wrap dress or a dress with a refined silhouette. This is the dinner where photographs will be taken.<br><br>
+      <strong>Mosque visits:</strong> headscarf in bag (Hagia Sophia, Blue Mosque).
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Arya &amp; Maestro</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> comfortable cotton — leggings + tops, sturdy little shoes. Türkiye summer evenings are cool — pack a light jacket each.<br><br>
+      <strong>Family dinners:</strong> two "good" outfits per child for the week — a dress for Arya, a smart onesie + cardigan for Maestro.
+    </p>
+  </div>
+</div>
+
+<h3>Taşucu</h3>
+<div class="three-col">
+  <div class="card">
+    <div class="card-h">Austin</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> swim trunks, linen shirts (rolled), sandals or espadrilles. A linen shirt with shorts is the regional uniform.<br><br>
+      <strong>Family dinners:</strong> a clean polo or linen shirt + chinos. Evenings cooler than expected — long-sleeve linen for after sundown.<br><br>
+      <strong>Last farewell dinner:</strong> the nicer of the two shirts you've packed.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Meryem</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> long beachy dresses, kaftans, modest one-piece swimsuit with cover-up. Less coverage required than Cairo.<br><br>
+      <strong>Evenings:</strong> one or two refined kaftans for family meals. Mediterranean simplicity over polish.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-h">Arya &amp; Maestro</div>
+    <p style="font-size:12px;">
+      <strong>Daytime:</strong> swimsuits + rash guards. Water shoes (Mediterranean beaches are pebbled — feet need protection). Buckets and shovels.<br><br>
+      <strong>Evenings:</strong> light cotton, a cardigan each for after-dinner walks (sea breeze cools rapidly).<br><br>
+      <strong>Final dinner:</strong> the nicest dress / outfit — photos with grandparents.
+    </p>
+  </div>
+</div>
+
+<!-- ====================== SUPPLY PRE-ORDERS ====================== -->
+<h2 class="section">Pre-Ordered Supplies</h2>
+<p class="lede">Carrying eleven days of diapers and wipes across the Atlantic is folly. Ship instead. Both hotels and family hosts can accept Amazon EG / Trendyol deliveries with a few days' notice.</p>
+
+<div class="two-col">
+  <div class="card">
+    <h4 style="margin-top:0;">Cairo delivery — JW Marriott (Jun 12 arrival)</h4>
+    <p class="small">Order via <strong>Amazon.eg</strong> or <strong>Carrefour Egypt</strong>, delivered <strong>by Jun 11</strong>. Address line: "Hold for guest Aydinol-French, arr. Jun 13, JW Marriott Cairo, Ring Road-Mirage City, New Cairo."</p>
+    <ul class="checklist">
+      <li>Pampers Baby-Dry size to fit Maestro — 2 boxes (~120 ct each)</li>
+      <li>Huggies sensitive wipes (fragrance-free) — 6 packs</li>
+      <li>Milk storage bags (Lansinoh) — 1 box of 100 for the Cairo stay</li>
+      <li>Pedialyte sachets or local equivalent (Hydrogel) — 1 box</li>
+      <li>Bottled water (still, large) — 1 case to room</li>
+      <li>Bonus: a small bouquet for Meryem at check-in (concierge can arrange) — fragrance-free flowers only (peonies, hydrangeas, no lilies)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4 style="margin-top:0;">Türkiye delivery — Yasemin's home or Istanbul host</h4>
+    <p class="small">Order via <strong>Trendyol</strong> or <strong>Amazon.com.tr</strong> two weeks ahead. Yasemin can take delivery and bring to Istanbul or have on hand in Taşucu.</p>
+    <ul class="checklist">
+      <li>Prima diapers (Türkiye brand, soft) — 2 packs</li>
+      <li>Sleepy wipes — 4 packs</li>
+      <li>Sunscreen mineral spray, kid-safe (Mustela)</li>
+      <li>Bottled water for the rental car (case in trunk)</li>
+      <li>Snacks for Arya (familiar brand from home for picky moments)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====================== HOTEL REQUESTS ====================== -->
+<h2 class="section">Hotel Special Requests — JW Marriott Cairo</h2>
+<p class="lede">Send the email below by June 6 to <em>guest.services@marriottcairo.com</em>, copy both confirmation numbers, follow up by phone 48 hours before arrival.</p>
+
+<blockquote class="script">
+Dear Guest Services,<br><br>
+
+We arrive Saturday, June 13 under two reservations: <strong>Mr. Austin Aydinol French — reservation 84729308</strong> (13 nights, single occupancy) and the family reservation <strong>H-FCZCWL3KMSC6</strong> (9 nights, three guests).<br><br>
+
+We would be grateful for the following:<br>
+1. <strong>Family room:</strong> crib in-room, mini-fridge stocked with bottled water (still), hypoallergenic bedding, the two rooms placed adjacent or connecting if possible.<br>
+2. <strong>Fragrance-free rooms:</strong> <em>please ensure no air fresheners, scented amenities, or scented cleaning products are used in either room — at any point during our stay. We are sensitive to fragrances. Unscented bath products only.</em><br>
+3. <strong>Mr. French's room:</strong> high floor, away from elevator, late checkout on June 26 (flight at 3:15 p.m.).<br>
+4. <strong>Welcome amenities:</strong> a small fruit plate and one bottle of still water in each room on arrival.<br>
+5. <strong>Held package:</strong> an Amazon delivery in our name is expected by June 11 — please retain at the bell desk.<br>
+6. <strong>Airport transfer:</strong> please arrange a Mercedes or equivalent for arrival on TK694 (lands CAI 20:50, Saturday Jun 13). One adult, one infant in arms, one preschooler — please include an infant car seat. Confirm cost to room on arrival.<br>
+7. <strong>Pool reservation:</strong> we will use the pool daily during our stay; advance notice of any closures would be appreciated.<br>
+8. <strong>In-room refrigerator</strong> for breast milk storage in the family room. A small section of freezer space would be appreciated for ice packs.<br>
+9. <strong>Golf concierge:</strong> please arrange tee times at <strong>Mirage City Golf</strong> for Tuesday June 16 (17:30, 9 holes, single), Thursday June 18 (17:30, 9 holes, single), and Saturday June 20 (06:30, 18 holes, single). A Sunday June 21 lesson + 9 holes for Mrs. Aydinol, tee at 09:00.<br><br>
+
+A heartfelt thank you for your care. The family looks forward to your hospitality.<br><br>
+
+— Aydinol-French Family
+</blockquote>
+
+<h4>On arrival — quiet asks at check-in</h4>
+<ul class="checklist">
+  <li>Quietly ask the front-desk manager for room upgrades on the Bonvoy or Marriott loyalty status — even without status, asking earnestly produces upgrades 40% of the time.</li>
+  <li>Confirm the in-room safe size — fits passports + cash + a small electronics bundle.</li>
+  <li>Request a daily housekeeping window of 10:00–11:00 (after pool but before nap).</li>
+  <li>Ask for a kettle in the family room for bottle warming.</li>
+  <li>Reconfirm the fragrance-free request face-to-face with the front desk manager — and request the same note be placed on housekeeping's clipboard for the duration of stay.</li>
+</ul>
+
+<!-- ====================== LOUNGE / UPGRADE STRATEGY ====================== -->
+<h2 class="section">Lounge &amp; Upgrade Strategy</h2>
+<p class="lede">The Capital One Venture X is the workhorse here. It carries Priority Pass for both adults plus two guests — useful for keeping the family together in lounges. Austin's TK Business Z ticket also grants TK Lounge access at IST.</p>
+
+<table>
+  <thead><tr><th>Airport</th><th>Lounge</th><th>Access route</th><th>What to know</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>DFW Terminal D</td>
+      <td>The Club at DFW (gate D-23) <em>or</em> Capital One Lounge</td>
+      <td>Capital One Venture X cardholder + 2 guests</td>
+      <td>Capital One Lounge if open at your departure time — superior food, espresso bar, children welcome until 9 p.m.</td>
+    </tr>
+    <tr>
+      <td>IST — outbound (Jun 13)</td>
+      <td>Turkish Airlines Business Lounge</td>
+      <td>Austin's Biz Z ticket includes; family on Meryem's Biz Z also includes</td>
+      <td>The TK IST Business Lounge is widely considered one of the world's finest — three-tier dining, pour-over coffee bar, billiards, mini-cinema, prayer rooms, family room with playroom. <strong>Plan to spend the full hour layover here</strong> — it is the upgrade.</td>
+    </tr>
+    <tr>
+      <td>CAI — Cairo</td>
+      <td>Ahlein Premier Lounge (Terminal 3)</td>
+      <td>Priority Pass</td>
+      <td>Modest but air-conditioned. Useful for the Jun 22 departure to Istanbul.</td>
+    </tr>
+    <tr>
+      <td>IST — inbound from CAI (Jun 22)</td>
+      <td>TK Domestic Lounge</td>
+      <td>Not applicable on Y fare — Priority Pass via Capital One</td>
+      <td>YOTL or IGA Lounge accessible. Less polished than the international lounge but acceptable.</td>
+    </tr>
+    <tr>
+      <td>IST — outbound (Jul 10)</td>
+      <td>TK Business Lounge (international)</td>
+      <td>Austin Biz J; family Biz I</td>
+      <td>Same world-class lounge. Build in 90 minutes minimum — children's playroom is excellent for the long DFW flight ahead.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Upgrade paths to consider</h4>
+<ul class="checklist">
+  <li><strong>Mileage upgrade on TK0191 (IST→DFW, Jul 10):</strong> Meryem already in Business I via award. Confirm Austin's TDELJU J cabin matches — if any cabin mismatch occurs, request seating together on the upper deck (787-9 has 2-2-2 Business).</li>
+  <li><strong>Bassinet seats on long TK flights:</strong> request now for TK0192 (DFW→IST, Jun 12) and TK0191 (IST→DFW, Jul 10) — call TK at +1-800-874-8875, reference Meryem's RHKNS4 and RR5W5Q. Bulkhead with bassinet attachment is standard on Business 787 for lap infants.</li>
+  <li><strong>Egyptian Premium services at CAI:</strong> arrange "Meet &amp; Assist" via the JW Marriott concierge for the Jun 22 departure — a representative will escort the family through check-in and security in ~20 minutes. Cost approximately US$80, well worth it with the children.</li>
+</ul>
+
+<!-- ====================== CASH / FX ====================== -->
+<h2 class="section">Cash &amp; Currency</h2>
+
+<div class="three-col">
+  <div class="card">
+    <div class="card-h">Egypt — EGP</div>
+    <p style="font-size:12px;"><strong>Bring:</strong> US$300 in clean, post-2017 bills (taxis, tips, small purchases).<br>
+    <strong>Exchange:</strong> in-airport on arrival at CIB or Banque Misr counter — current rate roughly 48–50 EGP per USD.<br>
+    <strong>Daily budget:</strong> ~US$100/day for tips, taxis, casual purchases.<br>
+    <strong>Cards:</strong> JW Marriott accepts Visa/Mastercard; bazaars are cash.</p>
+  </div>
+  <div class="card">
+    <div class="card-h">Türkiye — TRY</div>
+    <p style="font-size:12px;"><strong>Bring:</strong> US$200 in small bills as backup.<br>
+    <strong>Exchange:</strong> on arrival or at Ziraat Bank in Istanbul. Yasemin can advise; she'll have local cash.<br>
+    <strong>Daily budget:</strong> low — family hosting most meals. ~US$60/day for outings, taxis, gifts in moments.<br>
+    <strong>Cards:</strong> widely accepted; contactless universal.</p>
+  </div>
+  <div class="card">
+    <div class="card-h">Tipping protocol</div>
+    <p style="font-size:12px;"><strong>Egypt:</strong> baksheesh culture — small notes (EGP 20–50) for bellhops, drivers, restroom attendants, tour helpers. Carry a stack.<br>
+    <strong>Türkiye:</strong> restaurant tips 10%; round up taxis. No baksheesh culture — over-tipping reads as awkward.<br>
+    <strong>Hotel housekeeping:</strong> US$3–5/day, left on pillow each morning (not lump sum at end).</p>
+  </div>
+</div>
+
+<!-- ====================== GIFTS FOR TÜRKIYE ====================== -->
+<h2 class="section">Gifts for Türkiye</h2>
+<p class="lede">Hosting in Türkiye is a sacred act, especially for Yasemin's generation. The right gift is thoughtful, recognisable as American, and unfussy. Pack flat and label per recipient. Wrap simply in tissue with a printed name card — Türkiye does not stand on ornate gift-wrap, but the gesture of having anticipated each person is felt.</p>
+
+<table>
+  <thead><tr><th>Recipient profile</th><th>Suggested gift</th><th>Source</th><th>~Cost</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Yasemin</strong> (Meryem's mother)</td>
+      <td>A finely framed family photograph (Austin, Meryem, Arya, Maestro, Yasemin at last visit) + a generous box of <strong>chocolate caramel turtles</strong> — premium artisan (Compartés "Sea Salt Caramel Turtles", or Whitley's pecan turtles in tin)</td>
+      <td>Frame: Artifact Uprising. Turtles: Compartés (Beverly Hills) or DeBrand Fine Chocolates</td>
+      <td>US$140–180</td>
+    </tr>
+    <tr>
+      <td><strong>Murat</strong> (Meryem's father, Taşucu host)</td>
+      <td>A quality American leather goods piece — Saddleback leather wallet, a Filson cardholder, <em>or</em> a small-batch bourbon (Blanton's or Eagle Rare) if alcohol is welcome in the home. A tin of caramel turtles paired alongside.</td>
+      <td>Saddleback Leather; Total Wine; Compartés</td>
+      <td>US$120–200</td>
+    </tr>
+    <tr>
+      <td>Aunts (Meryem's side)</td>
+      <td>A tube of <strong>Neosporin</strong> + a thoughtful handwritten note in Turkish. Difficult to find in Türkiye and quietly precious to anyone who keeps a household.</td>
+      <td>Local pharmacy</td>
+      <td>US$8 + the note</td>
+    </tr>
+    <tr>
+      <td>Elder family (grandparents, uncles)</td>
+      <td>American specialty foods that travel: maple syrup (small glass bottle), pecans, a tin of fine coffee, a smaller box of caramel turtles</td>
+      <td>Whole Foods, Williams Sonoma</td>
+      <td>US$30–60 each</td>
+    </tr>
+    <tr>
+      <td>Cousins (adults)</td>
+      <td>Yeti tumbler, Hydro Flask, a Pendleton wool throw, or a quality Texas item</td>
+      <td>REI, Pendleton, Allens Boots</td>
+      <td>US$40–80 each</td>
+    </tr>
+    <tr>
+      <td>Cousins (children, ages 3–10)</td>
+      <td><strong>Lego sets</strong> — DUPLO for ages 2–5 (animals, vehicles, basic builds), Lego Classic or themed sets for 6–10 (City, Friends, Creator). Pair with an American picture book if room.</td>
+      <td>Target, Amazon, Lego Store</td>
+      <td>US$25–55 each</td>
+    </tr>
+    <tr>
+      <td>Helpful unexpected (host's helper, neighbour)</td>
+      <td>Quality Texas-themed small item — a leather keyring, a bandana, a bottle of locally-roasted coffee</td>
+      <td>Allens Boots, La Colombe</td>
+      <td>US$15–25 each</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>The Turkish note for the aunts (template)</h4>
+<blockquote class="script" style="font-style:italic;">
+Sevgili teyzem,<br><br>
+
+Sizi tekrar görmek bizim için büyük bir mutluluk. Bu küçük hediyeyi — evinizin küçük bir köşesinde işinize yarar diye düşündüm. Sevginiz için, misafirperverliğiniz için, ve bizi her zaman ailenizin bir parçası gibi karşıladığınız için teşekkür ederim.<br><br>
+
+Sevgiyle,<br>
+Meryem<br><br>
+
+<span style="color:var(--muted); font-style:normal; font-size:11px;">(English: "Beloved aunt, seeing you again is a great happiness for us. I thought this small gift might be useful in a small corner of your home. Thank you for your love, your hospitality, and for always welcoming us as part of your family. With love, Meryem.")</span>
+</blockquote>
+
+<h4>Gifting etiquette</h4>
+<p>Present each gift with both hands, smile, and do not press the recipient to open it in front of you — in Türkiye, gifts are often opened in private later. For Yasemin and Murat specifically: Meryem may wish to present these alone, in a quiet moment on the second or third day, away from the larger gathering. The caramel turtles travel well in checked luggage; keep them out of Cairo heat by storing in the JW Marriott room mini-fridge upon arrival, transferring to a soft cooler bag for the IST flight.</p>
+
+<!-- ====================== PHARMACY KIT ====================== -->
+<h2 class="section">Pharmacy &amp; Wellness Kit</h2>
+<p class="lede">Pack the kit in a clear quart bag for security inspection, in the carry-on. Doubles for both Egypt and Türkiye. Restock from local pharmacies as needed — Türkiye in particular has excellent pharmacies and most basics are over the counter.</p>
+
+<div class="two-col">
+  <div class="card shaded">
+    <h4 style="margin-top:0;">For the adults</h4>
+    <ul class="checklist">
+      <li>Imodium (anti-diarrheal) — 12 tabs</li>
+      <li>Pepto-Bismol tablets — 1 box</li>
+      <li>Ondansetron (Zofran) 4mg — Rx, 10 tabs (anti-nausea)</li>
+      <li>Ciprofloxacin 500mg — Rx, 14 tabs (traveller's diarrhea, fever)</li>
+      <li>Azithromycin 500mg — Rx, 6 tabs (alternative; do not mix with cipro)</li>
+      <li>Ibuprofen 200mg + Acetaminophen 500mg — full bottles</li>
+      <li>Loratadine (Claritin) — for allergies</li>
+      <li>Melatonin 3mg — for jet lag (adults only)</li>
+      <li>Saline nasal spray; eye drops (preservative-free)</li>
+      <li>Hand sanitizer ×3; SPF 50 sunscreen; SPF 30 lip balm</li>
+      <li>Insect repellent (Picaridin 20%, not DEET around the infant)</li>
+      <li>Compression socks for long flights</li>
+      <li>Antibacterial wipes (Surface)</li>
+    </ul>
+  </div>
+  <div class="card shaded">
+    <h4 style="margin-top:0;">For Arya &amp; Maestro</h4>
+    <ul class="checklist">
+      <li>Infant Tylenol drops (acetaminophen 160mg/5ml) — 1 bottle</li>
+      <li>Infant Motrin (ibuprofen, only over 6 months) — 1 bottle</li>
+      <li>Pedialyte powder sachets — 6</li>
+      <li>Saline nasal drops + bulb syringe (cabin dryness)</li>
+      <li>Aquaphor / Vaseline (multi-use: lips, cheeks, diaper area)</li>
+      <li>Mustela diaper rash cream</li>
+      <li>Boudreaux's Butt Paste (heavy duty backup)</li>
+      <li>Gripe water / Mylicon drops (gas relief for Maestro)</li>
+      <li>Children's Benadryl (over 12 months only — confirm with pediatrician)</li>
+      <li>Band-aids (assorted with characters)</li>
+      <li>Thermometer (digital, axillary)</li>
+      <li>Sunscreen mineral (Thinkbaby or Babyganics) — chemical SPF too harsh</li>
+      <li>Mosquito repellent suitable for under-2 (DEET-free, lemon eucalyptus over 3yo only)</li>
+    </ul>
+  </div>
+</div>
+
+<h4>Cosmetic &amp; personal care</h4>
+<ul class="checklist">
+  <li>Decant skincare into 100 ml bottles for carry-on; full sizes in checked</li>
+  <li>Cairo: a hydrating sheet mask each evening for the adults (the heat dehydrates skin rapidly)</li>
+  <li>Pack a small after-sun aloe gel (kept refrigerated at hotel — concierge will arrange)</li>
+  <li>Tweezers, nail clippers, small scissors — checked only</li>
+  <li>Dental: floss, travel mouthwash, kid toothpaste (familiar flavor for Arya)</li>
+  <li>Hair: pack a wide-tooth comb for Meryem and a small bottle of leave-in for the chlorinated pool days</li>
+</ul>
+
+<!-- ====================== TRAVEL GAMES ADDENDUM ====================== -->
+<h2 class="section">Addendum — Travel Games &amp; Activities</h2>
+<p class="lede">For families that travel without devices, the parent becomes the medium. The games below are tested for cabin seats, airport benches, hotel beds, and family-dinner long-tables. They are quiet enough for sleeping aunties and lively enough to outlast a delayed flight. Pack a small pouch of "loose parts" — peg dolls, ribbons, washable crayons, picture cards — and reach for it like a magician reaches for a deck.</p>
+
+<h3>For Maestro (6–18 months)</h3>
+<table class="tight">
+  <thead><tr><th style="width:22%">Game</th><th style="width:38%">How it works</th><th>What you need</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Scarf peek-a-boo</strong></td><td>The oldest game on earth. A silk scarf over your face, then off. Vary timing — quick reveal, slow reveal, peeking through. Builds anticipation and object permanence.</td><td>One silk scarf in carry-on</td></tr>
+    <tr><td><strong>Mirror play</strong></td><td>An infant studying a mirror is at work. Pull out a small unbreakable hand mirror; let him discover the baby in the mirror. Five minutes of suspended attention.</td><td>Small unbreakable mirror</td></tr>
+    <tr><td><strong>Texture bag</strong></td><td>A small pouch with 4–5 textured items — velvet ribbon, wood block, crinkled paper, soft pompom, smooth stone. Reach in, pull out, narrate the texture.</td><td>Mesh pouch + objects</td></tr>
+    <tr><td><strong>Sound match</strong></td><td>Quietly mimic the sounds you hear — engine hum, lunch cart wheels, baby laughing two rows back. He'll watch your mouth and try.</td><td>Just you</td></tr>
+    <tr><td><strong>Window narration</strong></td><td>Hold him at the window. Narrate everything: "Big truck. Yellow truck. Truck going fast." Language acquisition disguised as a game.</td><td>A window</td></tr>
+    <tr><td><strong>Object permanence cup</strong></td><td>Place a small toy under a stacking cup; lift, reveal. Repeat. Add a second cup; switch positions. Endless variations.</td><td>2–3 stacking cups + a small toy</td></tr>
+    <tr><td><strong>Soft fabric book</strong></td><td>Crinkly soft books (Lamaze, Skip Hop). Reads itself. Stays engaging through three flights.</td><td>One soft book</td></tr>
+    <tr><td><strong>Songs &amp; rhymes</strong></td><td>The classic catalogue — "Itsy Bitsy Spider," "Wheels on the Bus," lullabies. Maestro doesn't need a screen; he needs your voice.</td><td>Your memory</td></tr>
+  </tbody>
+</table>
+
+<h3>For Arya (3–5)</h3>
+<table class="tight">
+  <thead><tr><th style="width:22%">Game</th><th style="width:38%">How it works</th><th>Best setting</th></tr></thead>
+  <tbody>
+    <tr><td><strong>I Spy</strong></td><td>"I spy with my little eye, something… blue." She guesses. Trade roles. Variants: "something round," "something with letters," "something a grown-up wears."</td><td>Cabin, restaurants, cars</td></tr>
+    <tr><td><strong>Memory tray</strong></td><td>Place 5 small objects on a tray (napkin, coin, sticker, peg doll, raisin). Look for 30 seconds. Cover. Recall. Add objects as she masters it.</td><td>Tray table on the plane</td></tr>
+    <tr><td><strong>Story chain</strong></td><td>"Once upon a time, there was a little airplane named Pip." You add a sentence. She adds the next. Continue. Surprising places it goes.</td><td>Long flights, car rides</td></tr>
+    <tr><td><strong>Counting hunt</strong></td><td>"How many blue things can you find in this room?" Or: "How many people are wearing hats?" Engages eyes and counts.</td><td>Airports, restaurants</td></tr>
+    <tr><td><strong>Draw what I describe</strong></td><td>"Draw a house with three windows, a red door, and a cat sleeping on the roof." She draws. You guess what's hers. Then switch.</td><td>Tray table, hotel desk</td></tr>
+    <tr><td><strong>Sticker categorisation</strong></td><td>Give her a mixed sticker sheet. Ask her to sort by colour, by size, by who's smiling. A 20-minute meditation.</td><td>Anywhere flat</td></tr>
+    <tr><td><strong>Magnetic story set</strong></td><td>Melissa &amp; Doug character magnetic boards — build a scene, tell its story, change one thing, tell a new story.</td><td>Tray table, lap</td></tr>
+    <tr><td><strong>Travel bingo</strong></td><td>Print a 5×5 bingo card before the trip: things to spot (a man with a beard, a yellow car, a baby in a stroller). She marks them off.</td><td>Cars, airports</td></tr>
+    <tr><td><strong>The whisper game</strong></td><td>Whisper a word to her ear. She whispers it back. Then a phrase. Then a silly sentence. Builds focus, listening, and giggles.</td><td>Anywhere quiet is required</td></tr>
+    <tr><td><strong>"Find the letter"</strong></td><td>"Look around — can you find a letter A? Now a B?" Through the alphabet over an afternoon. Reading readiness.</td><td>Airports, plane magazines</td></tr>
+    <tr><td><strong>Touch-and-name</strong></td><td>Pull objects from a bag without looking. Identify by touch. (Olives, peg doll, scarf, smooth stone, soft pompom.)</td><td>Dinner waiting, hotel evenings</td></tr>
+    <tr><td><strong>Picture cards (open-ended)</strong></td><td>10 pre-cut printed picture cards (animals, places, foods). Mix them up — invent a story using all ten. She rearranges and tells it back.</td><td>Long sitting periods</td></tr>
+  </tbody>
+</table>
+
+<h3>Quiet pouch — what to keep in the carry-on at all times</h3>
+<ul class="checklist">
+  <li>One silk scarf (peek-a-boo + sun shade)</li>
+  <li>Small unbreakable hand mirror</li>
+  <li>Textured object pouch (5 small items)</li>
+  <li>3 stacking cups</li>
+  <li>1 soft fabric book</li>
+  <li>Washable crayons + small notebook</li>
+  <li>Sticker book + 2 sticker sheets</li>
+  <li>10 printed picture cards (laminated)</li>
+  <li>Travel bingo cards (3 — one per flight segment)</li>
+  <li>1 set magnetic story figures (small zip pouch)</li>
+  <li>Bliss balls in a ziplock for snack rescue</li>
+</ul>
+
+<blockquote class="quote">
+A child without a screen on a flight is not a child to be dreaded — it is a child whose attention you have, fully, for fourteen hours. Few gifts are larger.
+</blockquote>
+
+<!-- ====================== ACT I - CAIRO ====================== -->
+<div class="act-banner cairo">
+  <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="sun-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F5DEB3" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#C9A653" stop-opacity="0.4"/>
+      </linearGradient>
+    </defs>
+    <!-- Sun -->
+    <circle cx="750" cy="55" r="34" fill="url(#sun-grad)" opacity="0.9"/>
+    <!-- Pyramids -->
+    <polygon points="120,110 220,30 320,110" fill="#5C4012" opacity="0.85"/>
+    <polygon points="280,110 360,55 440,110" fill="#7C5C24" opacity="0.85"/>
+    <polygon points="400,110 460,72 520,110" fill="#9C7B40" opacity="0.85"/>
+    <!-- Ground -->
+    <line x1="0" y1="110" x2="900" y2="110" stroke="#5C4012" stroke-width="1.5"/>
+    <!-- Palms -->
+    <g transform="translate(580,80)">
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#5C4012" stroke-width="2"/>
+      <path d="M0,0 Q-18,-8 -28,-4 M0,0 Q-12,-15 -18,-20 M0,0 Q12,-15 18,-20 M0,0 Q18,-8 28,-4 M0,0 Q0,-18 -2,-25" stroke="#5C4012" stroke-width="2" fill="none"/>
+    </g>
+    <g transform="translate(630,90)">
+      <line x1="0" y1="0" x2="0" y2="20" stroke="#5C4012" stroke-width="1.5"/>
+      <path d="M0,0 Q-12,-5 -18,-2 M0,0 Q-8,-10 -12,-13 M0,0 Q8,-10 12,-13 M0,0 Q12,-5 18,-2" stroke="#5C4012" stroke-width="1.5" fill="none"/>
+    </g>
+    <!-- Hieroglyph row -->
+    <g transform="translate(40,18)" fill="#5C4012" opacity="0.7">
+      <text x="0" y="10" font-family="serif" font-size="14">☥ 𓂀 𓆣 𓇳 𓊽 𓋹 𓎟</text>
+    </g>
+  </svg>
+  <div class="label" style="margin-top:8px;">Act I  ·  Jun 12 – 22</div>
+  <div class="title">Cairo</div>
+  <div class="tagline">"The Pharaohs' Hospitality" — a settling, a work week, and three carefully chosen wonders before the family lifts north.</div>
+</div>
+
+<h3>Cairo at a glance</h3>
+<table class="tight">
+  <tbody>
+    <tr><td><strong>Climate</strong></td><td>95–105°F daily. 30% humidity. Dust days possible. Early mornings tolerable; midday brutal.</td></tr>
+    <tr><td><strong>Operating principle</strong></td><td>One outing per day, before 11 a.m. or after 5 p.m. Pool reigns midday.</td></tr>
+    <tr><td><strong>Currency</strong></td><td>EGP (~50 to USD). Cash for bazaars and small tips; card at JW.</td></tr>
+    <tr><td><strong>Dress</strong></td><td>Modest in public — covered shoulders and knees, especially mosques and Coptic sites. Light linens.</td></tr>
+    <tr><td><strong>Water</strong></td><td>Bottled only — including for brushing teeth. Hotel provides; supply room daily.</td></tr>
+    <tr><td><strong>Local guide recommendation</strong></td><td>Engage a private guide for both Pyramids and Egyptian Museum days. Recommended firm: <em>Memphis Tours</em> or <em>Egypt's True Sense</em>. Cost ~US$200/day for English-speaking, family-experienced guide with car and driver.</td></tr>
+  </tbody>
+</table>
+
+<!-- Day 1 - Travel -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Friday, June 12</span> &nbsp; <span class="pill cairo">Travel Day</span> <span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span></div>
+    <div class="tag">Day 1 · DFW → IST</div>
+  </div>
+  <div class="ramp">
+    A familiar departure, an unfamiliar destination. Today is about reserving energy — the children will follow the parents' tone. Keep voices low, motions slow, and the bedtime story tonight will be told at 35,000 feet.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">15:00</div><div>Final pack-up. Confirm passports, e-Visas printed, all chargers in carry-on. Maestro's last home nap.</div></div>
+    <div class="row"><div class="time">17:00</div><div>Light early dinner at home — proteins, no dairy for Arya (cabin air + dairy is a combination to avoid).</div></div>
+    <div class="row"><div class="time">17:45</div><div>House wind-down: thermostat to 78°F, lights on timer, alarm armed. Turn off water main if normal travel protocol.</div></div>
+    <div class="row"><div class="time">18:00</div><div><strong>Uber XL</strong> to DFW (pre-scheduled the night before — confirm car seat acceptance and request a clean, non-scented vehicle).</div></div>
+    <div class="row"><div class="time">18:30</div><div>Arrive DFW Terminal D. Curbside Business Class check-in. <strong>2×32 kg checked per adult.</strong> Gate-check stroller and Doona car seat.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Through security (TSA PreCheck if held). Family Lane available — use it.</div></div>
+    <div class="row"><div class="time">19:30</div><div><strong>Capital One Lounge</strong> at Gate D-22 (or The Club at DFW backup). Light dinner for adults; Arya may eat or graze. Maestro's last pre-flight feed.</div></div>
+    <div class="row"><div class="time">20:50</div><div>To gate. Pre-board with infant. <strong>TK0192</strong> · Boeing 787-9 · Business Z · Seats 7E (Meryem) + 5B (Austin in Cairo · separate booking). The IST-CAI leg seats are: M 08K · A 07F (toddler beside).</div></div>
+    <div class="row"><div class="time">21:30</div><div><strong>Wheels up.</strong> Maestro to breast / bottle on ascent (ear protection). Adults — no alcohol; hydrate aggressively.</div></div>
+    <div class="row"><div class="time">22:30</div><div>Cabin dimming. Arya into pyjamas, brushed teeth, story. <strong>Lights out by 23:00.</strong></div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Skip the TK meal service if it comes after 22:30 (request pre-arrival). Adults: pre-ordered fish or vegetarian; lighter on the stomach.</div>
+    <div class="aside-item"><div class="h">Cash</div>$100 USD in pocket for unexpected airport needs (porter, cart tip).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm e-Visa printout in three places. Take a photo of luggage tags.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Compression socks on at the gate. Eye masks before meal service. Maestro: feeding on ascent + descent to clear ears. Arya: a small piece of dried mango to chew on descent. Adults: skip alcohol entirely tonight — it amplifies dehydration eightfold at altitude. Two full glasses of water for every hour aloft. Calf raises every two hours when standing in the aisle.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    Before bed, ask Arya: "We are going to a place where the world's oldest libraries used to be. What do you think the first book ever was about?" Listen — do not steer.
+  </div>
+</div>
+
+<!-- Day 2 -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Saturday, June 13</span> &nbsp; <span class="pill cairo">Arrival</span> <span class="pill yasemin">Yasemin joins IST</span></div>
+    <div class="tag">Day 2 · IST → CAI</div>
+  </div>
+  <div class="ramp">
+    Today's miracle: three flights converge on one airport. Yasemin steps onto the same Cairo flight as you. Embrace her quietly at the gate — the children will remember it.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">17:25</div><div>Land IST. Walk briskly — connection is tight (one hour). Follow "Transfer" signs; no immigration needed.</div></div>
+    <div class="row"><div class="time">17:35</div><div>Transit security (separate from arrival). <strong>Yasemin meets you at gate</strong> for TK694 (arrives via DLM connection). Big hugs.</div></div>
+    <div class="row"><div class="time">18:00</div><div>Brief restroom + diaper change. Maestro feed. Arya bathroom + stretch walk.</div></div>
+    <div class="row"><div class="time">18:25</div><div><strong>TK0694 IST→CAI</strong> · A321neo · 2h 25m. Seats: M 05F · A 05E · Austin 5B · Yasemin separately.</div></div>
+    <div class="row"><div class="time">20:50</div><div><strong>Land Cairo.</strong> Slow walk to immigration with stroller. Egypt e-Visa pre-printed in hand. Allow 45 min for immigration with family.</div></div>
+    <div class="row"><div class="time">21:30</div><div>Baggage claim (2 × 32 kg per adult). Use a porter — tip EGP 100 ($2).</div></div>
+    <div class="row"><div class="time">22:00</div><div>Hotel transfer (pre-arranged via JW Marriott — Mercedes with infant car seat). ~45 minutes to New Cairo.</div></div>
+    <div class="row"><div class="time">23:00</div><div>Check in. Welcome amenities should be in room. Maestro to crib. Arya quick wash + bed. Adults: a quiet drink on the room balcony.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Late room service for adults only (light: soup, bread, fruit). Children have already eaten at the hotel.</div>
+    <div class="aside-item"><div class="h">Cash</div>Have EGP 500 in small denominations on arrival for porter, driver tip ($10), incidentals.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm tomorrow's pool reservation and breakfast service hours at check-in.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Force water for adults. Nightlight in the children's area — a strange room without one is unsettling.</div>
+  </div>
+</div>
+
+<!-- Day 3 -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Sunday, June 14</span> &nbsp; <span class="pill cairo">Acclimate</span></div>
+    <div class="tag">Day 3 · Cairo · settling</div>
+  </div>
+  <div class="ramp">
+    A nothing day. The most important kind of day. The children will reset their clocks by sunlight and pool water — let them.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">07:30</div><div>Wake naturally. Open curtains. Breakfast in the hotel — eggs, fruit, bread, no heavy proteins yet for the children.</div></div>
+    <div class="row"><div class="time">09:30</div><div>Pool. Apply sunscreen 30 min before. Wide-brim hats on all. Stay under shade or umbrella between 11 a.m. and 3 p.m.</div></div>
+    <div class="row"><div class="time">11:30</div><div>Maestro nap in stroller (canopy down, fan on). Arya pool snack + reading nook.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Light lunch poolside. Avoid raw vegetables and ice that is not from the hotel system.</div></div>
+    <div class="row"><div class="time">13:30</div><div>Indoor time. Children's nap (real beds, dark room, white noise). Adults: quiet hour. Austin reviews work week.</div></div>
+    <div class="row"><div class="time">16:30</div><div>Children up. Slow afternoon — perhaps a gentle stroll in hotel grounds, fountains, gardens.</div></div>
+    <div class="row"><div class="time">18:30</div><div>Family dinner at JW Marriott — try the Italian or the Lebanese restaurant. Pace it slowly.</div></div>
+    <div class="row"><div class="time">20:00</div><div>Bedtime routine. Children down by 20:30. Adults: walk the grounds, then sleep — Austin starts work tomorrow.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Always bottled water at the table. Yogurt is fine; ice cream from sealed source only.</div>
+    <div class="aside-item"><div class="h">Cash</div>EGP 200–300 for hotel housekeeping tip (left on pillow tomorrow).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm guide booking for Pyramids on Tuesday morning (Day 5). Confirm Egyptian Museum reservation for Wednesday afternoon.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Every adult: 3+ litres water today. Watch for hidden symptoms of low-level dehydration in Arya (cranky, headache).</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    At dinner, ask Arya: "What was your favourite sound today? Was it new?" The point is attention, not novelty. Maestro hears everything — narrate the world for him.
+  </div>
+</div>
+
+<!-- Day 4 - Austin work begins MONDAY -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Monday, June 15</span> &nbsp; <span class="pill work">Austin → work · Day 1 of 5</span></div>
+    <div class="tag">Day 4 · Cairo · Austin work week begins</div>
+  </div>
+  <div class="ramp">
+    Austin is in his own current today; the family is in another. Lean into the gentleness of separate rhythms. Meryem — today is your day to nap when Maestro naps. The Pyramids will keep until tomorrow morning.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">07:00</div><div>Family breakfast together before Austin leaves for the day.</div></div>
+    <div class="row"><div class="time">08:00</div><div>Austin → work (employer-arranged transport).</div></div>
+    <div class="row"><div class="time">09:00</div><div>Meryem + kids + Yasemin: pool morning. Maestro gets his first proper sunshine. Apply mineral sunscreen 20 minutes before exposure.</div></div>
+    <div class="row"><div class="time">12:00</div><div>Lunch + nap protocol as Day 3. Yasemin holds Maestro while Meryem rests with Arya.</div></div>
+    <div class="row"><div class="time">15:00</div><div>Quiet walk in the JW gardens. Arya scavenger hunt — count fountains, find a butterfly, name three trees.</div></div>
+    <div class="row"><div class="time">18:30</div><div>Austin returns. Family dinner. Recap day quietly.</div></div>
+    <div class="row"><div class="time">20:30</div><div>Children to bed. Adults: balcony, quiet drink, early sleep.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Try the JW's mezzeh selection — small, mild, lots of bread for Arya. Avoid any iced drinks not from the hotel system.</div>
+    <div class="aside-item"><div class="h">Cash</div>EGP for housekeeping pillow tip (US$3–5 equivalent).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Re-confirm Tuesday pyramid guide — pickup at 6:00 a.m. Confirm Austin's Tuesday evening 9-hole tee time at Mirage City.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Meryem: 3 L water minimum today; the heat dehydrates pumping mothers faster — consider an extra electrolyte sachet mid-day. Arya watch for first signs of any tummy upset; bland breakfast tomorrow if anything off. Adults: 10 minutes of slow stretching on the room floor before bed unwinds the spine from yesterday's flights. Maestro: morning sun exposure (15 min) helps reset circadian rhythm.</div>
+  </div>
+</div>
+
+<!-- Day 5 - Pyramids + Austin evening golf -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Tuesday, June 16</span> &nbsp; <span class="pill cairo">Pyramids</span> <span class="pill work">Austin work</span> <span class="pill cairo">Austin golf 9 holes</span></div>
+    <div class="tag">Day 5 · Pyramids of Giza · Sphinx · golf evening</div>
+  </div>
+  <div class="ramp">
+    The day Arya will remember. Plan it like a small expedition — be at the gate before opening, be back in the pool by lunch. Austin will see the pyramids on Saturday; today, he is at his desk, and the family is at the wonder of the ancient world.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">05:30</div><div>Wake. Light breakfast in-room (pre-ordered last night). Mineral sunscreen applied. Hats, water bottles, bliss balls and snacks loaded.</div></div>
+    <div class="row"><div class="time">06:00</div><div>Guide + driver pickup (Austin departs separately for work). ~45 min to Giza Plateau (early traffic).</div></div>
+    <div class="row"><div class="time">07:00</div><div>Enter at gate opening. Approach the Great Pyramid — touch the stones. Camel photo only if Arya wants (Yasemin holds Maestro).</div></div>
+    <div class="row"><div class="time">08:00</div><div>Walk to the Sphinx viewpoint. Quiet moment. Photos.</div></div>
+    <div class="row"><div class="time">09:00</div><div>Brief Solar Boat Museum (air-conditioned) or Grand Egyptian Museum if open (only if not crowded; ask guide).</div></div>
+    <div class="row"><div class="time">10:30</div><div>Depart Giza. Optional brief stop at a perfume oils shop (Yasemin knows the tourist traps to skip; <em>also: no perfume purchases for the family — fragrance-sensitive household</em>).</div></div>
+    <div class="row"><div class="time">11:30</div><div>Back at JW. Pool. Long lunch. Maestro nap.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Quiet afternoon. Picture books. A FaceTime to home if anyone needs it.</div></div>
+    <div class="row"><div class="time">17:30</div><div><strong>Austin → Mirage City Golf Course</strong> (5 minutes from hotel). 9 holes, walking, in the gentler late-afternoon light. Booked through hotel concierge. Walking pace finishes ~19:30.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Family dinner together. Arya retells the day to Austin; he retells his first hole.</div></div>
+    <div class="row"><div class="time">21:00</div><div>Bed.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Guide may suggest a Giza restaurant — politely decline (food safety variable). Eat at the hotel. Tonight: try the JW Egyptian fusion offering.</div>
+    <div class="aside-item"><div class="h">Cash</div>Guide tip US$30–40 at end of day; driver tip US$15. Camel handler US$5 if used. Caddy at Mirage City: US$15–20.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Tomorrow afternoon: Egyptian Museum (Tahrir or GEM). Confirm 14:30 entry; book skip-the-line tickets. Re-confirm Thursday evening golf for Austin.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Hydrate. Arya: at least 1 L of water by 4 p.m. Meryem: an extra electrolyte sachet today — pumping plus heat plus 4 hours of walking. After the pyramids, a 10-minute lie-down with feet elevated. Austin: stretch hamstrings before the tee — the heat plus 9 walking holes will tighten the lower back. Apply aloe vera to anyone whose neck caught sun (Arya — hat tilts back when she runs).</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    On the drive home: "If you could ask the people who built this anything, what would you ask?" — and then "Why do you think they built it pointy?" Let the explanation unfold over the week.
+  </div>
+</div>
+
+<!-- Day 6 - Museum afternoon WEDNESDAY -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Wednesday, June 17</span> &nbsp; <span class="pill cairo">Pool morning · museum afternoon</span> <span class="pill work">Austin work</span></div>
+    <div class="tag">Day 6 · Cairo</div>
+  </div>
+  <div class="ramp">
+    A morning of rest after the pyramids. The museum is air-conditioned and indoor — perfect for the hot hours. Keep it to two galleries; do not try to see everything.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:00</div><div>Slow breakfast. Pool until 11:00.</div></div>
+    <div class="row"><div class="time">12:00</div><div>Lunch. Nap protocol — children and Meryem.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Driver to Egyptian Museum (Tahrir Square if classic; or Grand Egyptian Museum in Giza if newly opened). 30 min drive.</div></div>
+    <div class="row"><div class="time">14:30</div><div>Enter museum. Focus: Tutankhamun gallery + one Old Kingdom gallery. Maestro in carrier, Arya by hand. Aim for 90 minutes maximum.</div></div>
+    <div class="row"><div class="time">16:30</div><div>Back to hotel. Pool again or hotel garden walk.</div></div>
+    <div class="row"><div class="time">18:30</div><div>Family dinner. Tonight: try the Egyptian fusion offering at the hotel restaurant.</div></div>
+    <div class="row"><div class="time">20:30</div><div>Bed.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Egyptian breakfast (ful, taameya) might appeal to Yasemin and adults — familiar to her palate.</div>
+    <div class="aside-item"><div class="h">Cash</div>Museum entry handled by guide; tip US$20 at end.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Reserve a felucca for Friday evening (Day 8) — sunset sail on the Nile. Confirm Thursday evening 9-hole tee time for Austin.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Apply lip balm with SPF before the museum — air conditioning is dehydrating. After museum: feet up for 10 minutes — Arya complains less if the rest is framed as "queens rest like this." Meryem: pump session immediately on return — heat plus 90 min of walking will compress supply if delayed. Adults: a small magnesium tab before bed will quiet the legs from today's standing. Eye drops (preservative-free) before sleep for everyone — Cairo dust is real.</div>
+  </div>
+</div>
+
+<!-- Day 7 - Pool reset + Austin evening golf -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Thursday, June 18</span> &nbsp; <span class="pill cairo">Pool reset</span> <span class="pill work">Austin work</span> <span class="pill cairo">Austin golf 9 holes</span></div>
+    <div class="tag">Day 7 · Cairo · light day · golf evening</div>
+  </div>
+  <div class="ramp">
+    No outings for the family today. The cumulative heat is real. Protect today's reserves; Austin's weekend is only one day away.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">07:30</div><div>Breakfast. Pool from 9 to 11.</div></div>
+    <div class="row"><div class="time">11:30</div><div>In-room lunch. Naps.</div></div>
+    <div class="row"><div class="time">15:00</div><div>Children's analogue craft hour — Arya gets new sticker book + crayons (Meryem's secret supply). Maestro tummy time on a clean blanket.</div></div>
+    <div class="row"><div class="time">17:30</div><div><strong>Austin → Mirage City Golf Course.</strong> Second 9-hole round of the week. Walking. Finish by sundown ~19:30.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Family dinner (Austin joins after golf, having showered at the clubhouse).</div></div>
+    <div class="row"><div class="time">20:30</div><div>Quiet evening in room. Adults: balcony, light reading.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Order in tonight if anyone is too tired. Hotel room service is excellent and dignified.</div>
+    <div class="aside-item"><div class="h">Cash</div>Top up cash from hotel ATM if needed (Visa/Mastercard accepted, EGP dispensed).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Print boarding passes for Jun 22 CAI→IST. Pre-check children's names on TK app. Confirm Saturday 06:30 18-hole tee time at Mirage City and Sunday 09:00 lesson + 9 holes for Meryem.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Restock pharmacy kit if anything used. Meryem: foam-roll the upper back tonight (use a rolled towel against the headboard) — pumping shoulders need it. Arya: an early lavender-free bath, just warm water + Aquaphor for cheeks. Maestro: an extra-long nap if he'll take it — his rhythm is still settling. Adults: 10 minutes of slow box-breathing before sleep (4-4-4-4) to drop heart rate. Pop a magnesium glycinate if available.</div>
+  </div>
+</div>
+
+<!-- Day 8 - Friday: Austin's last work day + felucca evening -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Friday, June 19</span> &nbsp; <span class="pill work">Austin work (final day of week)</span> <span class="pill cairo">Family felucca evening</span></div>
+    <div class="tag">Day 8 · Cairo · Friday + sunset Nile</div>
+  </div>
+  <div class="ramp">
+    Austin's last working day of the week — he ends earlier today, by design. By 17:00 the family is together for the most photogenic evening of the trip.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:00</div><div>Family breakfast. Austin to work (lighter Friday schedule, aim for 16:00 finish).</div></div>
+    <div class="row"><div class="time">09:30</div><div>Pool morning with Meryem, Yasemin, kids. Long gentle session.</div></div>
+    <div class="row"><div class="time">13:00</div><div>Lunch + family rest. Naps. Maestro long nap (chase the schedule reset for tomorrow).</div></div>
+    <div class="row"><div class="time">16:00</div><div>Austin returns. Quick shower and change.</div></div>
+    <div class="row"><div class="time">16:30</div><div>Uber to Zamalek waterfront (~50 min in evening traffic — leave with buffer).</div></div>
+    <div class="row"><div class="time">17:30</div><div><strong>Felucca sunset sail</strong> — pre-arranged via concierge. 90 minutes on the Nile. Bring light jackets, snacks (bliss balls), water, mineral sunscreen.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Dinner: Sequoia restaurant on the Nile (riverside, family-friendly, beautiful). Or return to JW if the children are spent.</div></div>
+    <div class="row"><div class="time">22:00</div><div>Uber back to JW. Children to bed quickly.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Sequoia: book ahead. Mediterranean menu. Arya can find pasta or bread + cheese reliably. Order Arya a small lemonade made with bottled water (confirm with server).</div>
+    <div class="aside-item"><div class="h">Cash</div>Felucca captain tip US$10–15. Uber via app (no cash). Restaurant 10–15% tip on top of service charge.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm Saturday 06:00 wake-up for Austin's 06:30 tee at Mirage City. Confirm Saturday morning Coptic Cairo guide for Meryem + Yasemin + kids (pickup 08:00).</div>
+    <div class="aside-item"><div class="h">Wellness</div>Reapply sunscreen on the boat — sun reflects sharply off the water. Drink bottled water steadily on the felucca; the breeze masks dehydration. Bring an extra muslin to cover Maestro's legs if the late-day mosquitoes appear. Adults: today is the last "work-stressed" day for Austin — a slow 20-minute walk with Meryem after the children are down resets the nervous system better than any drink.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    On the felucca, ask Arya: "Why do you think this is the world's longest river? Where do you think the water starts?" The next morning at breakfast, draw it together on a napkin — from Ethiopia, all the way to the Mediterranean.
+  </div>
+</div>
+
+<!-- Day 9 - Saturday: Austin 18 holes + family Coptic Cairo + Meryem lesson -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Saturday, June 20</span> &nbsp; <span class="pill cairo">Austin 18 holes (AM)</span> <span class="pill cairo">Coptic Cairo (AM family)</span> <span class="pill cairo">Meryem golf lesson + 9 (PM)</span></div>
+    <div class="tag">Day 9 · Cairo · the active Saturday</div>
+  </div>
+  <div class="ramp">
+    A choreographed weekend day. Austin walks 18 holes before the heat. The family walks the quietest, most ancient streets in Cairo. Then Meryem trades places — her swing instructor awaits at 14:30 while Austin takes the children to the pool.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">05:45</div><div>Austin wakes. Light breakfast in room. To the course by 06:15.</div></div>
+    <div class="row"><div class="time">06:30</div><div><strong>Austin tees off — 18 holes, Mirage City Golf Course.</strong> Walking with caddy. Finish by 11:00 ahead of the heat.</div></div>
+    <div class="row"><div class="time">07:30</div><div>Family breakfast at hotel. Out by 08:00.</div></div>
+    <div class="row"><div class="time">08:30</div><div>Family + Yasemin + private guide → <strong>Coptic Cairo</strong> (Old Cairo). Visit Hanging Church, St. Sergius. Quiet, shaded, mosaic floors. ~90 min total.</div></div>
+    <div class="row"><div class="time">10:30</div><div>Return to hotel. Maestro nap. Arya: a quiet lap of the pool with Yasemin.</div></div>
+    <div class="row"><div class="time">11:30</div><div>Austin returns from golf. Quick shower.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Family lunch together. Slow.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Maestro nap. Arya quiet time.</div></div>
+    <div class="row"><div class="time">14:30</div><div><strong>Meryem → Mirage City Golf: 45-min lesson with pro, then 9 holes walking.</strong> Austin watches the children at the pool with Yasemin's support. Finish ~17:30.</div></div>
+    <div class="row"><div class="time">18:00</div><div>Family dinner — quieter, in. Tonight: the JW Lebanese restaurant. Order one shared mezzeh tower.</div></div>
+    <div class="row"><div class="time">20:30</div><div>Children to bed. Adults: balcony.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Lebanese mezzeh: hummus, baba ganoush, fattoush, kibbeh, halloumi. Arya: pita + labneh + cucumber is reliable. Tonight Austin orders the lamb shank.</div>
+    <div class="aside-item"><div class="h">Cash</div>Coptic Cairo guide: US$80 fee + $20 tip. Caddy at golf for Austin: $20. Caddy for Meryem: $15. Cash for any small church donation (EGP 50).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Tomorrow evening: Khan el-Khalili (Austin + Meryem). Confirm Sunday evening guide for the bazaar.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Austin: significant hydration during golf — 2 L during round, plus a pinch of salt. Stretching afterwards before sitting (lower back). Meryem: 30 min decompression in room before lesson; pump immediately on return. Mineral sunscreen reapplied for both at every halfway point. Arya: a long indoor nap was earned by an early morning. Maestro: monitor his fluid intake — Meryem's lesson timing means an alternate feed (stored milk in bottle) — Yasemin can offer it. Adults: legs elevated 15 minutes before dinner — they will have walked roughly 20,000 steps today.</div>
+  </div>
+</div>
+
+<!-- Day 10 - Sunday: pre-departure + Khan evening -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Sunday, June 21</span> &nbsp; <span class="pill cairo">Last family Cairo day · Khan evening</span></div>
+    <div class="tag">Day 10 · Cairo · pre-departure</div>
+  </div>
+  <div class="ramp">
+    A slow morning, careful packing in the afternoon, and one final adult evening at the bazaar. Tomorrow Cairo becomes a memory and Istanbul becomes the present.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:30</div><div>Family breakfast — long. No alarm necessary.</div></div>
+    <div class="row"><div class="time">10:00</div><div>Pool one last time. Final family swim. Photographs.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Lunch. Naps. Adults begin to pack methodically.</div></div>
+    <div class="row"><div class="time">14:30</div><div>Repack: Türkiye gifts forward, used items consolidated, snacks re-decanted, all chargers + adapters accounted for. Pharmacy kit re-loaded on top.</div></div>
+    <div class="row"><div class="time">16:30</div><div>Children's bath. Light early dinner in-room.</div></div>
+    <div class="row"><div class="time">17:30</div><div>Children to Yasemin for the evening. Austin + Meryem out together.</div></div>
+    <div class="row"><div class="time">18:00</div><div>Uber to <strong>Khan el-Khalili bazaar</strong> with private guide. Coffee at El Fishawy (the famous café). Targeted shopping: a small piece of brass, a hand-stitched textile, a tea. Avoid touristy plastic.</div></div>
+    <div class="row"><div class="time">20:00</div><div>Couple's dinner at Abou El Sid (classic Egyptian) — molokhia, kofta, mahshi.</div></div>
+    <div class="row"><div class="time">22:00</div><div>Uber back to JW. Final luggage check. Adults to bed by 23:00.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>El Fishawy: mint tea + a small dessert only. Abou El Sid: molokhia, kofta, mahshi. A perfect last Cairo dinner.</div>
+    <div class="aside-item"><div class="h">Cash</div>Bazaar purchases in cash; haggle to 60% of opening. Guide handles negotiation. Settle JW hotel incidentals tonight to avoid morning delay.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm CAI Meet &amp; Assist for 6:30 a.m. with concierge. Print boarding passes for TK0691. Confirm Uber XL pickup at hotel for 06:00.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Pack pharmacy kit on top of carry-on for easy access. Adults: tonight is the last "real meal out" before a transit day — eat clean, no shellfish, no street food. Hydrate before bed. Meryem: pump and store an extra bottle for tomorrow's airport feed window. Arya: she may regress slightly on this last day (a tantrum about leaving the pool, for example) — name the feeling: "It's hard to say goodbye to a place we loved." Meditation: five minutes of breathwork in bed for both adults — tomorrow demands fresh nerves.</div>
+  </div>
+</div>
+
+<!-- Day 11 - CAI to IST -->
+<div class="day cairo">
+  <div class="day-header">
+    <div><span class="date">Monday, June 22</span> &nbsp; <span class="pill cairo">Depart Cairo</span> → <span class="pill istanbul">Istanbul</span></div>
+    <div class="tag">Day 11 · CAI → IST · transition</div>
+  </div>
+  <div class="ramp">
+    Today the chapter turns. Cairo settles in memory as warmth and stone; ahead, the family welcome. Austin stays behind in Cairo for the work week's second half — he will catch up with you Friday.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">05:30</div><div>Wake. Light room-service breakfast. Final bag check.</div></div>
+    <div class="row"><div class="time">06:00</div><div>Uber XL from hotel to CAI Terminal 3 (pre-scheduled).</div></div>
+    <div class="row"><div class="time">07:00</div><div>Meet &amp; Assist representative receives you. Through check-in and security in 20 min.</div></div>
+    <div class="row"><div class="time">07:30</div><div>Ahlein Premier Lounge (Priority Pass via Capital One Venture X). Light second breakfast. Diaper change. Maestro feed.</div></div>
+    <div class="row"><div class="time">09:30</div><div>Gate. Pre-board.</div></div>
+    <div class="row"><div class="time">10:05</div><div><strong>TK0691 CAI→IST</strong> · A321 · Economy V · 2h 30m. Seats: Meryem 06F · Arya 06E · Maestro lap. Yasemin separately. Austin remains in Cairo.</div></div>
+    <div class="row"><div class="time">12:35</div><div>Land Istanbul. Long walk to arrivals. Immigration — Yasemin's lane separate (Turkish citizens).</div></div>
+    <div class="row"><div class="time">13:30</div><div>Baggage. Family meets at arrivals — the Türkiye relatives may be waiting (verify with Yasemin).</div></div>
+    <div class="row"><div class="time">14:00</div><div>Transit to host's home. Settle. Children: free play. Adults: receive coffee, ease into family.</div></div>
+    <div class="row"><div class="time">18:00</div><div>Welcome dinner with family. Quiet, not overwhelming.</div></div>
+    <div class="row"><div class="time">20:00</div><div>Children to bed in family home. Adults — early to bed, the days that follow are long.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Welcome dinner: accept what is offered; the cooking is the love. Decline politely only what Arya cannot tolerate.</div>
+    <div class="aside-item"><div class="h">Cash</div>Have TRY 500 in hand for taxis, small purchases on arrival.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Activate Türkiye eSIM on landing. Austin in Cairo: text confirmation of safe arrival.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Bedside lamp + nightlight for Arya in unfamiliar room.</div>
+  </div>
+</div>
+
+<!-- ====================== ACT II - ISTANBUL ====================== -->
+<div class="act-banner istanbul">
+  <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Water -->
+    <path d="M0,90 Q150,80 300,90 T600,90 T900,90 L900,130 L0,130 Z" fill="#6B9B66" opacity="0.5"/>
+    <path d="M0,100 Q150,92 300,100 T600,100 T900,100 L900,130 L0,130 Z" fill="#2F4A2B" opacity="0.4"/>
+    <!-- Bosphorus bridge -->
+    <line x1="50" y1="70" x2="350" y2="70" stroke="#2F4A2B" stroke-width="2"/>
+    <line x1="80" y1="70" x2="80" y2="92" stroke="#2F4A2B" stroke-width="2"/>
+    <line x1="320" y1="70" x2="320" y2="92" stroke="#2F4A2B" stroke-width="2"/>
+    <path d="M80,70 Q200,30 320,70" stroke="#2F4A2B" stroke-width="2" fill="none"/>
+    <!-- Mosques with minarets -->
+    <g transform="translate(450,40)">
+      <ellipse cx="0" cy="40" rx="36" ry="24" fill="#2F4A2B" opacity="0.85"/>
+      <rect x="-36" y="40" width="72" height="22" fill="#2F4A2B" opacity="0.85"/>
+      <line x1="-30" y1="20" x2="-30" y2="62" stroke="#2F4A2B" stroke-width="3"/>
+      <polygon points="-30,12 -27,20 -33,20" fill="#2F4A2B"/>
+      <line x1="30" y1="20" x2="30" y2="62" stroke="#2F4A2B" stroke-width="3"/>
+      <polygon points="30,12 33,20 27,20" fill="#2F4A2B"/>
+      <line x1="-12" y1="14" x2="-12" y2="40" stroke="#2F4A2B" stroke-width="2"/>
+      <line x1="12" y1="14" x2="12" y2="40" stroke="#2F4A2B" stroke-width="2"/>
+    </g>
+    <g transform="translate(600,55)">
+      <ellipse cx="0" cy="30" rx="28" ry="18" fill="#2F4A2B" opacity="0.85"/>
+      <rect x="-28" y="30" width="56" height="17" fill="#2F4A2B" opacity="0.85"/>
+      <line x1="-22" y1="14" x2="-22" y2="47" stroke="#2F4A2B" stroke-width="2"/>
+      <line x1="22" y1="14" x2="22" y2="47" stroke="#2F4A2B" stroke-width="2"/>
+    </g>
+    <!-- Boat -->
+    <g transform="translate(720,82)">
+      <path d="M0,0 L40,0 L36,8 L4,8 Z" fill="#2F4A2B"/>
+      <line x1="20" y1="0" x2="20" y2="-18" stroke="#2F4A2B" stroke-width="2"/>
+      <path d="M20,-16 L36,-2 L20,-2 Z" fill="#2F4A2B" opacity="0.7"/>
+    </g>
+    <!-- Birds -->
+    <g fill="none" stroke="#2F4A2B" stroke-width="1.2">
+      <path d="M780,30 q4,-4 8,0 q4,-4 8,0"/>
+      <path d="M800,40 q3,-3 6,0 q3,-3 6,0"/>
+      <path d="M820,28 q3,-3 6,0 q3,-3 6,0"/>
+    </g>
+  </svg>
+  <div class="label" style="margin-top:8px;">Act II  ·  Jun 22 – 29</div>
+  <div class="title">Istanbul</div>
+  <div class="tagline">"The Reunion" — a week to be present for the people, not the city. The minarets will wait.</div>
+</div>
+
+<h3>Istanbul at a glance</h3>
+<table class="tight">
+  <tbody>
+    <tr><td><strong>Climate</strong></td><td>75–85°F, less humid than Cairo. Evenings cool — bring a light layer.</td></tr>
+    <tr><td><strong>Operating principle</strong></td><td>Family is the center. Touring is the framework. Skip what you can; sit longer at meals.</td></tr>
+    <tr><td><strong>Hosts</strong></td><td>Extended family on Yasemin's circle in Istanbul; Murat (Meryem's father) anchors the Taşucu chapter. Yasemin sets the Istanbul pace; she returns to Dalaman on Jun 29 ahead of the family's southern move.</td></tr>
+    <tr><td><strong>Dress</strong></td><td>Smart casual most days. Modest for any mosque visit. Children: comfortable shoes for cobblestones.</td></tr>
+    <tr><td><strong>Transit</strong></td><td>Mostly with family (their cars). For independent trips: BiTaksi app (Türkiye's Uber equivalent) on Türkiye eSIM.</td></tr>
+  </tbody>
+</table>
+
+<!-- Day 12 -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Tuesday, June 23</span> &nbsp; <span class="pill istanbul">Family day</span></div>
+    <div class="tag">Day 12 · Istanbul · slow</div>
+  </div>
+  <div class="ramp">
+    A nothing day. Be in the kitchen. Be on the couch. Yasemin will direct — follow.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">09:00</div><div>Family breakfast — kahvaltı (Turkish breakfast spread). Slow. Try menemen for the adults; bread and cheese for Arya.</div></div>
+    <div class="row"><div class="time">11:00</div><div>Walk in the neighborhood with Yasemin. Arya holds her grandmother's hand.</div></div>
+    <div class="row"><div class="time">13:00</div><div>Lunch at home. Children's nap.</div></div>
+    <div class="row"><div class="time">16:00</div><div>Optional: short outing to a nearby park. Maestro tummy time on grass.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Family dinner. Multiple relatives may join. Be present, listen, let Arya be hugged.</div></div>
+    <div class="row"><div class="time">21:00</div><div>Bed.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Trust the hosts' food entirely. Türkiye's food hygiene is high. Children may be over-fed by aunties — let it happen.</div>
+    <div class="aside-item"><div class="h">Cash</div>None needed today.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Present a small thank-you gift to the hosting household (a Yeti tumbler or premium chocolate from Türkiye gifts stash).</div>
+    <div class="aside-item"><div class="h">Wellness</div>Sleep early — the timezone shift from Cairo is minimal but cumulative fatigue is real. The slower pace allows Meryem to pump on schedule without rushing. Adults: a long evening walk in the neighbourhood (20 min) settles digestion after a heavy family meal. Maestro: extra tummy time on a clean blanket — different floor, different sensory input, valuable for development.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    Ask Arya at dinner: "Anneanne (grandmother) grew up in a different place. What do you want to know about when she was little like you?"
+  </div>
+</div>
+
+<!-- Day 13 - Bosphorus -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Wednesday, June 24</span> &nbsp; <span class="pill istanbul">Bosphorus boat</span></div>
+    <div class="tag">Day 13 · Istanbul · classic outing</div>
+  </div>
+  <div class="ramp">
+    A boat between two continents — exactly the kind of thing a four-year-old understands intuitively. Frame it for Arya: today we will float between Europe and Asia.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">10:00</div><div>Breakfast with hosts. Then transit to Eminönü or Beşiktaş port (45 min depending on traffic and origin).</div></div>
+    <div class="row"><div class="time">11:30</div><div>Board the public Bosphorus ferry — affordable, authentic, with locals. Or charter a small private boat through the family (often a cousin knows a captain).</div></div>
+    <div class="row"><div class="time">12:00</div><div>Sail north up the Bosphorus. See Dolmabahçe, Rumeli Hisarı, the bridges. Maestro nap on board.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Lunch at Anadolu Kavağı (Asian side) or back at family home if shorter.</div></div>
+    <div class="row"><div class="time">17:00</div><div>Home. Rest.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Family dinner.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Try fish at Anadolu Kavağı — kalkan or levrek. Arya: rice, bread.</div>
+    <div class="aside-item"><div class="h">Cash</div>TRY for boat tickets and lunch. ~US$60–80.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Tomorrow: Sultanahmet morning. Confirm guide or rely on family.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Sun on the boat — mineral sunscreen reapplied every 90 min and hats on at all times. The deck breeze hides UV. Meryem: pumping schedule on a boat is doable — use a nursing cover, or ask Yasemin to hold space below deck briefly. Adults: stand and walk the deck periodically — boat sitting tightens hips. Arya: dramamine is unnecessary on the Bosphorus (no swell), but ginger candies make for a nice ritual.</div>
+  </div>
+</div>
+
+<!-- Day 14 - Sultanahmet -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Thursday, June 25</span> &nbsp; <span class="pill istanbul">Sultanahmet morning</span></div>
+    <div class="tag">Day 14 · Istanbul · old city</div>
+  </div>
+  <div class="ramp">
+    The famous things. Limit to two — Hagia Sophia and Blue Mosque. Save Topkapi for a return trip.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:00</div><div>Light breakfast. Out by 9:00.</div></div>
+    <div class="row"><div class="time">09:30</div><div>Arrive Sultanahmet. Visit Hagia Sophia first (less crowded early). Modest dress: shoulders covered, scarves for women.</div></div>
+    <div class="row"><div class="time">10:30</div><div>Blue Mosque. Quick visit (prayer schedule permitting — check Yasemin's wisdom).</div></div>
+    <div class="row"><div class="time">11:30</div><div>Brief walk through Hippodrome. Photos at the obelisks.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Lunch at a local kebab restaurant in the area (family suggestion: Sultanahmet Köftecisi).</div></div>
+    <div class="row"><div class="time">14:00</div><div>Home. Nap.</div></div>
+    <div class="row"><div class="time">17:00</div><div>Quiet afternoon. Children play with cousins if available.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Family dinner. Tomorrow: Austin arrives.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Sultanahmet Köftecisi — köfte (meatballs), piyaz (bean salad), kuru fasulye. Arya: bread + butter, rice.</div>
+    <div class="aside-item"><div class="h">Cash</div>Mosques free; tip mosque attendant TRY 20 each. Lunch ~US$30.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Confirm Austin's TK7880 (CAI→IST) arrival tomorrow 17:35. Family pickup or BiTaksi.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Cobblestones — Arya in sturdy shoes. Stroller wheels suffer; Maestro in carrier. Meryem: change into supportive sneakers post-mosque (you'll slip on/off shoes; bring no-tie laces). Adults: foot soak in warm water with epsom salts tonight. Hydrate aggressively — Istanbul humidity is gentle but the day's walking dehydrates more than expected.</div>
+  </div>
+</div>
+
+<!-- Day 15 - Austin arrives -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Friday, June 26</span> &nbsp; <span class="pill istanbul">Austin arrives</span></div>
+    <div class="tag">Day 15 · Istanbul · reunion</div>
+  </div>
+  <div class="ramp">
+    Austin lands at 5:35 p.m. Plan the day around the welcome. The children will be wild with anticipation in the afternoon — protect their morning energy.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">10:00</div><div>Late breakfast at home with family. Slow.</div></div>
+    <div class="row"><div class="time">12:00</div><div>Light morning errand: small grocery for tomorrow, a flower for Yasemin from the family.</div></div>
+    <div class="row"><div class="time">13:30</div><div>Lunch. Nap (Arya should nap so she can stay up for Dad).</div></div>
+    <div class="row"><div class="time">16:30</div><div>Get ready. Best clothes — even Arya. Yasemin or cousin drives to IST airport.</div></div>
+    <div class="row"><div class="time">17:35</div><div>Austin lands TK7880 (operated by Egyptair). Arrivals hall — Arya runs to him.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Drive home. Family welcome dinner. Toasts.</div></div>
+    <div class="row"><div class="time">21:30</div><div>Children to bed. Adults stay up a little later — Austin tells of his Cairo week.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Welcome dinner — let hosts cook a Türkiye classic for Austin (manti, kebab, mantı, kuzu tandır).</div>
+    <div class="aside-item"><div class="h">Cash</div>TRY for any airport parking. Tip for driver if it's not a family member.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Austin's car seat handover at airport — he's bringing nothing from Cairo of family-relevance.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Maestro has been with Mom for 4 days without Dad — re-introduction may be tentative. Let it unfold. Austin: in-cabin time + Cairo work-week fatigue means low energy reserve — accept it, don't push. A 20-minute lie-down on arrival before the welcome dinner is wise. Meryem: today's emotional load is high (reunion); a quiet moment alone after the children are asleep is restorative.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    Ask Arya before bed: "What was the very first thing you wanted to tell Daddy when you saw him?" Then write it down in a small trip journal.
+  </div>
+</div>
+
+<!-- Day 16 - Grand Bazaar -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Saturday, June 27</span> &nbsp; <span class="pill istanbul">Grand Bazaar &amp; Spice Market</span></div>
+    <div class="tag">Day 16 · Istanbul · shopping</div>
+  </div>
+  <div class="ramp">
+    Family + Austin together for the iconic markets. Yasemin's expertise is the difference between a tourist day and a true Istanbul day.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">09:30</div><div>Breakfast. Out by 10:30.</div></div>
+    <div class="row"><div class="time">11:00</div><div>Grand Bazaar. 90 minutes max with the kids. Targeted shopping: ceramics, leather, a hand-loomed silk scarf for Meryem, a small treasure for Arya.</div></div>
+    <div class="row"><div class="time">13:00</div><div>Lunch at Hamdi (across from Spice Bazaar, rooftop, kebabs, view).</div></div>
+    <div class="row"><div class="time">14:30</div><div>Spice Bazaar quick walk-through. Buy tea, saffron, pistachios, Turkish delight (for home).</div></div>
+    <div class="row"><div class="time">16:00</div><div>Home. Rest.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Family dinner. Slower.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Hamdi — order: lahmacun, Adana, künefe for dessert. Arya: bread, yogurt, plain rice.</div>
+    <div class="aside-item"><div class="h">Cash</div>Bazaars: cash preferred. TRY 1,000+ (~US$30). Negotiate to 70% of opening.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Buy 2–3 spare gifts at the bazaar for unexpected hosts in Taşucu.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Bazaars are exhausting for children — Maestro carrier, Arya by hand, sit often. Hydration top-up every 30 min. Adults: avoid the temptation to push through fatigue for "one more shop" — when a child fades, leave promptly. Meryem: pump before leaving the hotel; don't try to find a place to pump inside the bazaar.</div>
+  </div>
+</div>
+
+<!-- Day 17 - Asian side -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Sunday, June 28</span> &nbsp; <span class="pill istanbul">Asian side · Kadıköy</span></div>
+    <div class="tag">Day 17 · Istanbul · the other continent</div>
+  </div>
+  <div class="ramp">
+    Where locals actually live. Slower, leafier, less touristic. A Sunday Kadıköy market day is its own small festival.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">10:00</div><div>Breakfast. Ferry to Kadıköy from Karaköy or Eminönü (~20 min on water — children love this).</div></div>
+    <div class="row"><div class="time">11:30</div><div>Walk Kadıköy market: pickle shop, fish market, street simit. Arya tries pomegranate juice.</div></div>
+    <div class="row"><div class="time">13:00</div><div>Lunch at Çiya Sofrası (Anatolian regional menu — try the etli ekmek and the kuzu kapama).</div></div>
+    <div class="row"><div class="time">14:30</div><div>Walk to Moda — Bosphorus park, sea view, ice cream from Ali Usta (open since 1969). Arya's pistachio scoop.</div></div>
+    <div class="row"><div class="time">16:30</div><div>Ferry back. Home.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Quiet family dinner — tomorrow is a travel day.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Çiya is a cultural pilgrimage — eat what they recommend. Skip everything else today, this is the meal.</div>
+    <div class="aside-item"><div class="h">Cash</div>Ferry pays by Istanbulkart (~US$1 each leg). Çiya cash or card. Ice cream cash. ~US$40 day.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Begin Istanbul packing tonight. Confirm IST→COV check-in at 24h prior. Yasemin packs for her own DLM departure.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Cumulative fatigue rising — early bed for all. The ferry rides are an excellent low-energy form of movement. Pump opportunity for Meryem at home before/after the outing — not while in public. Probiotics for all adults this week (continue daily if started).</div>
+  </div>
+</div>
+
+<!-- Day 18 - depart IST -->
+<div class="day istanbul">
+  <div class="day-header">
+    <div><span class="date">Monday, June 29</span> &nbsp; <span class="pill istanbul">Depart</span> → <span class="pill tasucu">Taşucu</span> &nbsp; <span class="pill yasemin">Yasemin → Dalaman</span></div>
+    <div class="tag">Day 18 · Istanbul → Çukurova · transition + farewell</div>
+  </div>
+  <div class="ramp">
+    A bittersweet morning — Yasemin returns to Dalaman, the family continues south to the coast. Arya may not understand the asymmetry. Make the goodbye small, definite, and not lingering.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">07:30</div><div>Quiet breakfast with hosts and Yasemin. Goodbyes — not protracted.</div></div>
+    <div class="row"><div class="time">09:00</div><div>Departure for IST airport (~1h depending on traffic).</div></div>
+    <div class="row"><div class="time">10:00</div><div>Check in. Family on UEET7Y (TK to COV); Austin on TMW43L (same TK2462 12:15 flight); Yasemin on SEEX7M (TK2558 IST→DLM 12:30).</div></div>
+    <div class="row"><div class="time">10:30</div><div>Through security. Domestic TK Lounge via Priority Pass.</div></div>
+    <div class="row"><div class="time">11:30</div><div>Final hug with Yasemin at the gate area — gates may differ. Arya gives her a small gift she's prepared (a drawing).</div></div>
+    <div class="row"><div class="time">12:15</div><div><strong>TK2462 IST→COV</strong> · 1h 40m. Family seats: M 13A · A 13B · Maestro lap. Austin separately.</div></div>
+    <div class="row"><div class="time">13:55</div><div>Land Çukurova (Adana). Baggage. Pick up Sixt rental car (H-9734765699) at 14:30 — Fiat Egea or similar. Confirm both car seats are installed correctly.</div></div>
+    <div class="row"><div class="time">15:30</div><div>Drive to Taşucu (~2.5 hours along the Mediterranean coast — beautiful).</div></div>
+    <div class="row"><div class="time">18:00</div><div>Arrive Taşucu. Family welcome at host home. Settle. Children explore. Beach is steps away.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Welcome dinner with Taşucu family. Smaller, more intimate than Istanbul.</div></div>
+    <div class="row"><div class="time">21:00</div><div>Children to bed. Adults stay up briefly — the long stretch begins tomorrow.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Mediterranean coast: fish, salads, fresh tomatoes. A different rhythm to Istanbul's kebabs.</div>
+    <div class="aside-item"><div class="h">Cash</div>TRY 500 for Adana airport, fuel top-up, road snacks. Tip airport porter ~TRY 50.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Yasemin: confirm her DLM landing safe with Meryem. Activate "Find My" sharing for the rental car (parking later).</div>
+    <div class="aside-item"><div class="h">Wellness</div>Long travel day — early to bed. Arya may regress in tone briefly after Yasemin's goodbye; let her have extra cuddles, name the feeling ("It's hard when people we love go away"). Adults: a long road on top of a flight — back stretches at every rest stop. Maestro: extra wet diaper count today, the heat dehydrates fast in transit. A small electrolyte sachet for Arya at lunch is wise.</div>
+  </div>
+</div>
+
+<!-- ====================== ACT III - TASUCU ====================== -->
+<div class="act-banner tasucu">
+  <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Sky / sun -->
+    <circle cx="120" cy="35" r="22" fill="#FFE9A0" opacity="0.85"/>
+    <!-- Sea -->
+    <path d="M0,80 Q150,75 300,80 T600,80 T900,80 L900,130 L0,130 Z" fill="#5DA5C2" opacity="0.6"/>
+    <path d="M0,90 Q120,84 240,90 T480,90 T720,90 T900,90 L900,130 L0,130 Z" fill="#1E4A5E" opacity="0.45"/>
+    <path d="M0,100 Q150,95 300,100 T600,100 T900,100 L900,130 L0,130 Z" fill="#1E4A5E" opacity="0.6"/>
+    <!-- Sailboat -->
+    <g transform="translate(420,55)">
+      <path d="M-25,30 L25,30 L20,40 L-20,40 Z" fill="#1E4A5E"/>
+      <line x1="0" y1="30" x2="0" y2="-12" stroke="#1E4A5E" stroke-width="2"/>
+      <path d="M0,-10 L22,28 L0,28 Z" fill="#fff" opacity="0.9"/>
+      <path d="M0,-10 L-18,28 L0,28 Z" fill="#fff" opacity="0.7"/>
+    </g>
+    <!-- Coastal rocks -->
+    <ellipse cx="700" cy="78" rx="60" ry="14" fill="#1E4A5E" opacity="0.4"/>
+    <ellipse cx="780" cy="76" rx="40" ry="10" fill="#1E4A5E" opacity="0.3"/>
+    <!-- Bird -->
+    <g fill="none" stroke="#1E4A5E" stroke-width="1.3">
+      <path d="M250,30 q4,-4 8,0 q4,-4 8,0"/>
+      <path d="M285,40 q3,-3 6,0 q3,-3 6,0"/>
+    </g>
+    <!-- Wave -->
+    <path d="M0,108 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0 q22,-4 44,0" stroke="#fff" stroke-width="1" fill="none" opacity="0.6"/>
+  </svg>
+  <div class="label" style="margin-top:8px;">Act III  ·  Jun 29 – Jul 10</div>
+  <div class="title">Taşucu</div>
+  <div class="tagline">"Mediterranean Soul" — eleven days where the day's question is the temperature of the water.</div>
+</div>
+
+<h3>Taşucu at a glance</h3>
+<table class="tight">
+  <tbody>
+    <tr><td><strong>Climate</strong></td><td>80–92°F, dry, sea breeze. Evenings warm but pleasant.</td></tr>
+    <tr><td><strong>Operating principle</strong></td><td>Beach mornings, indoor afternoons, family evenings. Nothing more.</td></tr>
+    <tr><td><strong>Hosts</strong></td><td>Murat's (Meryem's father's) branch — his family home in the south. Murat may join you in Taşucu or be present locally. Gift exchanges happen here for his side of the family.</td></tr>
+    <tr><td><strong>Day trips</strong></td><td>Kızkalesi (Maiden's Castle) is the regional jewel — a small castle on a tiny island in the sea, accessible by boat. Worth one day.</td></tr>
+    <tr><td><strong>Pharmacy</strong></td><td>Local <em>eczane</em> (pharmacy) walk-in for any minor needs. Excellent.</td></tr>
+    <tr><td><strong>Driving</strong></td><td>The rental car opens day trips. Drive cautiously — coastal roads are good but tight.</td></tr>
+  </tbody>
+</table>
+
+<!-- Day 19 - first beach -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Tuesday, June 30</span> &nbsp; <span class="pill tasucu">First beach day</span></div>
+    <div class="tag">Day 19 · Taşucu · arrival reset</div>
+  </div>
+  <div class="ramp">
+    The first morning on the Mediterranean. Stand barefoot in the water within an hour of waking. The whole trip rebalances after that.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:30</div><div>Slow breakfast with family. Olives, cheese, tomatoes, bread, tea. Maestro joins for the first time properly.</div></div>
+    <div class="row"><div class="time">10:00</div><div>Walk to the beach. Set up under umbrella. Children's first sea swim — go slowly, the floor is rocky.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Lunch at home or seaside lokanta. Family cooking when possible.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Naps. Long ones. The sea air earns them.</div></div>
+    <div class="row"><div class="time">17:00</div><div>Return to beach for the cooler hours. Arya makes a sandcastle. Austin reads.</div></div>
+    <div class="row"><div class="time">19:30</div><div>Family dinner outdoors. Grilled fish, salad, watermelon. Children up later than usual — let them.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Local fish (çupra, levrek), domates salata, ezme. Watermelon (karpuz) is the season.</div>
+    <div class="aside-item"><div class="h">Cash</div>TRY 200–500 for any beach incidentals.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Plan one day trip for Day 22 (Kızkalesi). Confirm with hosts which days they wish to host meals.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Sunscreen reapply every 90 min in water. Watch Maestro for any heat fussiness. Salt water + sand can irritate Arya's bottom — rinse with fresh water at lunch. Aloe vera tube in fridge — apply liberally if any redness. Adults: the first salt swim is an emotional reset — accept that you may want a nap immediately after. Meryem: pump supply may temporarily dip from the day's stress and heat — extra protein at dinner, oatmeal at breakfast.</div>
+  </div>
+</div>
+
+<!-- Day 20-21 condensed -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Wednesday – Thursday, July 1–2</span> &nbsp; <span class="pill tasucu">Restoration days</span></div>
+    <div class="tag">Days 20–21 · Taşucu · gentle rhythm</div>
+  </div>
+  <div class="ramp">
+    Two days of the same gentle pattern. Resist the urge to programme. The grandparents and aunts will create the structure if anything is needed.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">AM</div><div>Beach morning. Long, gentle.</div></div>
+    <div class="row"><div class="time">PM</div><div>Home lunch. Naps. Quiet indoors during peak heat.</div></div>
+    <div class="row"><div class="time">PM</div><div>Late afternoon: walk, second swim, or a drive to a nearby small town for ice cream.</div></div>
+    <div class="row"><div class="time">EVE</div><div>Family dinner. Storytelling.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Try mantı one of these evenings if hosts make it — Türkiye's small dumplings in yogurt and butter.</div>
+    <div class="aside-item"><div class="h">Cash</div>Minimal. TRY 500 weekly for incidentals.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Refill diapers / wipes if Trendyol order is not pre-staged.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Hydrate. Aloe gel for any pinkness on Arya at end of day. Adults: a morning swim of 20 unhurried lengths is meditation. Stretch hips after long sitting at family meals. Meryem: now's the time to settle into the most relaxed pumping rhythm — let supply rebalance. Maestro's sleep is best of the trip on this coast — let him follow it.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    Ask Arya: "What is something you've done here that you've never done before?" Build a small list each day — read it at home weeks later.
+  </div>
+</div>
+
+<!-- Day 22 - Kizkalesi -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Friday, July 3</span> &nbsp; <span class="pill tasucu">Kızkalesi day trip</span></div>
+    <div class="tag">Day 22 · Taşucu · Maiden's Castle</div>
+  </div>
+  <div class="ramp">
+    A short drive to a small castle on a small island in clear sea. A pirate story for Arya. Austin handles the boat. Maestro stays at the beach with auntie if too much sun.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:30</div><div>Breakfast. Pack day bag (snacks, water, change of clothes for Arya, sunscreen).</div></div>
+    <div class="row"><div class="time">09:30</div><div>Drive to Kızkalesi (~1 hour east along the coast).</div></div>
+    <div class="row"><div class="time">11:00</div><div>Small boat to the island castle (10 min). Walk the ruins. Read the small placard. Look out from the parapet.</div></div>
+    <div class="row"><div class="time">12:30</div><div>Back to shore. Lunch at a beachside lokanta in Kızkalesi.</div></div>
+    <div class="row"><div class="time">14:00</div><div>Drive back. Nap in the car for Maestro.</div></div>
+    <div class="row"><div class="time">15:30</div><div>Home. Quiet afternoon.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Family dinner.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Lokanta fish: levrek, grilled. Adana kebab for Austin.</div>
+    <div class="aside-item"><div class="h">Cash</div>TRY 600–800 for the day (boat, lunch, fuel).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Re-confirm departure flight TK2459 on Jul 10 — check in opens Jul 9.</div>
+    <div class="aside-item"><div class="h">Wellness</div>The day will tire everyone — early bed. Adults: warm shower post-day, stretch shoulders (climbing castle stairs with kid weight). Maestro: feed in shade only — heat-induced refusals are common when overheated. Arya: ginger candy if car-tired on the return drive. Aloe nightly on any sunkissed shoulders.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    Ask Arya: "Who do you think lived in this castle? Why an island?" Then tell the legend — keep it gentle.
+  </div>
+</div>
+
+<!-- Days 23-27 -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Saturday – Wednesday, July 4–8</span> &nbsp; <span class="pill tasucu">The long rest</span></div>
+    <div class="tag">Days 23–27 · Taşucu · five gentle days</div>
+  </div>
+  <div class="ramp">
+    Five days where nothing in particular is scheduled. This is the gift of family hosting: there is no itinerary. The shape of the days will come from the people in the house.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">EACH DAY</div><div>Beach mornings, long lunches, naps, evening walks, family meals. Mix in: a cooking lesson with grandma, a visit to a Roman aqueduct nearby (Silifke area), a drive to Anamur for a longer day-trip if energy permits.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Ask one auntie to teach Meryem to make a specific dish — write it down. A recipe is the best souvenir.</div>
+    <div class="aside-item"><div class="h">Cash</div>Minimal — perhaps TRY 1,000–2,000 over the five days.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>July 4: a quiet acknowledgement that it's American Independence Day. Maybe a small token (a sparkler if available).</div>
+    <div class="aside-item"><div class="h">Wellness</div>By Day 26, you may notice Arya is sleeping deeply — the trip working. Adults: this is the rare time when sleep debt actually clears. Allow it. Yoga or stretching 15 minutes a day quietly. Meryem: pumping rhythm fully relaxed by now — supply most stable when stress lowest. Maestro: tan lines forming under hat brim — visible reminder that sunscreen needs to extend behind ears too. A pre-sleep family walk along the water resets everyone for the night.</div>
+  </div>
+  <div class="learning">
+    <div class="h">Generative learning</div>
+    During cooking lessons, ask Arya to be the assistant. "What does it smell like? What does it sound like when it cooks?" Sensory anchors stick longer than facts.
+  </div>
+</div>
+
+<!-- Day 28 -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Thursday, July 9</span> &nbsp; <span class="pill tasucu">Last full day · pack</span></div>
+    <div class="tag">Day 28 · Taşucu · wind-down</div>
+  </div>
+  <div class="ramp">
+    A last morning swim. Then the gentle work of going home. Pack the gifts you've received with as much care as you packed the ones you brought.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">08:30</div><div>Breakfast. Final beach morning.</div></div>
+    <div class="row"><div class="time">11:00</div><div>Begin packing. Sort souvenirs and family gifts received. Make a list to remember who gave what — for thank-you notes later.</div></div>
+    <div class="row"><div class="time">13:00</div><div>Lunch. Long, family-wide.</div></div>
+    <div class="row"><div class="time">15:00</div><div>Naps. Final pack.</div></div>
+    <div class="row"><div class="time">17:00</div><div>Walk the neighborhood one last time. Photos with everyone.</div></div>
+    <div class="row"><div class="time">19:00</div><div>Farewell dinner. Hosts may make Austin's favourite — accept what is served.</div></div>
+    <div class="row"><div class="time">21:00</div><div>Children to bed. Adults: final pack of carry-ons. Check passports in pouch. Set 4:30 a.m. alarm.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Hosts may overfeed at farewell — let them.</div>
+    <div class="aside-item"><div class="h">Cash</div>Settle any small debts. Tip housekeeper / helper at host home (TRY 500–1,000).</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Sixt drop-off Jul 10 at 09:00 — confirm with the rental desk by phone. Fuel up tank tonight.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Melatonin 0.5 mg for adults tonight — start adjusting to US time. Light dinner only. A short walk after the meal. Foot soak with epsom salts if available. Final pumping session before bed, store milk in cooler for tomorrow's transit. Children's last bath with familiar shampoo — small ritual of homecoming.</div>
+  </div>
+</div>
+
+<!-- Day 29 - return -->
+<div class="day tasucu">
+  <div class="day-header">
+    <div><span class="date">Friday, July 10</span> &nbsp; <span class="pill tasucu">Depart</span> → <span class="pill istanbul">IST</span> → DFW</div>
+    <div class="tag">Day 29 · COV → DFW · coda</div>
+  </div>
+  <div class="ramp">
+    The longest travel day. Plan it like a small expedition. The IST layover is your friend — the TK Business Lounge is one of the world's great places to spend two hours with children.
+  </div>
+  <div class="schedule">
+    <div class="row"><div class="time">04:30</div><div>Wake. Final goodbyes (quiet — hosts will be heartbroken; do not linger).</div></div>
+    <div class="row"><div class="time">05:30</div><div>Drive to Adana airport (~2 hours).</div></div>
+    <div class="row"><div class="time">07:30</div><div>Sixt drop-off. Allow 30 min for checkout.</div></div>
+    <div class="row"><div class="time">08:00</div><div>Check in for TK2459. All bags. Carry-ons consolidated.</div></div>
+    <div class="row"><div class="time">08:30</div><div>Security. Domestic terminal — straightforward.</div></div>
+    <div class="row"><div class="time">10:50</div><div><strong>TK2459 COV→IST</strong> · B737-800 · Business C · 1h 50m. Seats: Austin 2E.</div></div>
+    <div class="row"><div class="time">12:40</div><div>Land IST. Transit to international terminal. <strong>TK Business Lounge</strong> — 2 hours to enjoy.</div></div>
+    <div class="row"><div class="time">13:30</div><div>Lounge lunch. Children play in family room. Maestro feed. Final repack of carry-ons.</div></div>
+    <div class="row"><div class="time">14:30</div><div>Walk to gate.</div></div>
+    <div class="row"><div class="time">14:45</div><div><strong>TK0191 IST→DFW</strong> · B787-9 · Business · 12h 50m. Seats: Austin 7K. Family in Business I via miles (RR5W5Q).</div></div>
+    <div class="row"><div class="time">19:35 CT</div><div><strong>Land Dallas.</strong> Immigration: Global Entry if held. Baggage. Maestro stays in carrier.</div></div>
+    <div class="row"><div class="time">21:00 CT</div><div>Home. Drop bags. Children to bed in their own beds. Adults: one quiet drink. Sleep.</div></div>
+  </div>
+  <div class="day-aside">
+    <div class="aside-item"><div class="h">Meal note</div>Eat at the lounge, not the plane. TK Business meals are excellent but sleep is more valuable on this flight.</div>
+    <div class="aside-item"><div class="h">Cash</div>Save TRY 200 for any last airport need. USD on hand for DFW.</div>
+    <div class="aside-item"><div class="h">Coordinating</div>Text pet sitter from Istanbul: confirm pickup time tomorrow morning. Mail hold ends today; check porch tomorrow.</div>
+    <div class="aside-item"><div class="h">Wellness</div>Hydrate aggressively (3 L per adult on the long leg). Walk the cabin every 90 min. Compression socks on the entire flight. Maestro: feed at takeoff and descent (ear pressure). Arya: ginger candy on descent, headphones avoided (no devices = quiet ear plug-style headphones for engine noise OK). Adults: no alcohol westbound — it amplifies jet lag in the wrong direction. A 10-min stretching session at IST lounge before boarding. Eye masks down once cruise reached. Maestro's sleep on this leg = your sleep — protect it.</div>
+  </div>
+</div>
+
+<!-- ====================== WIND-DOWN ====================== -->
+<h2 class="section">Homecoming &amp; Reentry</h2>
+<p class="lede">The trip does not end at the front door. The first 72 hours back home determine whether the trip's reserves are protected or spent. Treat reentry as a fourth, smaller chapter.</p>
+
+<table>
+  <thead><tr><th style="width:22%">When</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Sat Jul 11 morning</strong></td><td>Sleep in. No alarms. Refrigerator restock — first grocery should be light, familiar foods (eggs, fruit, milk, bread). Mail collection.</td></tr>
+    <tr><td><strong>Sat Jul 11 afternoon</strong></td><td>Unpack: kids' bag first, parents' bags second. Wash all family laundry in batches starting now (will take 3 days). Restock pharmacy kit.</td></tr>
+    <tr><td><strong>Sun Jul 12</strong></td><td>Slow day at home. Pediatrician on speed-dial in case of post-travel mild illness in Maestro or Arya. Light walk in neighborhood — re-orient the children.</td></tr>
+    <tr><td><strong>Mon Jul 13</strong></td><td>Austin back to work. Children's nap schedule re-set to local time (force daylight by 8 a.m.). Begin handwritten thank-you notes to Türkiye hosts.</td></tr>
+    <tr><td><strong>Within 1 week</strong></td><td>Send framed family photo or printed photo book to Türkiye hosts (Artifact Uprising or similar). Settle final credit card charges. Submit any travel insurance claims.</td></tr>
+    <tr><td><strong>Within 2 weeks</strong></td><td>Pediatrician check-up if there is any lingering issue. Process and back up all photos. Print the trip's best 50 photographs.</td></tr>
+  </tbody>
+</table>
+
+<!-- ====================== MASTER EXECUTIONAL CHECKLIST ====================== -->
+<h2 class="section">Master Executional Checklist</h2>
+<p class="lede">A printable single-page roll-up. Tick as you go.</p>
+
+<div class="two-col">
+  <div class="card">
+    <h4 style="margin-top:0;">Pre-trip — by Jun 11</h4>
+    <ul class="checklist">
+      <li>Passports validity confirmed through Jan 11, 2027</li>
+      <li>Egypt e-Visas printed (4 travellers)</li>
+      <li>Pediatrician travel letter signed (no new vaccinations needed)</li>
+      <li>International Driving Permit for Austin (AAA)</li>
+      <li>Capital One Venture X travel benefits printed</li>
+      <li>JW Marriott pre-arrival letter sent (incl. fragrance-free request)</li>
+      <li>Amazon EG diaper/wipes (fragrance-free) order placed</li>
+      <li>Trendyol TR supply order placed</li>
+      <li>Türkiye gifts wrapped and labelled — incl. caramel turtles, Legos, Neosporin + Turkish notes</li>
+      <li>Pharmacy kit assembled and packed</li>
+      <li>House: mail hold, thermostat, alarm</li>
+      <li>Cash: $300 USD, EGP 500 (if held), TRY 500 (or via Yasemin)</li>
+      <li>Carry-on documents pouch assembled</li>
+      <li>All chargers + adapter + power bank packed</li>
+      <li>Doona car seat + lightweight stroller + carrier</li>
+      <li>Bassinet seat requested with TK (Jun 12 + Jul 10)</li>
+      <li>CAI Meet &amp; Assist booked (Jun 22 departure)</li>
+      <li>Felucca + Cairo private guide confirmed</li>
+      <li>Mirage City Golf — 9-hole tee times Tue Jun 16 &amp; Thu Jun 18 (17:30); 18 holes Sat Jun 20 (06:30)</li>
+      <li>Mirage City Golf — lesson + 9 holes for Meryem, Sun Jun 21 (09:00)</li>
+      <li>Pump kit, milk storage bags, cooler bag — packed</li>
+      <li>Quiet pouch for kids (no devices) — assembled per Travel Games addendum</li>
+      <li>Bliss balls + snacks pre-portioned in ziplocks</li>
+      <li>Uber XL pre-scheduled DFW to airport (Jun 12)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4 style="margin-top:0;">In-trip — recurring</h4>
+    <ul class="checklist">
+      <li>Reapply sunscreen every 90 min outdoors</li>
+      <li>Maestro hydration check (4-6 wet diapers/day)</li>
+      <li>Arya 1 L water + electrolyte top-up</li>
+      <li>Daily housekeeping tip on pillow (US$3–5)</li>
+      <li>Charge all devices nightly</li>
+      <li>Photograph day's highlights + back up to cloud</li>
+      <li>Settle hotel incidentals weekly (no surprise checkout)</li>
+      <li>Check-in 24h before each flight (TK app)</li>
+      <li>Always: passports, cash, phones, charger in one bag</li>
+    </ul>
+  </div>
+</div>
+
+<div class="two-col" style="margin-top:14px;">
+  <div class="card">
+    <h4 style="margin-top:0;">Post-trip — by Jul 18</h4>
+    <ul class="checklist">
+      <li>Unpacked + laundry processed</li>
+      <li>Pharmacy kit restocked</li>
+      <li>Thank-you notes written (Cairo guide, hotel manager, Türkiye hosts)</li>
+      <li>Photo book ordered for Türkiye hosts</li>
+      <li>Credit card statements reconciled</li>
+      <li>Travel insurance claims (if any) submitted</li>
+      <li>Pediatrician follow-up scheduled (Maestro, Arya)</li>
+      <li>Trip journal: each family member writes one sentence</li>
+    </ul>
+  </div>
+  <div class="card shaded">
+    <h4 style="margin-top:0;">Emergency contact pack — keep on person</h4>
+    <ul class="checklist">
+      <li>JW Marriott Cairo · +20 2 2411 5588</li>
+      <li>Memphis Tours / Cairo guide · TBD</li>
+      <li>Sixt Adana · check rental email</li>
+      <li>Pediatrician (home) · TBD</li>
+      <li>Capital One Travel · +1 877 660 7997</li>
+      <li>Capital One Card Services · +1 800 227 4825</li>
+      <li>US Embassy Cairo · +20 2 2797 3300</li>
+      <li>US Embassy Ankara · +90 312 294 0000</li>
+      <li>US Consulate Istanbul · +90 212 335 9000</li>
+      <li>Yasemin · [Meryem's contacts]</li>
+      <li>Türkiye host contacts · [via Yasemin]</li>
+      <li>TK customer service (US) · +1 800 874 8875</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="double-rule">
+
+<p class="lede" style="text-align:center; font-size:14px; margin-top:24px;">
+  "We travel not to escape life, but for life not to escape us."
+</p>
+<p style="text-align:center; font-size:11px; color:var(--muted); margin-top:6px;">
+  — Anonymous
+</p>
+
+<footer>
+  Aydinol-French · Summer 2026 · A private family dossier · Prepared with care
+</footer>
+
+</div>
+
+</body>
+</html>
