@@ -394,76 +394,79 @@
   <h1 style="font-family:'Didot','Bodoni 72','Playfair Display',serif;font-size:32px;font-weight:400;margin:0 0 4px;letter-spacing:-0.5px;">One-Page Itinerary</h1>
   <div style="font-size:13px;color:var(--soft-ink);font-style:italic;margin-bottom:14px;">Dallas · Cairo · Istanbul · Taşucu — June 12 to July 10, 2026</div>
 
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;font-size:10.5px;font-family:-apple-system,sans-serif;">
-    <span class="pill cairo">Cairo · Jun 13–22/26</span>
-    <span class="pill istanbul">Istanbul · Jun 22–29</span>
-    <span class="pill tasucu">Taşucu · Jun 29–Jul 10</span>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:10px;font-family:-apple-system,sans-serif;align-items:center;">
+    <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:14px;height:14px;background:var(--cairo);display:inline-block;border-radius:2px;"></span> Cairo</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:14px;height:14px;background:var(--istanbul);display:inline-block;border-radius:2px;"></span> Istanbul</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:14px;height:14px;background:var(--tasucu);display:inline-block;border-radius:2px;"></span> Taşucu</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:14px;height:14px;background:#faecc8;display:inline-block;border-radius:2px;"></span> In transit</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:14px;height:14px;background:#ececec;display:inline-block;border-radius:2px;"></span> Home (Dalaman)</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;">✈ Flight day</span>
   </div>
 
-  <table class="tight">
+  <style>
+    .gantt { border-collapse:collapse; width:100%; table-layout:fixed; }
+    .gantt th, .gantt td { border:1px solid #fff; text-align:center; font-size:8.5px; padding:0; height:20px; }
+    .gantt .lbl { text-align:left; padding:0 6px; font-size:10px; font-weight:600; white-space:nowrap; width:96px; background:#f5f3ee; font-family:-apple-system,sans-serif; }
+    .gantt .mon { background:#e8e4da; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; font-family:-apple-system,sans-serif; color:var(--soft-ink); }
+    .gantt .dy { background:#f5f3ee; font-size:7.5px; color:#777; font-weight:600; font-family:-apple-system,sans-serif; }
+    .gantt .g-c { background:var(--cairo); }
+    .gantt .g-i { background:var(--istanbul); }
+    .gantt .g-k { background:var(--tasucu); }
+    .gantt .g-h { background:#ececec; color:#bbb; }
+    .gantt .g-t { background:#faecc8; }
+    .gantt .fly { font-size:9px; color:#3a3a3a; }
+  </style>
+
+  <table class="gantt">
     <thead>
       <tr>
-        <th style="width:11%">Date</th>
-        <th style="width:20%">Movement</th>
-        <th style="width:23%">Flight / Detail</th>
-        <th>Who</th>
+        <th class="lbl"></th>
+        <th class="mon" colspan="19">June</th>
+        <th class="mon" colspan="10">July</th>
+      </tr>
+      <tr>
+        <td class="dy">2026</td>
+        <td class="dy">12</td><td class="dy">13</td><td class="dy">14</td><td class="dy">15</td><td class="dy">16</td><td class="dy">17</td><td class="dy">18</td><td class="dy">19</td><td class="dy">20</td><td class="dy">21</td><td class="dy">22</td><td class="dy">23</td><td class="dy">24</td><td class="dy">25</td><td class="dy">26</td><td class="dy">27</td><td class="dy">28</td><td class="dy">29</td><td class="dy">30</td>
+        <td class="dy">1</td><td class="dy">2</td><td class="dy">3</td><td class="dy">4</td><td class="dy">5</td><td class="dy">6</td><td class="dy">7</td><td class="dy">8</td><td class="dy">9</td><td class="dy">10</td>
       </tr>
     </thead>
     <tbody>
-      <tr style="background:#fbf6e9;">
-        <td><strong>Jun 12</strong> · Fri</td>
-        <td>Dallas → Istanbul</td>
-        <td>TK0192 (DFW→IST), Business</td>
-        <td><span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span></td>
-      </tr>
-      <tr style="background:#fbf6e9;">
-        <td><strong>Jun 13</strong> · Sat</td>
-        <td>Istanbul → Cairo<br>Dalaman → Cairo</td>
-        <td>TK0694 (IST→CAI, lands 20:50)<br>TK2559 + TK0694 (Yasemin)</td>
-        <td><span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span><span class="pill yasemin">Yasemin</span></td>
+      <tr>
+        <td class="lbl"><span class="pill austin" style="margin:0;">Austin</span></td>
+        <td class="g-t fly">✈</td><td class="g-c fly">✈</td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-i fly">✈</td><td class="g-i"></td><td class="g-i"></td><td class="g-k fly">✈</td><td class="g-k"></td>
+        <td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-t fly">✈</td>
       </tr>
       <tr>
-        <td><strong>Jun 13–22</strong></td>
-        <td><span class="pill cairo">Cairo</span> JW Marriott Cairo</td>
-        <td>Family room (9 nights) · Austin's room thru Jun 26</td>
-        <td><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span><span class="pill yasemin">Yasemin</span> · <span class="pill austin">Austin</span></td>
-      </tr>
-      <tr style="background:#eef5ec;">
-        <td><strong>Jun 22</strong> · Mon</td>
-        <td>Cairo → Istanbul</td>
-        <td>TK0691 (CAI→IST), Economy</td>
-        <td><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span><span class="pill yasemin">Yasemin</span></td>
+        <td class="lbl"><span class="pill meryem" style="margin:0;">Meryem</span></td>
+        <td class="g-t fly">✈</td><td class="g-c fly">✈</td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-i fly">✈</td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-k fly">✈</td><td class="g-k"></td>
+        <td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-t fly">✈</td>
       </tr>
       <tr>
-        <td><strong>Jun 22–29</strong></td>
-        <td><span class="pill istanbul">Istanbul</span> Family hosting</td>
-        <td>No lodging cost</td>
-        <td><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span><span class="pill yasemin">Yasemin</span></td>
-      </tr>
-      <tr style="background:#eef5ec;">
-        <td><strong>Jun 26</strong> · Fri</td>
-        <td>Cairo → Istanbul</td>
-        <td>TK7880 (op. Egyptair) · Austin joins</td>
-        <td><span class="pill austin">Austin</span></td>
-      </tr>
-      <tr style="background:#eef5ec;">
-        <td><strong>Jun 29</strong> · Mon</td>
-        <td>Istanbul → Çukurova (Adana)<br>Istanbul → Dalaman</td>
-        <td>TK2462 (IST→COV) · family + Austin<br>TK2558 (IST→DLM) · Yasemin home</td>
-        <td><span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span> · <span class="pill yasemin">Yasemin</span></td>
+        <td class="lbl"><span class="pill arya" style="margin:0;">Arya</span></td>
+        <td class="g-t fly">✈</td><td class="g-c fly">✈</td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-i fly">✈</td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-k fly">✈</td><td class="g-k"></td>
+        <td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-t fly">✈</td>
       </tr>
       <tr>
-        <td><strong>Jun 29–Jul 10</strong></td>
-        <td><span class="pill tasucu">Taşucu</span> Family hosting · Sixt rental car</td>
-        <td>Fiat Egea from Adana (11 days)</td>
-        <td><span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span></td>
+        <td class="lbl"><span class="pill maestro" style="margin:0;">Maestro</span></td>
+        <td class="g-t fly">✈</td><td class="g-c fly">✈</td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-i fly">✈</td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-k fly">✈</td><td class="g-k"></td>
+        <td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-k"></td><td class="g-t fly">✈</td>
       </tr>
-      <tr style="background:#e8f3f8;">
-        <td><strong>Jul 10</strong> · Fri</td>
-        <td>Çukurova → Istanbul → Dallas</td>
-        <td>TK2459 (COV→IST) + TK0191 (IST→DFW), Business</td>
-        <td><span class="pill austin">Austin</span><span class="pill meryem">Meryem</span><span class="pill arya">Arya</span><span class="pill maestro">Maestro</span></td>
+      <tr>
+        <td class="lbl"><span class="pill yasemin" style="margin:0;">Yasemin</span></td>
+        <td class="g-h"></td><td class="g-c fly">✈</td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-c"></td><td class="g-i fly">✈</td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-i"></td><td class="g-h fly">✈</td><td class="g-h"></td>
+        <td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td><td class="g-h"></td>
       </tr>
+    </tbody>
+  </table>
+
+  <table class="tight" style="margin-top:14px;">
+    <thead><tr><th style="width:13%">Date</th><th style="width:30%">Movement</th><th>Flight</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Jun 12–13</strong></td><td>Dallas → Istanbul → Cairo</td><td>TK0192 + TK0694 (Business). Yasemin: TK2559 + TK0694 from Dalaman, Jun 13.</td></tr>
+      <tr><td><strong>Jun 22</strong></td><td>Cairo → Istanbul</td><td>TK0691 — Meryem, Arya, Maestro, Yasemin (Economy).</td></tr>
+      <tr><td><strong>Jun 26</strong></td><td>Cairo → Istanbul</td><td>TK7880 (op. Egyptair) — Austin joins the family.</td></tr>
+      <tr><td><strong>Jun 29</strong></td><td>Istanbul → Çukurova (Adana) · Istanbul → Dalaman</td><td>TK2462 — family + Austin. TK2558 — Yasemin returns home.</td></tr>
+      <tr><td><strong>Jul 10</strong></td><td>Çukurova → Istanbul → Dallas</td><td>TK2459 + TK0191 (Business) — family home.</td></tr>
     </tbody>
   </table>
 
