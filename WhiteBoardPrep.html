@@ -156,6 +156,29 @@
   .zone b{display:block;color:var(--teal-d);font-size:12px;margin-bottom:3px}
   .zone.big{grid-row:span 2;background:#f0fbf9;border-color:var(--teal)}
   @media(max-width:720px){.side{display:none}.main{padding:20px}}
+  /* cheat-sheet page */
+  .cheat-grid{columns:2;column-gap:14px}
+  @media(max-width:820px){.cheat-grid{columns:1}}
+  .cheat-grid .card{break-inside:avoid;margin-bottom:14px;padding:14px 16px}
+  .cheat-grid .card h4{margin:0 0 6px;font-size:13px}
+  .cheat-grid ul.clean{margin:4px 0 0}
+  .cheat-grid ul.clean li{margin-bottom:4px;font-size:12.8px}
+  .mantra-bar{font-size:15px;font-weight:800;text-align:center;color:#fff;
+    background:linear-gradient(120deg,var(--teal),var(--indigo));padding:12px;border-radius:12px;letter-spacing:.4px;margin-bottom:16px}
+  .chiprow{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chiprow span{font-size:11.5px;background:var(--soft);border-radius:6px;padding:3px 7px}
+  .redx{color:var(--red);font-weight:700}
+  /* print: only the visible page, no chrome */
+  @media print{
+    .side{display:none!important}
+    .main{padding:0!important;max-width:none}
+    .view:not(.show){display:none!important}
+    .no-print{display:none!important}
+    body{background:#fff}
+    .banner,.card,.promptbox{box-shadow:none}
+    .cheat-grid{columns:2}
+    @page{size:A4;margin:10mm}
+  }
 </style>
 </head>
 <body>
@@ -183,6 +206,7 @@
       <button data-v="dossier"><span class="ico">◉</span> Company &amp; people</button>
       <button data-v="domain"><span class="ico">✚</span> Dental primer</button>
       <button data-v="curveball"><span class="ico">⚡</span> Curveballs</button>
+      <button data-v="cheat"><span class="ico">🗒</span> Cheat-sheet</button>
     </nav>
     <div class="foot">Built as your private prep tool. Nothing is sent anywhere — practice freely.</div>
   </aside>
@@ -727,6 +751,138 @@
         <li><b>Dress:</b> smart-casual for a Belgian software/design team; you can never go wrong slightly polished.</li>
         <li><b>Warm up your voice and your framework</b> that morning — do one quick rep in Practice Studio so the process is fresh.</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- CHEAT-SHEET -->
+  <section class="view" id="cheat">
+    <div class="row no-print" style="justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+      <div>
+        <h2 class="title" style="margin-bottom:2px">One-page cheat-sheet</h2>
+        <p class="sub" style="margin:0">Everything condensed. Hit print to save it as a PDF for the morning of — only this page prints, no sidebar.</p>
+      </div>
+      <button class="btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+    </div>
+
+    <div class="mantra-bar">THINK OUT LOUD · INVOLVE THE ROOM · STAY CURIOUS</div>
+
+    <div class="cheat-grid">
+      <div class="card">
+        <h4><span class="pill teal">The 6 steps · F-U-J-I-S-V</span></h4>
+        <ul class="clean">
+          <li><b>Frame</b> — restate, ask 3–4 clarifying Qs, write goal + 1 metric.</li>
+          <li><b>Users</b> — pick ONE primary user, say why; note goal + top pain.</li>
+          <li><b>Journey</b> — map the workflow strip; find biggest friction; prioritize.</li>
+          <li><b>Ideate</b> — 3–5 ideas fast, then converge (impact vs effort).</li>
+          <li><b>Sketch</b> — 2–4 rough screens, narrate every box, arrows = flow.</li>
+          <li><b>Validate &amp; wrap</b> — edge cases, how you'd test, crisp recap.</li>
+        </ul>
+        <p style="font-size:11.5px;color:var(--mute);margin:6px 0 0">Time split: ⅓ understand · ⅓ design · ⅓ prove &amp; close.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill indigo">Open like this</span></h4>
+        <p style="font-size:12.8px;margin:0">"So I'm designing <i>[restate]</i>. Before I start, a few questions… My approach: I'll clarify, pick a user, map the flow, then sketch — thinking out loud and checking in with you. Sound good?"</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill teal">Clarifying questions</span></h4>
+        <ul class="clean">
+          <li>What problem, and for whom?</li>
+          <li>Which user should I prioritize?</li>
+          <li>Platform / device? Constraints (product, tech, timeline)?</li>
+          <li>What does success look like — what metric?</li>
+          <li>How do they do this <i>today</i>? Where does it hurt most?</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill amber">Divide the board</span></h4>
+        <ul class="clean">
+          <li>Top-left: <b>problem + metric</b></li>
+          <li>Top-right: <b>assumptions / parking lot</b></li>
+          <li>Left: <b>primary user + pain</b></li>
+          <li>Center: <b>journey strip → screen sketches</b></li>
+          <li>Circle the <b>one idea</b> you chose.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="background:#0f1b2d;border-color:#0f1b2d;color:#e8eef6">
+        <h4 style="color:#fff"><span class="pill" style="background:#0d9488;color:#fff">Don't — sinks candidates</span></h4>
+        <ul class="clean">
+          <li><span class="redx">✗</span> Going silent — narrate always.</li>
+          <li><span class="redx">✗</span> Jumping to pixels before understanding.</li>
+          <li><span class="redx">✗</span> Getting defensive about feedback.</li>
+          <li><span class="redx">✗</span> Designing everything — prioritize.</li>
+          <li><span class="redx">✗</span> Polishing art — rough + labeled wins.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill slate">Curveball recovery</span></h4>
+        <ul class="clean">
+          <li><b>Constraint changes:</b> "Great — that shifts my priorities to…"</li>
+          <li><b>"Why that way?":</b> give user-reason + the trade-off.</li>
+          <li><b>Blank:</b> "Let me step back to my user's main goal."</li>
+          <li><b>Disagreement:</b> "Fair — say more? I'd weigh it vs [user need]."</li>
+          <li><b>Dental gap:</b> "You'd know the clinic better — how does it really work?"</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill indigo">What they want to hear</span></h4>
+        <ul class="clean">
+          <li><b>Workflow mapping</b> (the #1 job skill)</li>
+          <li><b>Collaboration</b> across product / eng / clinical</li>
+          <li><b>Curiosity about dentistry</b> + a fast-learning plan</li>
+          <li><b>Design systems + clear specs</b> for devs</li>
+          <li><b>Research + metrics</b> (Envista = data culture)</li>
+          <li><b>Patient impact</b> motivates you</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill teal">Dental words to know</span></h4>
+        <div class="chiprow">
+          <span><b>CBCT</b> = 3D X-ray</span>
+          <span><b>Intraoral scanner</b> = digital mold</span>
+          <span><b>Implant planning</b></span>
+          <span><b>Surgical guide</b></span>
+          <span><b>Smile design</b></span>
+          <span><b>Lab tech</b> = crowns/guides</span>
+          <span><b>Chairside</b></span>
+          <span><b>Continuity of care</b></span>
+        </div>
+        <p style="font-size:11.5px;color:var(--mute);margin:6px 0 0">Users: general dentist · specialist/surgeon · lab tech · assistant/manager · patient.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill slate">Who / what</span></h4>
+        <ul class="clean">
+          <li><b>Envista</b> (NYSE:NVST) — ex-Danaher '19, ~12k staff, 120+ countries.</li>
+          <li><b>DEXIS</b> — imaging brand. <b>DTX Studio</b>: Clinic·Implant·Lab·Go.</li>
+          <li><b>Medicim</b> (Mechelen) — R&amp;D arm building DTX; where you'd work.</li>
+          <li><b>Pieter</b> — UX Manager; your future boss &amp; case host.</li>
+          <li>DTX's value = <b>connect fragmented dental data</b> into one flow.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="background:#0f1b2d;border-color:#0f1b2d;color:#e8eef6">
+        <h4 style="color:#fff"><span class="pill" style="background:#0d9488;color:#fff">End strong</span></h4>
+        <p style="font-size:12.5px;margin:0 0 6px">Recap: "I focused on <i>[user]</i>, solved <i>[pain]</i> with <i>[solution]</i>, kept the clinician in control, and I'd test with ~5 dentists measuring time-to-task. With more time I'd add <i>[next]</i>."</p>
+        <p style="font-size:12.5px;margin:0">Then: "I really enjoyed this — it's exactly the kind of complex, human-centered problem I want to work on."</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="pill amber">On the day</span></h4>
+        <ul class="clean">
+          <li>Reply to Pieter, confirm a slot (Aug 3 / 6 / 7 / 11).</li>
+          <li>Medicim, Stationsstraat 102, 2800 Mechelen — arrive 10–15 min early.</li>
+          <li>Bring portfolio highlights, notebook, pen; ask if a laptop's needed.</li>
+          <li>Smart-casual. Water + snack before a 13:00 / 15:00 slot.</li>
+          <li>Do one warm-up rep that morning.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
