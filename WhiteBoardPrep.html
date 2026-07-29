@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whiteboarding Prep Studio — Selin × Medicim / DEXIS (Envista)</title>
+<style>
+  :root{
+    --navy:#0f1b2d; --navy-2:#16263d; --ink:#0f172a; --slate:#475569; --mute:#64748b;
+    --line:#e2e8f0; --bg:#f6f8fb; --card:#ffffff;
+    --teal:#0d9488; --teal-d:#0f766e; --indigo:#4f46e5; --amber:#f59e0b;
+    --green:#16a34a; --red:#dc2626; --soft:#eef2f7;
+    --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal-d)}
+  .app{display:flex;min-height:100vh}
+  /* Sidebar */
+  .side{width:264px;flex:0 0 264px;background:var(--navy);color:#cdd8e6;position:sticky;top:0;height:100vh;
+    overflow-y:auto;padding:22px 16px}
+  .brand{display:flex;gap:11px;align-items:center;padding:4px 8px 16px}
+  .brand .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--indigo));
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px;flex:0 0 38px}
+  .brand h1{font-size:14px;margin:0;color:#fff;letter-spacing:.2px}
+  .brand p{margin:2px 0 0;font-size:11px;color:#8ea3bd}
+  .nav{margin-top:8px}
+  .nav button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;
+    color:#c3d1e2;padding:10px 12px;border-radius:10px;cursor:pointer;font-size:13.5px;font-weight:500;margin-bottom:2px}
+  .nav button:hover{background:var(--navy-2);color:#fff}
+  .nav button.active{background:linear-gradient(90deg,rgba(13,148,136,.25),rgba(79,70,229,.18));color:#fff;
+    box-shadow:inset 3px 0 0 var(--teal)}
+  .nav .ico{width:18px;text-align:center;font-size:15px;opacity:.9}
+  .side .foot{margin-top:18px;padding:12px;border-top:1px solid #24374f;font-size:11px;color:#7f95af}
+  .countdown{background:var(--navy-2);border:1px solid #24374f;border-radius:10px;padding:10px 12px;margin:6px 4px 12px}
+  .countdown .big{font-size:22px;font-weight:800;color:#fff}
+  .countdown .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:#8ea3bd}
+  /* Main */
+  .main{flex:1;min-width:0;padding:34px 44px 80px;max-width:980px}
+  .view{display:none;animation:fade .25s ease}
+  .view.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.title{font-size:26px;margin:0 0 4px;letter-spacing:-.4px}
+  .sub{color:var(--mute);font-size:14px;margin:0 0 22px}
+  h3{font-size:18px;margin:26px 0 10px;letter-spacing:-.2px}
+  h4{font-size:14.5px;margin:18px 0 8px;color:var(--ink)}
+  p{margin:0 0 12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;
+    box-shadow:var(--shadow);margin-bottom:16px}
+  .card.tight{padding:16px 18px}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.3px}
+  .pill.teal{background:#d5f2ee;color:var(--teal-d)}
+  .pill.indigo{background:#e4e2fb;color:#4338ca}
+  .pill.amber{background:#fdf0d5;color:#b45309}
+  .pill.slate{background:var(--soft);color:var(--slate)}
+  .tag{display:inline-block;background:var(--soft);color:var(--slate);font-size:12px;padding:4px 10px;border-radius:8px;margin:0 6px 6px 0}
+  ul.clean{margin:6px 0 12px;padding-left:20px}
+  ul.clean li{margin-bottom:7px}
+  .callout{border-left:4px solid var(--amber);background:#fffaf0;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:13.5px}
+  .callout.teal{border-color:var(--teal);background:#f0fbf9}
+  .callout.indigo{border-color:var(--indigo);background:#f4f3fe}
+  .callout.red{border-color:var(--red);background:#fef2f2}
+  .callout b{color:var(--ink)}
+  .say{background:#0f1b2d;color:#e8eef6;border-radius:10px;padding:11px 14px;font-size:13px;margin:8px 0;position:relative}
+  .say:before{content:"SAY IT LIKE THIS";font-size:9.5px;letter-spacing:1px;color:#6fd8cd;display:block;margin-bottom:4px;font-weight:700}
+  .say em{color:#ffd9a8;font-style:normal}
+  /* phase steps */
+  .phase{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+  .phase .num{flex:0 0 40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#fff;font-size:16px}
+  .phase .body{flex:1}
+  .phase .body h4{margin:2px 0 4px}
+  .phase .body .t{font-size:12px;color:var(--mute);font-weight:600}
+  .c1{background:#0ea5a4}.c2{background:#0891b2}.c3{background:#4f46e5}.c4{background:#7c3aed}.c5{background:#db2777}.c6{background:#ea580c}
+  /* buttons */
+  .btn{background:var(--teal);color:#fff;border:0;padding:10px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:13.5px}
+  .btn:hover{background:var(--teal-d)}
+  .btn.alt{background:var(--indigo)}.btn.alt:hover{background:#4338ca}
+  .btn.ghost{background:#fff;color:var(--slate);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--teal);color:var(--teal-d)}
+  .btn.sm{padding:7px 13px;font-size:12.5px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  /* prompt box */
+  .promptbox{background:linear-gradient(135deg,#0f1b2d,#16263d);color:#fff;border-radius:14px;padding:22px 24px;min-height:120px;
+    display:flex;flex-direction:column;justify-content:center}
+  .promptbox .k{font-size:11px;letter-spacing:1px;color:#6fd8cd;font-weight:700}
+  .promptbox .q{font-size:19px;font-weight:600;margin-top:8px;line-height:1.4}
+  .promptbox .meta{margin-top:12px;font-size:12px;color:#9fb3cc}
+  /* timer */
+  .timerwrap{text-align:center;padding:8px 0}
+  .timerwrap .disp{font-size:52px;font-weight:800;letter-spacing:1px;font-variant-numeric:tabular-nums}
+  .timerwrap .ph{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+  .prog{height:8px;background:var(--soft);border-radius:8px;overflow:hidden;margin:12px 0}
+  .prog > i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--indigo));width:0;transition:width .4s}
+  /* rubric */
+  .rubric label{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border:1px solid var(--line);border-radius:9px;
+    margin-bottom:7px;cursor:pointer;font-size:13.5px}
+  .rubric label:hover{border-color:var(--teal)}
+  .rubric input{margin-top:3px}
+  .scorebar{display:flex;align-items:center;gap:14px;background:var(--navy);color:#fff;border-radius:12px;padding:14px 18px;margin-top:8px}
+  .scorebar .n{font-size:30px;font-weight:800}
+  .scorebar .verdict{font-size:13px;color:#9fb3cc}
+  /* flashcards */
+  .fc{perspective:1400px;height:220px;margin-bottom:14px}
+  .fc-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;cursor:pointer}
+  .fc.flipped .fc-inner{transform:rotateY(180deg)}
+  .fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:24px;display:flex;
+    flex-direction:column;justify-content:center;box-shadow:var(--shadow)}
+  .fc-front{background:#fff;border:1px solid var(--line)}
+  .fc-back{background:var(--navy);color:#e8eef6;transform:rotateY(180deg)}
+  .fc-front .q{font-size:18px;font-weight:700}
+  .fc-front .hint{font-size:12px;color:var(--mute);margin-top:10px}
+  .fc-back .a{font-size:14px}
+  .fc-face .idx{position:absolute;top:14px;right:18px;font-size:11px;color:var(--mute);font-weight:700}
+  /* quiz */
+  .qz{margin-bottom:16px}
+  .qz .qtext{font-weight:600;margin-bottom:8px}
+  .qz .opt{display:block;padding:9px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:6px;cursor:pointer;font-size:13.5px}
+  .qz .opt:hover{border-color:var(--teal)}
+  .qz .opt.correct{background:#eafaf1;border-color:var(--green)}
+  .qz .opt.wrong{background:#fdeeee;border-color:var(--red)}
+  .qz .exp{font-size:12.5px;color:var(--slate);margin-top:6px;display:none;background:var(--soft);padding:8px 11px;border-radius:8px}
+  /* dossier */
+  .kv{display:grid;grid-template-columns:130px 1fr;gap:6px 14px;font-size:13.5px}
+  .kv dt{color:var(--mute);font-weight:600}
+  .kv dd{margin:0}
+  .persona{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+  .persona .h{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+  .persona .av{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;background:var(--soft)}
+  .persona h4{margin:0}
+  .term{border-bottom:1px solid var(--line);padding:10px 0}
+  .term b{color:var(--teal-d)}
+  .checklist label{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;padding:6px 0;cursor:pointer}
+  .steps-mini{counter-reset:s;padding:0;list-style:none;margin:0}
+  .steps-mini li{position:relative;padding:0 0 14px 34px;border-left:2px solid var(--line);margin-left:12px}
+  .steps-mini li:before{counter-increment:s;content:counter(s);position:absolute;left:-13px;top:-2px;width:24px;height:24px;
+    background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+  .steps-mini li:last-child{border-left-color:transparent}
+  .banner{background:linear-gradient(120deg,#0d9488,#4f46e5);color:#fff;border-radius:16px;padding:26px 28px;margin-bottom:20px}
+  .banner h2{margin:0 0 6px;font-size:23px}
+  .banner p{margin:0;opacity:.94;font-size:14px}
+  .stat{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+  .stat .s{background:rgba(255,255,255,.14);border-radius:10px;padding:10px 14px}
+  .stat .s b{display:block;font-size:18px}
+  .stat .s span{font-size:11px;opacity:.85}
+  .foot-note{font-size:11.5px;color:var(--mute);margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+  .zone-map{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:8px;margin:10px 0}
+  .zone{border:2px dashed #cbd5e1;border-radius:10px;padding:12px;font-size:12.5px;background:#fff;min-height:70px}
+  .zone b{display:block;color:var(--teal-d);font-size:12px;margin-bottom:3px}
+  .zone.big{grid-row:span 2;background:#f0fbf9;border-color:var(--teal)}
+  @media(max-width:720px){.side{display:none}.main{padding:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div><h1>Whiteboarding Studio</h1><p>Selin × Medicim / DEXIS</p></div>
+    </div>
+    <div class="countdown">
+      <div class="lbl">Interview window</div>
+      <div class="big" id="dday">—</div>
+      <div class="lbl" id="ddaysub" style="margin-top:2px">Aug 3–11 · Mechelen</div>
+    </div>
+    <nav class="nav" id="nav">
+      <button data-v="home" class="active"><span class="ico">◆</span> Start here</button>
+      <button data-v="plan"><span class="ico">◷</span> Your game plan</button>
+      <button data-v="fund"><span class="ico">✎</span> Whiteboard fundamentals</button>
+      <button data-v="example"><span class="ico">▤</span> Worked example</button>
+      <button data-v="practice"><span class="ico">▶</span> Practice studio</button>
+      <button data-v="questions"><span class="ico">?</span> Question bank</button>
+      <button data-v="flash"><span class="ico">⧉</span> Flashcards</button>
+      <button data-v="quiz"><span class="ico">✓</span> Readiness quiz</button>
+      <button data-v="dossier"><span class="ico">◉</span> Company &amp; people</button>
+      <button data-v="domain"><span class="ico">✚</span> Dental primer</button>
+      <button data-v="curveball"><span class="ico">⚡</span> Curveballs</button>
+    </nav>
+    <div class="foot">Built as your private prep tool. Nothing is sent anywhere — practice freely.</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+  <!-- HOME -->
+  <section class="view show" id="home">
+    <div class="banner">
+      <h2>You've got this, Selin.</h2>
+      <p>A 120-minute on-site with Pieter Mollemans and his team — including a live, collaborative whiteboard design case. This studio takes you from "what even is a whiteboard challenge" to walking in calm and rehearsed.</p>
+      <div class="stat">
+        <div class="s"><b>6</b><span>step framework</span></div>
+        <div class="s"><b>10+</b><span>practice prompts</span></div>
+        <div class="s"><b>1</b><span>full worked example</span></div>
+        <div class="s"><b>∞</b><span>timed reps</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:4px">What the invitation actually tells us</h3>
+      <p>Reading the two emails closely, here's what you're walking into and what it signals:</p>
+      <ul class="clean">
+        <li><b>Role:</b> UX Analyst / UX-UI Analyst for <b>Medicim / DTX Studio</b> (the software R&amp;D arm of DEXIS, part of Envista) in <b>Mechelen, Belgium</b>. On-site.</li>
+        <li><b>Format:</b> ~120 minutes total. You'll meet <b>Pieter Mollemans (UX Manager)</b> and <b>other team colleagues</b>. Expect intro/chat, a portfolio or experience conversation, and the main event: <b>"a case/discussion with my colleagues in the room, creating design on a whiteboard."</b></li>
+        <li><b>The key phrase:</b> "<em>discussion with my colleagues</em>" and "<em>creating design</em>" — this is <b>collaborative</b>, not a solo performance. They're testing whether you're someone they'd enjoy designing <i>with</i>. Treat the room as your teammates, not judges.</li>
+        <li><b>Pick a slot:</b> The second email offers Aug 3 (13–15h), Aug 6 (15–17h), Aug 7 (11–13h), or Aug 11 (13–15h). Reply promptly and confirm one.</li>
+      </ul>
+      <div class="callout teal"><b>The one sentence to remember:</b> They are not grading your drawing. They are watching <b>how you think, how you involve people, and whether you're curious about their world (dentistry).</b> Nail those three and the sketch quality barely matters.</div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card tight">
+        <span class="pill teal">Suggested path</span>
+        <h4>If you have a few days</h4>
+        <ol class="clean" style="padding-left:18px">
+          <li>Read <b>Game Plan</b> + <b>Fundamentals</b> once.</li>
+          <li>Read the <b>Worked Example</b> slowly.</li>
+          <li>Skim <b>Dental Primer</b> &amp; <b>Company</b> dossier.</li>
+          <li>Do <b>2–3 timed reps</b> in Practice Studio, out loud, standing up.</li>
+          <li>Run the <b>Readiness Quiz</b> + <b>Flashcards</b> the night before.</li>
+        </ol>
+      </div>
+      <div class="card tight">
+        <span class="pill amber">If you're short on time</span>
+        <h4>The 30-minute version</h4>
+        <ol class="clean" style="padding-left:18px">
+          <li>Memorize the <b>6-step framework</b> (Game Plan).</li>
+          <li>Read the <b>Worked Example</b> once.</li>
+          <li>Read <b>"What they want to hear"</b> in the dossier.</li>
+          <li>Do <b>one</b> full timed rep out loud.</li>
+        </ol>
+        <p style="font-size:12.5px;color:var(--mute);margin:8px 0 0">Even this puts you ahead of most candidates, who wing it.</p>
+      </div>
+    </div>
+    <p class="foot-note">Sources for all facts in this tool are listed in the chat message that delivered it. Facts on Pieter's personal history are kept deliberately light — treat him as "the UX manager who will be your future boss," and focus on relating to him as a peer.</p>
+  </section>
+
+  <!-- GAME PLAN -->
+  <section class="view" id="plan">
+    <h2 class="title">Your game plan — the 6-step framework</h2>
+    <p class="sub">Memorize this spine. It works for <i>any</i> prompt they throw at you. The mnemonic: <b>F-U-J-I-S-V</b> → "Frame Users' Journey, Ideate, Sketch, Validate."</p>
+
+    <div class="card">
+      <div class="callout indigo"><b>Golden rule:</b> Never jump to drawing screens. The most common failure is designing a solution before understanding the problem. Spend the first third of your time on <b>Frame + Users + Journey</b> before you sketch anything.</div>
+
+      <div class="phase"><div class="num c1">1</div><div class="body">
+        <h4>Frame the problem <span class="t">· ~5 min · clarify &amp; scope</span></h4>
+        <p>Restate the prompt in your own words. Ask clarifying questions. Agree on scope, the goal, and one success metric. Write assumptions in a corner of the board.</p>
+        <div class="say">"Let me make sure I understand — you'd like me to design <em>[restate]</em>. Before I dive in, a few quick questions so I design the right thing… And can I check my assumptions with you as I go?"</div>
+      </div></div>
+
+      <div class="phase"><div class="num c2">2</div><div class="body">
+        <h4>Users <span class="t">· ~5 min · who &amp; why</span></h4>
+        <p>List the possible users. <b>Pick one primary persona</b> and say why. Capture their context, goals, and top pain points. In the dental world this is powerful — name a real user like "a general dentist between patients" or "a lab technician."</p>
+        <div class="say">"There are a few users here — the dentist, the specialist, the lab, the patient. I'll focus on <em>the general dentist</em> because they're the highest-frequency user. Does that fit how you'd scope it?"</div>
+      </div></div>
+
+      <div class="phase"><div class="num c3">3</div><div class="body">
+        <h4>Journey <span class="t">· ~5–7 min · map the flow</span></h4>
+        <p>Map the user's journey or the "job to be done" as a horizontal strip of steps. List the key use cases. <b>Prioritize one</b> to design in depth. This is the exact skill the role asks for: <i>mapping complex workflows.</i></p>
+        <div class="say">"Here's the current journey, start to finish… I see the biggest friction at <em>this</em> step, so that's where I'll focus my design. Sound right to you all?"</div>
+      </div></div>
+
+      <div class="phase"><div class="num c4">4</div><div class="body">
+        <h4>Ideate <span class="t">· ~5 min · diverge then converge</span></h4>
+        <p>Rapidly list 3–5 solution ideas — quantity first, no judgment. Then converge: plot them roughly on <b>impact vs. effort</b> and pick what you'll design. Show you can prioritize, not just generate.</p>
+        <div class="say">"Let me get a few options on the board first… Now, weighing impact against effort, I'd start with <em>this one</em> because it solves the core pain with the least complexity."</div>
+      </div></div>
+
+      <div class="phase"><div class="num c5">5</div><div class="body">
+        <h4>Sketch <span class="t">· ~10–12 min · the key screens</span></h4>
+        <p>Draw the 2–4 key screens or the core flow for your chosen idea. Boxes = screens, arrows = flow. <b>Narrate every box as you draw it.</b> Don't polish — annotate. Invite reactions between screens.</p>
+        <div class="say">"So the dentist lands here, sees <em>X</em>, taps this, and now they're in <em>Y</em>… I'm keeping this deliberately rough — the thinking matters more than the pixels. What's your reaction so far?"</div>
+      </div></div>
+
+      <div class="phase"><div class="num c6">6</div><div class="body">
+        <h4>Validate &amp; wrap <span class="t">· ~5 min · edge cases, testing, next steps</span></h4>
+        <p>Name 1–2 edge cases and how you'd handle them. Say how you'd <b>test/measure</b> success. Summarize your decision and what you'd do next with more time. End with confidence.</p>
+        <div class="say">"Edge cases I'd handle next: <em>[…]</em>. I'd validate this with 5 dentists and watch task-completion time. To recap: I focused on <em>[user]</em>, solved <em>[problem]</em> with <em>[solution]</em>. With more time I'd explore <em>[…]</em>."</div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Timing at a glance</h3>
+      <p>Scale these to whatever time they give you (the case could be 30–60 min). The <i>ratios</i> matter more than the minutes — roughly a third understanding, a third designing, and keep a buffer to wrap.</p>
+      <div class="grid g3">
+        <div class="card tight" style="margin:0"><span class="pill teal">First third</span><h4 style="margin:8px 0 2px">Understand</h4><p style="font-size:12.5px;margin:0;color:var(--slate)">Frame · Users · Journey</p></div>
+        <div class="card tight" style="margin:0"><span class="pill indigo">Middle third</span><h4 style="margin:8px 0 2px">Design</h4><p style="font-size:12.5px;margin:0;color:var(--slate)">Ideate · Sketch</p></div>
+        <div class="card tight" style="margin:0"><span class="pill amber">Last third</span><h4 style="margin:8px 0 2px">Prove &amp; close</h4><p style="font-size:12.5px;margin:0;color:var(--slate)">Validate · Wrap · Q&amp;A</p></div>
+      </div>
+      <div class="callout"><b>Pace check:</b> If you're 40% through your time and still haven't drawn a screen, you're over-thinking — move to Sketch. If you started sketching in the first 5 minutes, you skipped the thinking they most want to see.</div>
+    </div>
+  </section>
+
+  <!-- FUNDAMENTALS -->
+  <section class="view" id="fund">
+    <h2 class="title">Whiteboard fundamentals — the mechanics</h2>
+    <p class="sub">Everything nobody tells you: how to stand, how to divide the board, how to draw, and how to make a room of people feel like collaborators.</p>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Own the board: give it zones</h3>
+      <p>Before you write anything, mentally (or literally) divide the whiteboard into zones. This alone signals "I'm organized" and stops you from making a chaotic mess. Lightly label them as you go.</p>
+      <div class="zone-map">
+        <div class="zone"><b>① Problem &amp; goal</b>Restated prompt + the one success metric. Top-left.</div>
+        <div class="zone"><b>Assumptions / parking lot</b>Things you're assuming or questions to revisit. Top-right corner.</div>
+        <div class="zone big"><b>Main design canvas</b>Your journey strip along the top, then your key screen sketches below. This is where you spend most of your time. Keep it generous.</div>
+        <div class="zone"><b>② Primary user</b>Who you're designing for + their top pain.</div>
+        <div class="zone"><b>③ Ideas / priority</b>Your 3–5 ideas; circle the one you chose.</div>
+      </div>
+      <div class="callout teal"><b>Why it works:</b> Zones let the interviewers follow your logic like a story. When you say "let me park that assumption up here," you look like someone who runs real design sessions.</div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-top:2px">How to move &amp; hold the room</h3>
+        <ul class="clean">
+          <li><b>Stand to the side</b> of what you're drawing so everyone can see. Never block the board with your back for long.</li>
+          <li><b>Talk to people, draw to the board.</b> Turn to face the room when you're making a point; turn to the board when you're sketching. Don't mumble into the wall.</li>
+          <li><b>Think out loud, always.</b> Silence is the enemy — they can't score thinking they can't hear. Narrate even your pauses: "Let me think about the edge case here for a second."</li>
+          <li><b>Use the marker as a pointer.</b> Tap the box you're talking about. It keeps the room's eyes with you.</li>
+          <li><b>Pace yourself.</b> It's fine to step back, look at the board, and say "okay, where are we." Calm reads as senior.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:2px">How to draw (badly, on purpose)</h3>
+        <ul class="clean">
+          <li><b>A screen is just a rectangle.</b> Add a header bar, a couple of lines for content, a box for the primary action. That's enough.</li>
+          <li><b>Arrows show flow</b> between screens. Number your screens 1→2→3.</li>
+          <li><b>Write big and legible.</b> Print, don't cursive. Fewer words, bigger.</li>
+          <li><b>Label everything.</b> An annotated rough box beats a beautiful unlabeled one.</li>
+          <li><b>Use a second color</b> (if markers allow) for emphasis, feedback, or edge cases — not decoration.</li>
+          <li><b>Leave whitespace.</b> Don't cram. You can always erase the parking lot later for room.</li>
+        </ul>
+        <div class="callout teal" style="margin-bottom:0"><b>Remember:</b> "sloppy but clear" wins. They explicitly are <b>not</b> judging art.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Make it collaborative (this is the whole point here)</h3>
+      <p>The email says "discussion with my colleagues." The people in the room may play stakeholders, or may genuinely co-design. Your job is to make them <i>want to build with you.</i> Concretely:</p>
+      <ul class="clean">
+        <li><b>Check in at every phase transition:</b> "Does that assumption hold?" / "Before I sketch — anyone want to steer which user we focus on?"</li>
+        <li><b>Treat questions as gifts, not attacks.</b> "Great question — let me think about that out loud."</li>
+        <li><b>Build on their input visibly.</b> If someone suggests something, write it on the board and credit it: "I like that — let me add it here."</li>
+        <li><b>Ask <i>them</i> as the domain experts.</b> They know dentistry better than you. "You'd know better than me — how often does a dentist actually do this?" This is a strength move, not weakness. It shows humility + collaboration.</li>
+        <li><b>Disagree gracefully.</b> "That's a fair point. The trade-off I'd weigh is… what would you prioritize?"</li>
+      </ul>
+      <div class="callout indigo"><b>The hire signal:</b> By the end, they should be able to picture a Tuesday-morning workshop with you at the board and think "yes, I want that person running our design discussions."</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Before you touch the marker — the 60-second ritual</h3>
+      <ol class="steps-mini">
+        <li><b>Breathe and restate.</b> Repeat the prompt back. Buys thinking time and confirms you heard it right.</li>
+        <li><b>Set the contract.</b> "Here's how I'll approach this — I'll clarify, pick a user, map the flow, then sketch. I'll think out loud and check in with you. Sound good?" — This frames the whole session and calms you.</li>
+        <li><b>Write the goal + a metric</b> in the top-left zone. Now you have an anchor you can always return to.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WORKED EXAMPLE -->
+  <section class="view" id="example">
+    <h2 class="title">Full worked example — start to finish</h2>
+    <p class="sub">A realistic dental-flavored prompt, walked through with the exact words and sketches. Read it once slowly, then try to reproduce the <i>shape</i> of it out loud.</p>
+
+    <div class="promptbox" style="margin-bottom:16px">
+      <div class="k">THE PROMPT</div>
+      <div class="q">"Design a feature that helps a general dentist review a new patient's dental images and quickly decide what needs attention."</div>
+      <div class="meta">Realistic for Medicim/DTX — this is exactly the kind of clinical-workflow problem their software solves.</div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 1</span> &nbsp;Frame the problem</h4>
+      <p><b>What you do:</b> restate, ask clarifying questions, lock scope + metric.</p>
+      <div class="say">"So I'm designing a way for a general dentist to look at a new patient's images and rapidly figure out what needs attention. Before I start, a few questions:<br>• What images do we have — 2D X-rays, 3D/CBCT scans, intraoral photos, or all of it?<br>• Is this the dentist's first look at a brand-new patient, or a returning check-up?<br>• Are we on a desktop chairside, or reviewing beforehand?<br>• What does 'needs attention' mean to them — clinical findings, or also admin like missing records?"</div>
+      <p style="font-size:12.5px;color:var(--slate)"><b>Then assume &amp; move:</b> "I'll assume desktop, chairside, a new patient with a 2D X-ray set plus intraoral photos, and 'attention' means clinical findings. Success metric: the dentist can form a first assessment in under 60 seconds." <i>(Write goal + metric top-left.)</i></p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 2</span> &nbsp;Users</h4>
+      <div class="say">"The users could be the dentist, a hygienist, or an assistant prepping the room. I'll design for <em>the general dentist</em> — they make the call and they're time-pressured between patients. Their goal: build an accurate picture fast, without missing anything. Their pain: images are scattered, and scanning everything manually is slow and error-prone."</div>
+      <p style="font-size:12.5px;color:var(--slate)"><i>Write in the "primary user" zone: 👤 General dentist · goal: fast + accurate first read · pain: scattered data, easy to miss things.</i></p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 3</span> &nbsp;Journey — map the flow</h4>
+      <p>Draw a horizontal strip across the top of your canvas:</p>
+      <div class="card tight" style="background:#f0fbf9;border-color:var(--teal);font-size:13px;text-align:center;margin:6px 0">
+        Open patient → <b>[ See all images in one place ]</b> → Spot problem areas → Confirm/annotate → Decide next step → Note for treatment plan
+      </div>
+      <div class="say">"The friction is right here — <em>seeing everything in one place and spotting what matters</em>. Today that's manual. That's where I'll focus. Does that match where you see the real pain?"</div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 4</span> &nbsp;Ideate → prioritize</h4>
+      <p>List 3–5 ideas fast, then pick:</p>
+      <ul class="clean" style="margin-bottom:8px">
+        <li>A unified "case overview" screen showing all images together.</li>
+        <li>Auto-flagged areas of interest (AI-assisted highlights) the dentist confirms or dismisses.</li>
+        <li>A side-by-side compare view (e.g., against prior visit).</li>
+        <li>A quick checklist the dentist ticks as they review.</li>
+      </ul>
+      <div class="say">"Weighing impact vs. effort, I'll design the <em>unified case-overview screen with confirmable flagged areas</em> — it directly attacks the 'see everything + spot problems fast' pain. The compare-view and checklist I'd add as follow-ups."</div>
+      <p style="font-size:12.5px;color:var(--mute)"><i>Tip: mentioning AI-assisted flagging is a smart nod — DEXIS/DTX genuinely invests in AI findings. But keep the human in control ("dentist confirms"), which shows clinical-safety awareness.</i></p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 5</span> &nbsp;Sketch the key screens</h4>
+      <p>Draw two boxes and narrate. Keep them rough:</p>
+      <div class="grid g2" style="margin:8px 0">
+        <div class="card tight" style="margin:0">
+          <b style="font-size:12px;color:var(--teal-d)">SCREEN 1 · Case overview</b>
+          <div style="border:1.5px solid var(--ink);border-radius:8px;padding:8px;margin-top:8px;font-size:11.5px;font-family:monospace;line-height:1.7">
+            [ Patient name · new ]<br>
+            ┌──────┬──────┐<br>
+            │ Xray │ Photo│  ← thumbnails, all images<br>
+            ├──────┼──────┤<br>
+            │ Xray │ CBCT │<br>
+            └──────┴──────┘<br>
+            ⚠ 3 areas flagged →<br>
+            [ Start review ]
+          </div>
+        </div>
+        <div class="card tight" style="margin:0">
+          <b style="font-size:12px;color:var(--teal-d)">SCREEN 2 · Focused review</b>
+          <div style="border:1.5px solid var(--ink);border-radius:8px;padding:8px;margin-top:8px;font-size:11.5px;font-family:monospace;line-height:1.7">
+            ◀ big image, zoomed ▶<br>
+            ⚠ flag pinned on tooth<br>
+            ─────────────<br>
+            [ Confirm ] [ Dismiss ]<br>
+            + add note<br>
+            1 of 3 · Next ▶
+          </div>
+        </div>
+      </div>
+      <div class="say">"The dentist opens the patient and lands on <em>one</em> overview — every image together, no hunting. The system pre-flags 3 areas of interest. They tap in, see the flag pinned right on the tooth, and either confirm or dismiss it, adding a note. They move through flags one by one. In under a minute they've got their first read. I'm keeping this rough on purpose — what's your reaction to the flow?"</div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:2px"><span class="pill teal">Step 6</span> &nbsp;Validate &amp; wrap</h4>
+      <div class="say">"Edge cases I'd handle next: what if the AI flags nothing — I'd still make manual review easy. What if images are missing — surface that clearly so the dentist knows the picture's incomplete. I'd validate by testing with ~5 dentists and measuring time-to-first-assessment and whether they trust the flags.<br><br>To recap: I focused on the time-pressured general dentist, solved the 'scattered images, slow to spot problems' pain with a unified overview plus confirmable flags, and kept the clinician in control. With more time I'd add the prior-visit compare view."</div>
+      <div class="callout teal" style="margin-bottom:0"><b>Why this scores well:</b> clear user, mapped workflow, prioritized ruthlessly, kept the human-in-the-loop (clinical safety), named a metric, invited the room in throughout, and showed genuine curiosity about their domain.</div>
+    </div>
+  </section>
+
+  <!-- PRACTICE STUDIO -->
+  <section class="view" id="practice">
+    <h2 class="title">Practice studio</h2>
+    <p class="sub">The most important page. Stand up, grab paper or a real whiteboard, generate a prompt, start the timer, and do it <b>out loud</b>. Then score yourself honestly.</p>
+
+    <div class="card">
+      <h3 style="margin-top:2px">1 · Draw a prompt</h3>
+      <div class="promptbox" id="promptDisplay">
+        <div class="k" id="pKind">READY?</div>
+        <div class="q" id="pText">Hit "New prompt" and treat it like the real thing. Say your first sentence before the timer even starts.</div>
+        <div class="meta" id="pMeta">Tip: dental-flavored prompts are marked — those are closest to what Medicim may actually ask.</div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" onclick="newPrompt()">New prompt ⟳</button>
+        <button class="btn ghost sm" onclick="newPrompt('dental')">Dental only</button>
+        <button class="btn ghost sm" onclick="newPrompt('generic')">Generic only</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">2 · Run the phase timer</h3>
+      <p style="font-size:13px;color:var(--slate)">A guided 35-minute run. It walks you through all six phases and tells you when to move on. Adjust total time to match what they give you.</p>
+      <div class="timerwrap">
+        <div class="ph" id="tPhase">Frame the problem</div>
+        <div class="disp" id="tDisp">05:00</div>
+        <div class="prog"><i id="tBar"></i></div>
+      </div>
+      <div class="row" style="justify-content:center">
+        <button class="btn" id="tStart" onclick="toggleTimer()">Start</button>
+        <button class="btn ghost sm" onclick="resetTimer()">Reset</button>
+        <label style="font-size:12.5px;color:var(--slate);display:flex;align-items:center;gap:6px">Total:
+          <select id="tTotal" onchange="resetTimer()" style="padding:5px;border-radius:8px;border:1px solid var(--line)">
+            <option value="35">35 min</option>
+            <option value="45">45 min</option>
+            <option value="30">30 min</option>
+            <option value="60">60 min</option>
+            <option value="20">20 min (quick rep)</option>
+          </select>
+        </label>
+      </div>
+      <div class="callout" id="tCoach" style="margin-bottom:0">Press start when you're standing and ready. The coach line here will tell you what to focus on in each phase.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">3 · Score yourself honestly</h3>
+      <p style="font-size:13px;color:var(--slate)">Tick everything you actually did. Be strict — the gap is your homework for the next rep.</p>
+      <div class="rubric" id="rubric"></div>
+      <div class="scorebar"><div class="n" id="scoreN">0</div><div><div style="font-weight:700" id="scoreLbl">/ 12 — start ticking</div><div class="verdict" id="scoreVerdict">Do a full rep, then score.</div></div></div>
+      <div class="row" style="margin-top:10px"><button class="btn ghost sm" onclick="resetRubric()">Clear</button></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Clarifying-questions checklist</h3>
+      <p style="font-size:13px;color:var(--slate)">Keep these in your back pocket. In the first two minutes of any prompt, ask 3–4 of them.</p>
+      <div class="checklist" id="clarifyList"></div>
+    </div>
+  </section>
+
+  <!-- QUESTION BANK -->
+  <section class="view" id="questions">
+    <h2 class="title">Question bank</h2>
+    <p class="sub">Three directions: questions to <b>ask them</b> during the case, questions <b>they may ask you</b>, and sharp questions <b>you ask at the end</b> to look like a hire.</p>
+
+    <div class="card">
+      <h3 style="margin-top:2px">A · Clarifying questions to ask <span style="font-weight:400;font-size:13px;color:var(--mute)">(during the case)</span></h3>
+      <h4>About the problem &amp; scope</h4>
+      <ul class="clean">
+        <li>"What problem are we really trying to solve here — and for whom?"</li>
+        <li>"Is there a specific platform — desktop chairside, tablet, cloud?"</li>
+        <li>"Any constraints I should design within — existing product, tech limits, timeline?"</li>
+        <li>"What would success look like — what metric would move?"</li>
+      </ul>
+      <h4>About the users (lean on them as domain experts)</h4>
+      <ul class="clean">
+        <li>"Who are the main users, and which one should I prioritize?"</li>
+        <li>"How does a dentist / specialist / lab tech actually do this today?"</li>
+        <li>"Where does it hurt most for them in the current workflow?"</li>
+        <li>"How tech-comfortable is this user — busy clinician, or a power user?"</li>
+      </ul>
+      <div class="callout teal"><b>Move:</b> asking "how does this really work in a clinic?" turns interviewers into collaborators and shows you design from real workflows, not assumptions — exactly what a <i>UX Analyst</i> does.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">B · Questions they may ask you</h3>
+      <h4>Process &amp; craft</h4>
+      <ul class="clean">
+        <li>"Walk us through your design process." → Have a crisp version: research → define → ideate → prototype → test → ship, with a real example.</li>
+        <li>"Tell us about a project you're proud of." → Pick one with a clear problem, your specific role, a decision you drove, and a measurable outcome.</li>
+        <li>"How do you handle disagreement with a PM or engineer?" → Show you seek the shared goal, use data/user evidence, and compromise on solutions, not on user needs.</li>
+        <li>"How do you work with developers?" → Design specs, early involvement, feasibility trade-offs — the role explicitly involves "supporting dev teams through implementation."</li>
+        <li>"How do you know a design worked?" → Metrics + qualitative testing. Envista is a metrics/continuous-improvement culture — name both.</li>
+      </ul>
+      <h4>Domain &amp; motivation</h4>
+      <ul class="clean">
+        <li>"Why dental / why Medicim?" → Genuine curiosity about complex clinical workflows + wanting your design work to improve patient care. (See dossier.)</li>
+        <li>"You don't have a dental background — how would you get up to speed?" → Shadow clinicians, interview users, learn the vocabulary, sit with support tickets. Frame inexperience as fresh eyes + a fast-learning plan.</li>
+        <li>"How do you map a complex workflow?" → This is the core skill. Talk journey maps, service blueprints, and validating each step with real users.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">C · Smart questions <span style="font-weight:400;font-size:13px;color:var(--mute)">you ask at the end</span></h3>
+      <ul class="clean">
+        <li>"What does the design team look like day-to-day — who do UX Analysts pair with most, product, engineering, clinical?"</li>
+        <li>"How mature is the design system for DTX Studio, and where's it heading?"</li>
+        <li>"How do you bring the voice of real dentists and labs into the design process?"</li>
+        <li>"What would a successful first six months in this role look like to you, Pieter?"</li>
+        <li>"What's the hardest UX challenge the team is wrestling with right now?"</li>
+        <li>"How does the team balance moving fast with the safety/regulatory side of medical software?"</li>
+      </ul>
+      <div class="callout indigo"><b>End strong:</b> "I've really enjoyed this — it's exactly the kind of complex, human-centered problem I want to work on. I'd love to be part of it." Sincere enthusiasm is a genuine tiebreaker.</div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section class="view" id="flash">
+    <h2 class="title">Flashcards</h2>
+    <p class="sub">Click a card to flip. Run through these the night before and the morning of. If you can answer all of them cold, you're ready.</p>
+    <div class="fc" id="card" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-face fc-front"><div class="idx" id="fcIdx">1 / 1</div><div class="q" id="fcQ"></div><div class="hint">click to flip →</div></div>
+        <div class="fc-face fc-back"><div class="idx" id="fcIdx2"></div><div class="a" id="fcA"></div></div>
+      </div>
+    </div>
+    <div class="row" style="justify-content:center">
+      <button class="btn ghost sm" onclick="prevCard()">◀ Prev</button>
+      <button class="btn sm" onclick="flipCard()">Flip</button>
+      <button class="btn ghost sm" onclick="nextCard()">Next ▶</button>
+      <button class="btn alt sm" onclick="shuffleCards()">Shuffle ⤨</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="view" id="quiz">
+    <h2 class="title">Readiness quiz</h2>
+    <p class="sub">Nine questions on process, mindset, and the company. Pick an answer to see if you're right and why.</p>
+    <div id="quizHost"></div>
+    <div class="scorebar" style="margin-top:8px"><div class="n" id="qScore">0</div><div><div style="font-weight:700" id="qScoreLbl">/ 9 answered correctly</div><div class="verdict">Aim for 8+. Re-read the explanation on any you miss.</div></div></div>
+    <div class="row" style="margin-top:10px"><button class="btn ghost sm" onclick="resetQuiz()">Reset quiz</button></div>
+  </section>
+
+  <!-- DOSSIER -->
+  <section class="view" id="dossier">
+    <h2 class="title">Company &amp; people dossier</h2>
+    <p class="sub">Know who you're talking to and what they care about. Sprinkle a few of these facts in naturally — it shows you did your homework.</p>
+
+    <div class="card">
+      <h3 style="margin-top:2px">The nesting dolls: Envista → DEXIS → DTX Studio → Medicim</h3>
+      <p>It's easy to get confused, so here's the map:</p>
+      <ul class="clean">
+        <li><b>Envista Holdings</b> — the parent. A global dental company, <b>spun off from Danaher in 2019</b> (NYSE: <b>NVST</b>, HQ Brea, California). ~<b>12,000 employees, 120+ countries, ~$2.5B revenue (2024), 30+ brands</b> including Nobel Biocare, Ormco, Kerr, and DEXIS. Covers an estimated 90% of dentists' clinical needs.</li>
+        <li><b>DEXIS</b> — Envista's <b>dental imaging</b> brand (sensors, intraoral scanners, imaging software).</li>
+        <li><b>DTX Studio suite</b> — the software ecosystem: <b>Clinic</b> (imaging/diagnostics), <b>Implant</b> (surgical planning), <b>Lab</b> (restorative/lab), <b>Go</b> (cloud account &amp; data). Tagline energy: <i>"continuity of care — powering your patient visits, every time."</i></li>
+        <li><b>Medicim NV</b> — the <b>Belgian R&amp;D / software arm in Mechelen</b> that builds much of DTX Studio. Roots in <b>smile design &amp; implant-planning</b> technology; modern stack is <b>Azure / .NET cloud</b>. Culture described as an on-site, collaborative "hub for innovation." <b>This is where you'd work.</b></li>
+      </ul>
+      <div class="callout amber"><b>Envista Business System (EBS):</b> Envista inherited Danaher's famous continuous-improvement operating system. Translation: they love <b>data, metrics, iteration, and process discipline.</b> When you talk about measuring your designs and improving them over time, you're speaking their language.</div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-top:2px">Pieter Mollemans — your interviewer</h3>
+        <dl class="kv">
+          <dt>Role</dt><dd>UX Manager — Software Development, DTX (DEXIS / Envista)</dd>
+          <dt>Based</dt><dd>Mechelen, Belgium</dd>
+          <dt>He is</dt><dd>Your prospective <b>manager</b> and the person running the case</dd>
+          <dt>Contact</dt><dd>pieter.mollemans@envistaco.com</dd>
+        </dl>
+        <p style="font-size:13px;margin-top:8px">He apologized for a scheduling mix-up in his email — warm, human, and considerate. Match that tone: gracious, easy to work with, low-drama.</p>
+        <div class="callout teal" style="margin-bottom:0"><b>How to relate to him:</b> he's a UX manager, so he'll appreciate <b>process clarity, collaboration, and craft over flash.</b> Impress him the way you'd impress a future boss you respect — be the calm, curious designer he'd want in his team's design discussions.</div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:2px">The room</h3>
+        <p style="font-size:13.5px">You'll meet "<b>other colleagues from the team</b>" too — likely fellow designers, and possibly product or engineering. In the case they may role-play stakeholders or clinicians.</p>
+        <ul class="clean">
+          <li><b>Address the whole room</b>, not just Pieter. Make eye contact around.</li>
+          <li>If someone's quiet, <b>pull them in:</b> "What do you think about this trade-off?"</li>
+          <li>Assume at least one person <b>knows dentistry deeply</b> — defer to them as the expert and mine them for insight.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">What they want to hear — the hire signals</h3>
+      <p>Weave these throughout the whole 120 minutes. Each maps to something in the actual job description or company DNA:</p>
+      <div class="grid g2">
+        <div class="card tight" style="margin:0"><span class="pill teal">Workflow thinking</span><p style="font-size:13px;margin:8px 0 0">"I map complex, multi-step workflows and validate each step with real users." <i>— the #1 listed skill.</i></p></div>
+        <div class="card tight" style="margin:0"><span class="pill teal">Collaboration</span><p style="font-size:13px;margin:8px 0 0">"I love designing with engineers, product, and clinicians in the room." <i>— multidisciplinary teamwork.</i></p></div>
+        <div class="card tight" style="margin:0"><span class="pill teal">Domain curiosity</span><p style="font-size:13px;margin:8px 0 0">"I'm genuinely fascinated by dental workflows and want to learn the clinical reality." <i>— "strong interest in the dental industry."</i></p></div>
+        <div class="card tight" style="margin:0"><span class="pill teal">Systems &amp; specs</span><p style="font-size:13px;margin:8px 0 0">"I design within a design system and write clear specs so dev can build it right." <i>— explicit in the role.</i></p></div>
+        <div class="card tight" style="margin:0"><span class="pill teal">Evidence &amp; metrics</span><p style="font-size:13px;margin:8px 0 0">"I back decisions with research and measure outcomes." <i>— fits Envista's EBS / continuous-improvement culture.</i></p></div>
+        <div class="card tight" style="margin:0"><span class="pill teal">Patient impact</span><p style="font-size:13px;margin:8px 0 0">"Better software here means better, faster patient care — that motivates me." <i>— Envista's stated purpose.</i></p></div>
+      </div>
+      <div class="callout indigo" style="margin-bottom:0"><b>Your positioning sentence</b> (adapt to your real background): <i>"I'm a UX designer who's happiest untangling complex, high-stakes workflows with a team — and dental software is exactly that kind of meaningful, intricate problem."</i></div>
+    </div>
+  </section>
+
+  <!-- DOMAIN PRIMER -->
+  <section class="view" id="domain">
+    <h2 class="title">Dental domain primer</h2>
+    <p class="sub">You said dental is new to you — so here's enough to speak the language confidently and design credible flows. You don't need to be a clinician; you need to sound curious and informed.</p>
+
+    <div class="card">
+      <h3 style="margin-top:2px">The people you'd design for</h3>
+      <div class="grid g2">
+        <div class="persona"><div class="h"><div class="av">🦷</div><h4>General dentist</h4></div><p style="font-size:13px;margin:0">Highest-frequency user. Time-pressured, between patients. Does exams, diagnoses, fillings, crowns, refers complex cases out. Wants speed + confidence.</p></div>
+        <div class="persona"><div class="h"><div class="av">🔬</div><h4>Specialist / surgeon</h4></div><p style="font-size:13px;margin:0">Oral surgeon, periodontist, or implantologist. Does implant surgery, complex planning. Power user of 3D planning tools. Precision-obsessed.</p></div>
+        <div class="persona"><div class="h"><div class="av">🛠️</div><h4>Dental lab technician</h4></div><p style="font-size:13px;margin:0">Makes crowns, bridges, dentures, surgical guides from the dentist's scans/plans. Bridges digital design and physical fabrication.</p></div>
+        <div class="persona"><div class="h"><div class="av">📋</div><h4>Assistant / practice manager</h4></div><p style="font-size:13px;margin:0">Preps rooms, manages records, scheduling, licensing. Cares about smooth admin and data being in the right place.</p></div>
+      </div>
+      <div class="callout teal" style="margin-bottom:0"><b>Don't forget the patient</b> — the ultimate beneficiary. Better UX → faster, clearer, less stressful care. Great line to land in the room.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">The workflow — imaging to treatment (the thing DTX Studio powers)</h3>
+      <ol class="steps-mini">
+        <li><b>Capture images:</b> intraoral scanner (3D digital impression), 2D X-rays, CBCT (3D cone-beam CT), clinical photos.</li>
+        <li><b>Consolidate &amp; diagnose:</b> bring it all together (DTX Studio Clinic), review, spot findings. AI increasingly assists here.</li>
+        <li><b>Plan treatment:</b> implant planning (DTX Studio Implant), orthodontics, or restorative / smile design.</li>
+        <li><b>Fabricate:</b> lab makes the crown/guide/appliance (DTX Studio Lab), in-house or industrial.</li>
+        <li><b>Treat &amp; place:</b> surgery or restoration, sometimes with a surgical guide or 3D navigation.</li>
+        <li><b>Follow up:</b> monitor over time — "continuity of care" across visits.</li>
+      </ol>
+      <div class="callout"><b>The big UX problem DTX solves:</b> this data lives across many devices and software. The value is <b>connecting it into one continuous, low-friction flow</b> — clinic ↔ specialist ↔ lab. If your whiteboard answer reduces fragmentation or friction, you're on-message.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Vocabulary cheat-sheet <span style="font-weight:400;font-size:13px;color:var(--mute)">— enough to sound fluent</span></h3>
+      <div class="term"><b>CBCT</b> — Cone Beam Computed Tomography. A 3D X-ray of the jaw/teeth. Key for implant planning.</div>
+      <div class="term"><b>Intraoral scanner (IOS)</b> — a wand that captures a 3D digital impression of the mouth (replaces goopy physical molds). DEXIS makes the IS-series.</div>
+      <div class="term"><b>DICOM / STL</b> — file formats. DICOM = medical imaging (CBCT); STL = 3D surface meshes (scans, for design/printing).</div>
+      <div class="term"><b>Implant planning</b> — deciding exactly where/angle/depth to place a titanium implant, using the patient's 3D anatomy + the planned tooth ("prosthetic-driven").</div>
+      <div class="term"><b>Surgical guide</b> — a 3D-printed template that guides the drill during implant surgery to match the plan.</div>
+      <div class="term"><b>Smile design</b> — designing the look of restored/aligned teeth, often blending a face photo with the 3D model. (A Medicim heritage strength.)</div>
+      <div class="term"><b>Osseointegration</b> — the implant fusing with the jawbone over months. Why follow-up matters.</div>
+      <div class="term"><b>Restorative</b> — crowns, bridges, veneers, dentures — restoring form/function of teeth.</div>
+      <div class="term"><b>Occlusion</b> — how upper and lower teeth meet (the bite). Matters for any restoration.</div>
+      <div class="term"><b>Chairside</b> — done right at the patient's chair during the visit (vs. planned later at a desk).</div>
+      <div class="callout indigo" style="margin-bottom:0"><b>You don't need to memorize all of this.</b> Know CBCT, intraoral scanner, implant planning, surgical guide, lab, and "continuity of care." Drop two or three naturally and ask about the rest — curiosity beats false expertise.</div>
+    </div>
+  </section>
+
+  <!-- CURVEBALLS -->
+  <section class="view" id="curveball">
+    <h2 class="title">Curveballs &amp; recovery</h2>
+    <p class="sub">They <i>will</i> test how you react under pressure — often on purpose. Here's how to stay composed and turn each one into a plus.</p>
+
+    <div class="card">
+      <div class="grid g2">
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">⚡ They change the constraint mid-way</h4><p style="font-size:13px;margin:0">"Actually, now it's on a mobile phone." → <b>Don't panic.</b> "Great — that changes a few things. On a smaller screen I'd prioritize [X] and move [Y] behind a tap." Adapting live is exactly what they want to see.</p></div>
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">🤔 "Why did you do it that way?"</h4><p style="font-size:13px;margin:0">Not an attack — a probe. "Good question. I chose it because [user reason]. The trade-off is [X]. An alternative would be [Y] — I leaned this way because [priority]."</p></div>
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">🧊 You go blank</h4><p style="font-size:13px;margin:0">Return to the framework. "Let me step back to my user and their main goal." Or think out loud: "I want to get this right, give me a few seconds." Silence-with-a-plan is fine; frozen panic isn't.</p></div>
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">🙅 Someone disagrees with you</h4><p style="font-size:13px;margin:0">"That's a fair challenge — say more?" Then integrate or respectfully hold: "I hear that; I'd weigh it against [user need]. How would you prioritize?" Collaboration &gt; being right.</p></div>
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">🩺 A domain objection you can't answer</h4><p style="font-size:13px;margin:0">"Honestly, you'd know the clinical reality better than me — how does that actually work?" Turning a gap into a collaborative question is a <b>strength</b>, not a fail.</p></div>
+        <div class="card tight" style="margin:0"><h4 style="margin-top:2px">⏳ You're running out of time</h4><p style="font-size:13px;margin:0">"I'm mindful of time, so let me prioritize the core flow and just talk through what I'd do next." Showing prioritization under pressure is a senior signal.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">The three things that sink candidates — avoid all three</h3>
+      <ul class="clean">
+        <li><b>Going silent.</b> If they can't hear your thinking, they can't reward it. Narrate constantly.</li>
+        <li><b>Jumping to pixels.</b> Designing screens before understanding the user/problem. Spend the first third understanding.</li>
+        <li><b>Getting defensive.</b> Treating feedback as a threat. Stay curious and open — every question is a chance to show how you collaborate.</li>
+      </ul>
+      <div class="callout teal" style="margin-bottom:0"><b>Your mantra if nerves hit:</b> "Think out loud. Involve the room. Stay curious." Everything else follows from those three.</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:2px">Logistics &amp; the day itself</h3>
+      <ul class="clean">
+        <li><b>Reply to Pieter promptly</b> and confirm one slot (Aug 3, 6, 7, or 11). A quick, warm, professional reply sets the tone before you arrive.</li>
+        <li><b>Location:</b> Medicim NV, Stationsstraat 102, 2800 Mechelen. Plan travel; arrive ~10–15 min early.</li>
+        <li><b>Bring:</b> a printed copy of your portfolio highlights or a couple of case studies you can reference, a notebook, and a pen. Ask if you should bring a laptop.</li>
+        <li><b>It's 120 minutes</b> — pace your energy. Water, bathroom beforehand, a snack before if it's a 13:00 or 15:00 slot.</li>
+        <li><b>Dress:</b> smart-casual for a Belgian software/design team; you can never go wrong slightly polished.</li>
+        <li><b>Warm up your voice and your framework</b> that morning — do one quick rep in Practice Studio so the process is fresh.</li>
+      </ul>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script>
+/* ---------- NAV ---------- */
+const nav=document.getElementById('nav');
+nav.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('show'));
+  document.getElementById(b.dataset.v).classList.add('show');
+  document.querySelector('.main').scrollTo({top:0,behavior:'smooth'});
+});
+
+/* ---------- COUNTDOWN (static-ish, no persistence) ---------- */
+(function(){
+  try{
+    const now=new Date();
+    const slots=[new Date(2026,7,3),new Date(2026,7,6),new Date(2026,7,7),new Date(2026,7,11)];
+    let next=slots.find(d=>d>=new Date(now.getFullYear(),now.getMonth(),now.getDate()));
+    const el=document.getElementById('dday');
+    if(next){const diff=Math.ceil((next-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+      el.textContent=diff<=0?'Today':(diff+' day'+(diff>1?'s':''));
+      document.getElementById('ddaysub').textContent='until '+next.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' slot';
+    } else {el.textContent='Aug';document.getElementById('ddaysub').textContent='Pick your slot';}
+  }catch(e){document.getElementById('dday').textContent='Aug';}
+})();
+
+/* ---------- PROMPTS ---------- */
+const prompts=[
+  {t:"Design a feature that helps a general dentist review a new patient's images and quickly decide what needs attention.",k:'dental'},
+  {t:"Design a way for a dentist to hand off an implant case to a specialist without losing any information.",k:'dental'},
+  {t:"Design a dashboard that helps a dental lab technician manage incoming digital cases and their deadlines.",k:'dental'},
+  {t:"Design an onboarding flow that helps a dentist set up a brand-new intraoral scanner for the first time.",k:'dental'},
+  {t:"Design a tool that helps a practice manager see which patients are due for a follow-up scan.",k:'dental'},
+  {t:"Design a feature to compare a patient's scans across two visits so a dentist can see what changed.",k:'dental'},
+  {t:"Design a way for a dentist to explain a proposed treatment to an anxious patient using their own 3D images.",k:'dental'},
+  {t:"Design a mobile app that helps commuters find and reserve a parking spot.",k:'generic'},
+  {t:"Design an app that helps elderly users remember to take their medications.",k:'generic'},
+  {t:"Design a feature that helps remote teams run better retrospective meetings.",k:'generic'},
+  {t:"Design a kiosk that helps travelers check in at a busy airport.",k:'generic'},
+  {t:"Design an experience that helps someone learn to cook their first three recipes.",k:'generic'}
+];
+let lastIdx=-1;
+function newPrompt(filter){
+  let pool=prompts.map((p,i)=>({p,i}));
+  if(filter)pool=pool.filter(o=>o.p.k===filter);
+  let pick;do{pick=pool[Math.floor(Math.random()*pool.length)];}while(pool.length>1&&pick.i===lastIdx);
+  lastIdx=pick.i;
+  document.getElementById('pKind').textContent=pick.p.k==='dental'?'🦷 DENTAL PROMPT (closest to the real thing)':'GENERIC PROMPT';
+  document.getElementById('pText').textContent='"'+pick.p.t+'"';
+  document.getElementById('pMeta').textContent=pick.p.k==='dental'
+    ?'Lean on the room as domain experts — ask how it works in a real clinic.'
+    :'Great for pure-process practice. Same 6 steps apply.';
+}
+
+/* ---------- TIMER ---------- */
+const phases=[
+  {n:'1 · Frame the problem',w:5/35,coach:'Restate the prompt. Ask 3–4 clarifying questions. Write the goal + one success metric top-left.'},
+  {n:'2 · Users',w:5/35,coach:'List users, pick ONE primary persona and say why. Note their goal + top pain.'},
+  {n:'3 · Journey',w:6/35,coach:'Draw the journey strip. Find the biggest friction point. Prioritize where to design. Check in with the room.'},
+  {n:'4 · Ideate',w:5/35,coach:'List 3–5 ideas fast, no judgment. Then converge — pick one on impact vs. effort and say why.'},
+  {n:'5 · Sketch',w:9/35,coach:'Draw 2–4 rough screens. Narrate EVERY box. Arrows for flow. Invite reactions between screens.'},
+  {n:'6 · Validate & wrap',w:5/35,coach:'Name edge cases. Say how you\'d test/measure. Recap: user, problem, solution. End with confidence.'}
+];
+let tState=null,tRemaining=0,tPhaseIdx=0,tPhaseEnds=[],tTotalSec=0;
+function buildPhases(){
+  const total=parseInt(document.getElementById('tTotal').value,10)*60;
+  tTotalSec=total;let acc=0;tPhaseEnds=phases.map(p=>{acc+=Math.round(p.w*total);return acc;});
+  tPhaseEnds[tPhaseEnds.length-1]=total;
+}
+function fmt(s){s=Math.max(0,s);const m=Math.floor(s/60),ss=s%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0');}
+function renderTimer(){
+  const elapsed=tTotalSec-tRemaining;
+  let idx=tPhaseEnds.findIndex(e=>elapsed<e);if(idx<0)idx=phases.length-1;tPhaseIdx=idx;
+  document.getElementById('tPhase').textContent=phases[idx].n;
+  const phaseStart=idx===0?0:tPhaseEnds[idx-1];
+  const phaseLen=tPhaseEnds[idx]-phaseStart;
+  const inPhase=elapsed-phaseStart;
+  document.getElementById('tDisp').textContent=fmt(phaseLen-inPhase);
+  document.getElementById('tBar').style.width=(elapsed/tTotalSec*100)+'%';
+  document.getElementById('tCoach').innerHTML='<b>'+phases[idx].n+':</b> '+phases[idx].coach;
+}
+function tick(){
+  if(tRemaining<=0){clearInterval(tState);tState=null;document.getElementById('tStart').textContent='Done ✓';
+    document.getElementById('tPhase').textContent='Time! Wrap up.';document.getElementById('tDisp').textContent='00:00';
+    document.getElementById('tBar').style.width='100%';
+    document.getElementById('tCoach').innerHTML='<b>Time\'s up.</b> Now score yourself honestly below — the gaps are your next rep\'s homework.';return;}
+  tRemaining--;renderTimer();
+}
+function toggleTimer(){
+  if(tState){clearInterval(tState);tState=null;document.getElementById('tStart').textContent='Resume';return;}
+  if(tRemaining<=0){buildPhases();tRemaining=tTotalSec;}
+  document.getElementById('tStart').textContent='Pause';
+  tState=setInterval(tick,1000);renderTimer();
+}
+function resetTimer(){
+  if(tState){clearInterval(tState);tState=null;}
+  buildPhases();tRemaining=tTotalSec;document.getElementById('tStart').textContent='Start';
+  renderTimer();
+}
+resetTimer();
+
+/* ---------- RUBRIC ---------- */
+const rubricItems=[
+  'I restated the prompt in my own words before starting',
+  'I asked at least 3 clarifying questions',
+  'I wrote a goal + one success metric on the board',
+  'I picked ONE primary user and justified it',
+  'I mapped the user journey / workflow',
+  'I prioritized where to focus instead of designing everything',
+  'I generated multiple ideas before converging',
+  'I explained why I chose the idea I designed',
+  'I narrated out loud while sketching (never went silent)',
+  'I checked in with / involved the room at least twice',
+  'I named edge cases and how I\'d test/measure success',
+  'I summarized my decision clearly at the end'
+];
+const rb=document.getElementById('rubric');
+rubricItems.forEach((t,i)=>{const l=document.createElement('label');
+  l.innerHTML='<input type="checkbox" onchange="scoreRubric()" data-r="'+i+'"> <span>'+t+'</span>';rb.appendChild(l);});
+function scoreRubric(){
+  const n=rb.querySelectorAll('input:checked').length;
+  document.getElementById('scoreN').textContent=n;
+  document.getElementById('scoreLbl').textContent='/ '+rubricItems.length+(n===rubricItems.length?' — flawless rep!':'');
+  let v;
+  if(n<=4)v='Rough — you\'re skipping the "understand" phase. Re-read the Game Plan and try again.';
+  else if(n<=7)v='Getting there. Focus on involving the room and prioritizing, not just sketching.';
+  else if(n<=10)v='Strong. Tighten the last few habits and you\'re interview-ready.';
+  else v='Excellent — that\'s a hire-worthy run. Do it again cold to lock it in.';
+  document.getElementById('scoreVerdict').textContent=v;
+}
+function resetRubric(){rb.querySelectorAll('input').forEach(i=>i.checked=false);scoreRubric();}
+
+/* ---------- CLARIFY CHECKLIST ---------- */
+const clarify=[
+  'What problem are we solving, and for whom?',
+  'Which user should I prioritize?',
+  'What platform / device is this on?',
+  'Any constraints — existing product, tech, timeline?',
+  'What would success look like? What metric moves?',
+  'How does the user do this today? Where does it hurt most?',
+  'How tech-comfortable is this user?',
+  'Is there scope I should include or explicitly leave out?'
+];
+const cl=document.getElementById('clarifyList');
+clarify.forEach(t=>{const l=document.createElement('label');
+  l.innerHTML='<input type="checkbox"> <span>'+t+'</span>';cl.appendChild(l);});
+
+/* ---------- FLASHCARDS ---------- */
+const cards=[
+  {q:'What are the 6 steps of your framework?',a:'Frame → Users → Journey → Ideate → Sketch → Validate & wrap. (F-U-J-I-S-V)'},
+  {q:'What is the #1 thing they\'re actually evaluating?',a:'Your thinking and collaboration — HOW you approach the problem and involve the room. Not your drawing skill.'},
+  {q:'What\'s the most common mistake to avoid?',a:'Jumping straight to sketching screens before understanding the user and problem. Spend the first third understanding.'},
+  {q:'The email says "discussion with my colleagues." What does that tell you?',a:'It\'s collaborative. Treat the room as teammates, check in constantly, and mine them as domain experts.'},
+  {q:'How do you handle a question you can\'t answer about dentistry?',a:'Turn it into collaboration: "You\'d know the clinical reality better than me — how does that actually work?" Curiosity > false expertise.'},
+  {q:'Name the 3 things that sink candidates.',a:'Going silent, jumping to pixels, and getting defensive about feedback.'},
+  {q:'What company owns Medicim, and what\'s the software suite?',a:'Envista (via DEXIS). The software is the DTX Studio suite: Clinic, Implant, Lab, Go. Medicim is the Mechelen R&D arm.'},
+  {q:'What is CBCT?',a:'Cone Beam Computed Tomography — a 3D X-ray of the jaw/teeth, central to implant planning.'},
+  {q:'What is an intraoral scanner?',a:'A wand that captures a 3D digital impression of the mouth, replacing physical molds. DEXIS makes the IS series.'},
+  {q:'What\'s the big UX problem DTX Studio solves?',a:'Dental data is fragmented across devices/software. DTX connects it into one continuous, low-friction flow — "continuity of care."'},
+  {q:'What culture signal comes from Envista\'s heritage (ex-Danaher / EBS)?',a:'They love data, metrics, iteration and process discipline. Talk about measuring and improving your designs.'},
+  {q:'Your mantra if nerves hit?',a:'"Think out loud. Involve the room. Stay curious."'},
+  {q:'How should you open once you get the prompt?',a:'Restate it, then set the contract: "I\'ll clarify, pick a user, map the flow, then sketch — thinking out loud and checking in with you."'},
+  {q:'How do you show prioritization?',a:'Generate several ideas, then plot roughly on impact vs. effort and pick one — explaining WHY you chose it.'},
+  {q:'What should you always end with?',a:'Edge cases + how you\'d test/measure, then a crisp recap of user, problem, and solution — with confidence.'}
+];
+let ci=0,order=cards.map((_,i)=>i);
+function renderCard(){const c=cards[order[ci]];
+  document.getElementById('fcQ').textContent=c.q;document.getElementById('fcA').textContent=c.a;
+  document.getElementById('fcIdx').textContent=(ci+1)+' / '+cards.length;
+  document.getElementById('fcIdx2').textContent=(ci+1)+' / '+cards.length;
+  document.getElementById('card').classList.remove('flipped');}
+function flipCard(){document.getElementById('card').classList.toggle('flipped');}
+function nextCard(){ci=(ci+1)%cards.length;renderCard();}
+function prevCard(){ci=(ci-1+cards.length)%cards.length;renderCard();}
+function shuffleCards(){for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}ci=0;renderCard();}
+renderCard();
+
+/* ---------- QUIZ ---------- */
+const quiz=[
+  {q:'You get the prompt. What\'s the first thing you should do?',o:['Start sketching the home screen','Restate the prompt and ask clarifying questions','List every possible feature','Pick a color palette'],c:1,e:'Always understand before designing. Restate + clarify shows the exact thinking they want to see.'},
+  {q:'Roughly how should you split your time?',o:['Half sketching, half talking','A third understanding, a third designing, a third proving/closing','All of it on the final screens','Skip understanding, it wastes time'],c:1,e:'The ratios matter more than minutes: understand → design → prove & wrap.'},
+  {q:'The interviewer asks "why did you do it that way?" This is…',o:['An attack — defend hard','A trap to avoid answering','A probe — explain your reasoning and the trade-off','A sign you failed'],c:2,e:'It\'s an invitation to show your reasoning. Give the user-reason and the trade-off you weighed.'},
+  {q:'The email says the case is a "discussion with colleagues." So you should…',o:['Perform solo and ignore them','Treat them as collaborators and check in often','Wait for them to lead','Only talk to Pieter'],c:1,e:'It\'s collaborative by design. Involve the whole room and mine them as domain experts.'},
+  {q:'You get a dental question you genuinely can\'t answer. Best move?',o:['Bluff an answer','Stay silent','Ask them as the domain experts how it really works','Change the subject'],c:2,e:'Turning a gap into a collaborative question is a strength — it shows humility and user-centered curiosity.'},
+  {q:'Which company is the ultimate parent of Medicim?',o:['Danaher','Envista','Nobel Biocare','Dentsply'],c:1,e:'Envista (spun off from Danaher in 2019). DEXIS is its imaging brand; Medicim builds DTX Studio.'},
+  {q:'What is CBCT?',o:['A type of crown','A 3D X-ray of the jaw/teeth','A scheduling system','A billing code'],c:1,e:'Cone Beam Computed Tomography — 3D imaging that\'s central to implant planning.'},
+  {q:'The single biggest UX value DTX Studio provides is…',o:['Prettier images','Connecting fragmented data into one continuous workflow','Cheaper hardware','Faster internet'],c:1,e:'"Continuity of care" — unifying scattered clinic/specialist/lab data into one low-friction flow.'},
+  {q:'What\'s the safest way to end the whiteboard case?',o:['Stop when time runs out mid-sentence','Apologize for what you missed','Recap user + problem + solution, edge cases, and how you\'d test','Ask them to score you'],c:2,e:'A crisp, confident recap plus validation plan leaves a strong final impression.'}
+];
+let qAnswered={};
+function renderQuiz(){
+  const host=document.getElementById('quizHost');host.innerHTML='';
+  quiz.forEach((item,qi)=>{
+    const wrap=document.createElement('div');wrap.className='card qz';
+    let html='<div class="qtext">'+(qi+1)+'. '+item.q+'</div>';
+    item.o.forEach((opt,oi)=>{html+='<label class="opt" data-q="'+qi+'" data-o="'+oi+'">'+opt+'</label>';});
+    html+='<div class="exp" id="exp'+qi+'">'+item.e+'</div>';
+    wrap.innerHTML=html;host.appendChild(wrap);
+  });
+  host.querySelectorAll('.opt').forEach(o=>o.addEventListener('click',pickAnswer));
+}
+function pickAnswer(e){
+  const qi=+e.target.dataset.q,oi=+e.target.dataset.o;
+  if(qAnswered[qi]!==undefined)return;
+  qAnswered[qi]=oi;
+  const correct=quiz[qi].c;
+  const opts=document.querySelectorAll('.opt[data-q="'+qi+'"]');
+  opts.forEach(o=>{const j=+o.dataset.o;if(j===correct)o.classList.add('correct');if(j===oi&&oi!==correct)o.classList.add('wrong');});
+  document.getElementById('exp'+qi).style.display='block';
+  updateQScore();
+}
+function updateQScore(){
+  let n=0;Object.keys(qAnswered).forEach(k=>{if(qAnswered[k]===quiz[k].c)n++;});
+  document.getElementById('qScore').textContent=n;
+}
+function resetQuiz(){qAnswered={};renderQuiz();document.getElementById('qScore').textContent='0';}
+renderQuiz();
+</script>
+</body>
+</html>
